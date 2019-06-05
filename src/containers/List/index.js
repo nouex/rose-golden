@@ -12,9 +12,9 @@ export class List extends React.Component {
   }
 
   render() {
-    return (
-      <span> This is the List Component</span>
-    )
+    const { data: { postgres: { allComplexesList }}} = this.props
+
+    return allComplexesList.map(postGraphileNode => <p key={postGraphileNode.id}>{postGraphileNode.name}</p>)
   }
 }
 
@@ -22,16 +22,16 @@ export default () => (
   <StaticQuery
     query={
       graphql`
-        query someQuery {
-          site {
-            stuff
+        query getAllComplexesList {
+          postgres {
+  					allComplexesList {
+  					  id
+              name
+  					}
           }
         }
       `}
 
-    render={data => {
-      return (
-        <List data={data} />
-      )
-    }}
+    render={data => <List data={data} /> }
+  />
 )
