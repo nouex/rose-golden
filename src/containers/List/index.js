@@ -2,6 +2,8 @@ import React from 'react';
 import { StaticQuery, graphql } from 'gatsby';
 import PropTypes from 'prop-types'
 
+import ListComponent from "../../components/List";
+
 /**
  * Implement with a class component and then try doing the same thing but with hooks.
  * TODO: add propTypes
@@ -14,8 +16,9 @@ export class List extends React.Component {
 
   render() {
     const { data: { postgres: { allComplexesList }}} = this.props
+    const complexes = allComplexesList
 
-    return allComplexesList.map(postGraphileNode => <p key={postGraphileNode.id}>{postGraphileNode.name}</p>)
+    return <ListComponent complexes={complexes} />
   }
 }
 
