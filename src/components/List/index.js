@@ -1,17 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import Complex from '../Complex';
+
 const List = ({complexes}) => (
-  <div>
+  <div className="list">
     {
-      complexes.map(comp => (
-            <div>
-              <span key={comp.id}>
-                {comp.name}
-              </span>
-              <break/>
-            </div>
-      ))
+      complexes.map(comp => <Complex complex={comp} key={comp.id}/>)
     }
   </div>
 )

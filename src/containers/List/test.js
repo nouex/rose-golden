@@ -1,7 +1,7 @@
 import React from "react"
 import { render } from '@testing-library/react'
 
-import { List } from "./"
+import { ListContainer } from "./"
 
 describe('<List />', function () {
   it('does not crash on render', function () {
@@ -14,6 +14,6 @@ describe('<List />', function () {
       }
     }
 
-    render(<List data={data}/>)
+    render(<ListContainer data={data}/>)
   });
 });
