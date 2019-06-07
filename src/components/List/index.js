@@ -9,7 +9,6 @@ const List = ({complexes}) => (
     <Box
       direction="row"
       justify="evenly"
-      pad="large"
       background="light-2"
       gap="medium"
       wrap
