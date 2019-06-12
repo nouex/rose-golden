@@ -1,27 +1,61 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import {Box} from 'grommet';
+import { StaticQuery, graphql } from 'gatsby';
+import PropTypes from 'prop-types'
 
-import Complex from '../Complex';
-import Filter from '../Filter';
+import ListPresentation from "./presentation";
 
-const List = ({complexes, onFilterUpdate}) => (
-  <div className="list">
-    <Filter onFilterUpdate={onFilterUpdate}/>
-    <Box
-      direction="row"
-      justify="evenly"
-      background="light-2"
-      wrap
-      >
-      { complexes.map(comp => <Complex complex={comp} key={comp.id}/>) }
-    </Box>
-  </div>
-)
+/**
+ * Implement with a class component and then try doing the same thing but with hooks.
+ * TODO: add propTypes
+ */
 
-List.propTypes = {
-  complexes: PropTypes.array.isRequired,
-  onFilterUpdate: PropTypes.func.isRequired
+export class List extends React.Component {
+  state = {
+    complexes: null
+  }
+
+  static onFilterUpdate(self, settings) {
+    void(0)
+    // const updatedComplexes =  // ...
+    // self.setState({
+    //   complexes: updatedComplexes
+    // })
+  }
+
+  constructor(props) {
+    super(props)
+
+    this.onFilterUpdate = List.onFilterUpdate.bind(this)
+
+    const { data: { postgres: { allComplexesList }}} = props
+    this.state.complexes = allComplexesList
+  }
+
+  render() {
+    return <ListPresentation complexes={this.state.complexes} onFilterUpdate={this.onFilterUpdate}/>
+  }
 }
 
-export default List;
+
+// TODO: use PropTypes.shape instead to be more explicit about what we expect
+List.propTypes = {
+  data: PropTypes.object.isRequired
+}
+
+export default () => (
+  <StaticQuery
+    query={
+      graphql`
+        query getAllComplexesList {
+          postgres {
+  					allComplexesList {
+  					  id
+              name
+  					}
+          }
+        }
+      `}
+
+    render={data => <List data={data} />}
+  />
+)
