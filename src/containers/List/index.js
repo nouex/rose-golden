@@ -10,14 +10,29 @@ import List from "../../components/List";
  */
 
 export class ListContainer extends React.Component {
+  state = {
+    complexes: null
+  }
+
+  static onFilterUpdate(self, settings) {
+    void(0)
+    // const updatedComplexes =  // ...
+    // self.setState({
+    //   complexes: updatedComplexes
+    // })
+  }
+
   constructor(props) {
     super(props)
+
+    this.onFilterUpdate = ListContainer.onFilterUpdate.bind(this)
+
+    const { data: { postgres: { allComplexesList }}} = props
+    this.state.complexes = allComplexesList
   }
 
   render() {
-    const { data: { postgres: { allComplexesList }}} = this.props
-
-    return <List complexes={allComplexesList} />
+    return <List complexes={this.state.complexes} onFilterUpdate={this.onFilterUpdate}/>
   }
 }
 
