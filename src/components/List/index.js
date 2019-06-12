@@ -11,28 +11,27 @@ import ListPresentation from "./presentation";
 
 export class List extends React.Component {
   allComplexes = null
+
   state = {
     complexes: null
   }
 
-  static onFilterUpdate(self, settings) {
+  static onFilterUpdate(settings) {
     const fieldsThatMustBeTruthy = Object.keys(settings).filter((name) => settings[name])
-
-    const nextComplexes = self.allComplexes.filter((complex) => fieldsThatMustBeTruthy.every((name) => complex[name] === true))
+    const filteredComplexes = this.allComplexes.filter((complex) => fieldsThatMustBeTruthy.every((name) => complex[name] === true))
     // TODO: compare nextStae to previous state and update only if they differ
-    self.setState({
-      complexes: nextComplexes
+    this.setState({
+      complexes: filteredComplexes
     })
   }
 
   constructor(props) {
     super(props)
 
-    this.onFilterUpdate = List.onFilterUpdate.bind(null, this)
+    this.onFilterUpdate = List.onFilterUpdate.bind(this)
 
     const { data: { postgres: { allComplexesList }}} = props
-    this.state.complexes = allComplexesList
-    this.allComplexes = allComplexesList
+    this.allComplexes = this.state.complexes = allComplexesList
   }
 
   render() {

@@ -2,7 +2,7 @@ import React from 'react';
 import FilterPresentation from "./presentation"
 import PropTypes from 'prop-types';
 
-class Filter extends React.Component {
+class Filter extends React.PureComponent {
   settings = {
     hasPrivateRoom: false,
     hasMusicRoom: false,
@@ -14,28 +14,28 @@ class Filter extends React.Component {
 
   constructor(props) {
     super(props);
+
+    this.oldSettings = Object.assign({}, this.settings)
   }
 
+  // TODO: make these lambda functions into static methods for testing
   render() {
     const { settings } = this
-    this.oldSettings = Object.assign({}, settings)
-    const oldSettings = this.oldSettings
 
     const onFieldChange = (name, synEvent) => {
       settings[name] = synEvent.target.checked
     }
 
-    // call submit both on save and when we close the dropdown, rename it to onSave()
     const onSubmit = () => {
-      const shouldUpdate = Object.keys(settings).some((name) => settings[name] !== oldSettings[name])
+      const shouldUpdate = Object.keys(settings).some((name) => settings[name] !== this.oldSettings[name])
       if (shouldUpdate) {
-        Object.assign(oldSettings, settings)
-        this.props.onFilterUpdate(settings)
+        Object.assign(this.oldSettings, settings)
+        this.props.onUpdate(settings)
       }
     }
 
     const onDropButtonClose = () => {
-      Object.assign(settings, oldSettings)
+      Object.assign(settings, this.oldSettings)
     }
 
 
@@ -46,7 +46,7 @@ class Filter extends React.Component {
 }
 
 Filter.propTypes = {
-  onFilterUpdate: PropTypes.func.isRequired
+  onUpdate: PropTypes.func.isRequired
 }
 
 export default Filter

@@ -2,29 +2,7 @@ import React from 'react';
 import { DropButton, CheckBox, Box, Form, FormField, Button } from 'grommet';
 import PropTypes from 'prop-types';
 
-const Filter = ({onFieldChange, onSubmit, onDropButtonClose, settings}) => {
-  return (
-    <DropButton
-      onClose={onDropButtonClose}
-      label="Filter"
-      dropAlign={{
-        top: "bottom",
-        right: "right"
-      }}
-      dropContent={<Content onSubmit={onSubmit} onFieldChange={onFieldChange} settings={settings}/>}
-      />
-  )
-}
-
-Filter.propTypes = {
-  onSubmit: PropTypes.func.isRequired
-}
-
-export default Filter;
-
-
-
-var Content = ({onFieldChange, onSubmit, settings}) => {
+export const Content = ({onFieldChange, onSubmit, settings}) => {
   return (
     <Box width="small">
       <Form onSubmit={onSubmit}>
@@ -49,3 +27,32 @@ var Content = ({onFieldChange, onSubmit, settings}) => {
     </Box>
   )
 }
+
+Content.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+  onFieldChange: PropTypes.func.isRequired,
+  settings: PropTypes.object.isRequired
+}
+
+const Filter = ({onFieldChange, onSubmit, onDropButtonClose, settings}) => {
+  return (
+    <DropButton
+      onClose={onDropButtonClose}
+      label="Filter"
+      dropAlign={{
+        top: "bottom",
+        right: "right"
+      }}
+      dropContent={<Content onSubmit={onSubmit} onFieldChange={onFieldChange} settings={settings}/>}
+      />
+  )
+}
+
+Filter.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+  onFieldChange: PropTypes.func.isRequired,
+  onDropButtonClose: PropTypes.func.isRequired,
+  settings: PropTypes.object.isRequired
+}
+
+export default Filter

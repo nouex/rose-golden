@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Box} from 'grommet';
+import { Box } from 'grommet';
 
 import Complex from '../Complex';
 import Filter from '../Filter';
 
 const List = ({complexes, onFilterUpdate}) => (
   <div className="list">
-    <Filter onFilterUpdate={onFilterUpdate}/>
+    <Filter onUpdate={onFilterUpdate}/>
     <Box
       direction="row"
       justify="evenly"
