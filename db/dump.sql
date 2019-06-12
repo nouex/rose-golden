@@ -44,10 +44,10 @@ CREATE TABLE public.complexes (
     gender text,
     description text,
     rent text,
-    "hasPrivateRoom" text,
-    "hasMusicRoom" text,
-    "hasWasher" text,
-    "isHouse" text,
+    "hasPrivateRoom" boolean,
+    "hasMusicRoom" boolean,
+    "hasWasher" boolean,
+    "isHouse" boolean,
     "studentCapacity" text,
     "parkingSpaces" text,
     "processingFee" text,
@@ -111,6 +111,9 @@ ALTER TABLE ONLY public.contact ALTER COLUMN id SET DEFAULT nextval('public.cont
 --
 
 COPY public.complexes (id, name, gender, description, rent, "hasPrivateRoom", "hasMusicRoom", "hasWasher", "isHouse", "studentCapacity", "parkingSpaces", "processingFee", "securityDeposit", "vacancyStatus", "wardInfo", "floorPlans") FROM stdin;
+44fe8e92-01a8-41f1-804b-adf15af9324e	Spori Villa	\N	\N	\N	t	f	t	t	\N	\N	\N	\N	\N	\N	\N
+c7794c9e-0430-498b-a68e-4b3b99c9b616	Centre Square	\N	\N	\N	f	t	t	f	\N	\N	\N	\N	\N	\N	\N
+c7b443da-203c-4ef1-9170-d060af69162b	Tuscanny	\N	\N	\N	t	t	f	f	\N	\N	\N	\N	\N	\N	\N
 \.
 
 

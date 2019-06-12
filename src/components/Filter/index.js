@@ -2,37 +2,48 @@ import React from 'react';
 import FilterPresentation from "./presentation"
 import PropTypes from 'prop-types';
 
-const Filter = ({onFilterUpdate}) => {
-  const settings = {
-    apple: true,
-    banana: true,
-    caterpillar: true
+class Filter extends React.Component {
+  settings = {
+    hasPrivateRoom: false,
+    hasMusicRoom: false,
+    hasWasher: false,
+    isHouse: false
   }
 
-  const oldSettings = Object.assign({}, settings)
+  oldSettings = null
 
-  const onFieldChange = (name, synEvent) => {
-    settings[name] = synEvent.target.checked
+  constructor(props) {
+    super(props);
   }
 
-  // call submit both on save and when we close the dropdown, rename it to onSave()
-  const onSubmit = () => {
-    const shouldUpdate = Object.keys(settings).some((name) => settings[name] !== oldSettings[name])
-    if (shouldUpdate) {
-      Object.assign(oldSettings, settings)
-      onFilterUpdate(settings)
+  render() {
+    const { settings } = this
+    this.oldSettings = Object.assign({}, settings)
+    const oldSettings = this.oldSettings
+
+    const onFieldChange = (name, synEvent) => {
+      settings[name] = synEvent.target.checked
     }
+
+    // call submit both on save and when we close the dropdown, rename it to onSave()
+    const onSubmit = () => {
+      const shouldUpdate = Object.keys(settings).some((name) => settings[name] !== oldSettings[name])
+      if (shouldUpdate) {
+        Object.assign(oldSettings, settings)
+        this.props.onFilterUpdate(settings)
+      }
+    }
+
+    const onDropButtonClose = () => {
+      Object.assign(settings, oldSettings)
+    }
+
+
+    return (
+      <FilterPresentation onFieldChange={onFieldChange} onSubmit={onSubmit} settings={settings} onDropButtonClose={onDropButtonClose}/>
+    )
   }
-
-  const onDropButtonClose = () => {
-    Object.assign(settings, oldSettings)
-  }
-
-
-  return (
-    <FilterPresentation onFieldChange={onFieldChange} onSubmit={onSubmit} settings={settings} onDropButtonClose={onDropButtonClose}/>
-  )
-};
+}
 
 Filter.propTypes = {
   onFilterUpdate: PropTypes.func.isRequired

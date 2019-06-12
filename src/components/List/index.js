@@ -10,25 +10,29 @@ import ListPresentation from "./presentation";
  */
 
 export class List extends React.Component {
+  allComplexes = null
   state = {
     complexes: null
   }
 
   static onFilterUpdate(self, settings) {
-    void(0)
-    // const updatedComplexes =  // ...
-    // self.setState({
-    //   complexes: updatedComplexes
-    // })
+    const fieldsThatMustBeTruthy = Object.keys(settings).filter((name) => settings[name])
+
+    const nextComplexes = self.allComplexes.filter((complex) => fieldsThatMustBeTruthy.every((name) => complex[name] === true))
+    // TODO: compare nextStae to previous state and update only if they differ
+    self.setState({
+      complexes: nextComplexes
+    })
   }
 
   constructor(props) {
     super(props)
 
-    this.onFilterUpdate = List.onFilterUpdate.bind(this)
+    this.onFilterUpdate = List.onFilterUpdate.bind(null, this)
 
     const { data: { postgres: { allComplexesList }}} = props
     this.state.complexes = allComplexesList
+    this.allComplexes = allComplexesList
   }
 
   render() {
@@ -51,6 +55,10 @@ export default () => (
   					allComplexesList {
   					  id
               name
+              hasPrivateRoom
+              hasMusicRoom
+              hasWasher
+              isHouse
   					}
           }
         }
