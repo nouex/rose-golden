@@ -1,0 +1,14 @@
+/**
+* This acts as a css normalizer and alse overrides some other stuff so we don't have to in every
+* component.  TODO: turn this into a grommet theme and merge it into the hpe theme that is in
+* place before passing it to grommet
+*/
+
+body {
+  /* user agent on chrome gives it 8px */
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
