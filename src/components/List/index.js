@@ -3,6 +3,7 @@ import { StaticQuery, graphql } from 'gatsby';
 import PropTypes from 'prop-types'
 
 import ListPresentation from "./presentation";
+import sortingAlgorithms from './sorting-algorithms';
 
 /**
  * Implement with a class component and then try doing the same thing but with hooks.
@@ -25,17 +26,26 @@ export class List extends React.Component {
     })
   }
 
+  static onSortUpdate(sortBy) {
+    const sortedComplexes = sortingAlgorithms[sortBy](this.state.complexes)
+    this.setState({
+      complexes: sortedComplexes
+    })
+  }
+
   constructor(props) {
     super(props)
 
     this.onFilterUpdate = List.onFilterUpdate.bind(this)
+    this.onSortUpdate = List.onSortUpdate.bind(this)
 
-    const { data: { postgres: { allComplexesList }}} = props
+    let { data: { postgres: { allComplexesList }}} = props
+    allComplexesList = sortingAlgorithms.name(allComplexesList)
     this.allComplexes = this.state.complexes = allComplexesList
   }
 
   render() {
-    return <ListPresentation complexes={this.state.complexes} onFilterUpdate={this.onFilterUpdate}/>
+    return <ListPresentation complexes={this.state.complexes} onFilterUpdate={this.onFilterUpdate} onSortUpdate={this.onSortUpdate} />
   }
 }
 
@@ -58,6 +68,7 @@ export default () => (
               hasMusicRoom
               hasWasher
               isHouse
+              rent
   					}
           }
         }

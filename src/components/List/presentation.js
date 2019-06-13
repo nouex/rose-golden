@@ -4,10 +4,12 @@ import { Box } from 'grommet';
 
 import Complex from '../Complex';
 import Filter from '../Filter';
+import Sort from '../Sort';
 
-const List = ({complexes, onFilterUpdate}) => (
+const List = ({complexes, onFilterUpdate, onSortUpdate}) => (
   <div className="list">
     <Filter onUpdate={onFilterUpdate}/>
+    <Sort onUpdate={onSortUpdate} />
     <Box
       direction="row"
       justify="evenly"
@@ -21,7 +23,8 @@ const List = ({complexes, onFilterUpdate}) => (
 
 List.propTypes = {
   complexes: PropTypes.array.isRequired,
-  onFilterUpdate: PropTypes.func.isRequired
+  onFilterUpdate: PropTypes.func.isRequired,
+  onSortUpdate: PropTypes.func.isRequired
 }
 
 export default List;
