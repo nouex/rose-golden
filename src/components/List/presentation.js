@@ -12,7 +12,7 @@ const List = ({complexes, onFilterUpdate, onSortUpdate}) => (
     <Sort onUpdate={onSortUpdate} />
     <Box
       direction="row"
-      justify="evenly"
+      justify="between"
       background="light-2"
       wrap
       margin={{top: "xsmall"}}
