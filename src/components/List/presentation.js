@@ -15,6 +15,7 @@ const List = ({complexes, onFilterUpdate, onSortUpdate}) => (
       justify="evenly"
       background="light-2"
       wrap
+      margin={{top: "xsmall"}}
       >
       { complexes.map(comp => <Complex complex={comp} key={comp.id}/>) }
     </Box>

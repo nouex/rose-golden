@@ -5,6 +5,10 @@
  * See: https://www.gatsbyjs.org/docs/static-query/
  */
 
+ // NOTE: minHeight: "100vh" is a hack so that the footer is not mid screen when we don't have enough
+ // content to show in <List />
+
+
 import React from "react"
 import PropTypes from "prop-types"
 import { StaticQuery, graphql } from "gatsby"
@@ -31,6 +35,9 @@ const Layout = ({ children }) => (
         <Grommet theme={hpe}>
           <Header siteTitle={data.site.siteMetadata.title} />
           <Box
+            style={{
+              minHeight: "100vh"
+            }}
             margin={{vertical: "0", horizontal: "auto"}}
             width="xlarge"
             >

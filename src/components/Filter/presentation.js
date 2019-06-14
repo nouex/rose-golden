@@ -39,6 +39,7 @@ const Filter = ({onFieldChange, onSubmit, onDropButtonClose, settings}) => {
     <DropButton
       onClose={onDropButtonClose}
       label="Filter"
+      margin={{right: "small"}}
       dropAlign={{
         top: "bottom",
         right: "right"

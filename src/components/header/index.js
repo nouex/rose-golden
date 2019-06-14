@@ -11,7 +11,7 @@ const Header = ({ siteTitle }) => (
     margin={{bottom: "1.45rem"}}
     >
     <Box
-      margin={{vertical: 0, horizontal: "auto"}}
+      margin={{vertical: "0", horizontal: "auto"}}
       width="xlarge"
       >
       <Heading
