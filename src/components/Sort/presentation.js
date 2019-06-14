@@ -1,5 +1,6 @@
 import React from 'react';
 import { DropButton, RadioButtonGroup, Box, Button, Form } from 'grommet';
+import { Sort as SortIcon } from 'grommet-icons';
 import PropTypes from 'prop-types';
 
 // TODO: add an option to reverse the sort
@@ -7,6 +8,7 @@ import PropTypes from 'prop-types';
 export const Content = ({ onSave, onChange, value }) => {
   return (
     <Box width="small">
+      Sort by:
       <Form onSubmit={onSave}>
         <RadioButtonGroup
           name="sort"
@@ -29,7 +31,7 @@ const Sort = ({ onSave, onChange, onClose, value }) => {
   return (
     <DropButton
       dropContent={<Content onSave={onSave} onChange={onChange} value={value} />}
-      label="Sort"
+      label={<SortIcon />}
       onClose={onClose}
       dropAlign={{
         top: "bottom",

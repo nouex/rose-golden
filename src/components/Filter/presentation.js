@@ -1,10 +1,12 @@
 import React from 'react';
 import { DropButton, CheckBox, Box, Form, FormField, Button } from 'grommet';
+import { Filter as FilterIcon } from 'grommet-icons';
 import PropTypes from 'prop-types';
 
 export const Content = ({onFieldChange, onSubmit, settings}) => {
   return (
     <Box width="small">
+      Filter by:
       <Form onSubmit={onSubmit}>
         {
           Object.keys(settings).map((name) => {
@@ -38,7 +40,7 @@ const Filter = ({onFieldChange, onSubmit, onDropButtonClose, settings}) => {
   return (
     <DropButton
       onClose={onDropButtonClose}
-      label="Filter"
+      label={<FilterIcon/>}
       margin={{right: "small"}}
       dropAlign={{
         top: "bottom",
