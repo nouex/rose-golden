@@ -13,7 +13,6 @@ const List = ({complexes, onFilterUpdate, onSortUpdate}) => (
     <Box
       direction="row"
       justify="between"
-      background="light-2"
       wrap
       margin={{top: "xsmall"}}
       >

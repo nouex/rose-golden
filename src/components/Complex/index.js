@@ -5,8 +5,8 @@ import { Attraction, Car } from "grommet-icons";
 
 const Complex = ({complex: c}) => {
   return (
-    <Box pad="medium" align="center" background="dark-4" round="xsmall" gap="small" width="small">
-      <Car size="large" color="light-2" />
+    <Box pad="small" align="left" border={{all: "xsmall"}} round="xsmall" gap="small" width="350px" background="light-1">
+      <Car size="large" color="brand" />
       <Text>{c.name}</Text>
       <Anchor href="" label="Link" />
       <Button label="Button" onClick={() => {}} />

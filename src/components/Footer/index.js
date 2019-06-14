@@ -4,7 +4,7 @@ import { Box } from 'grommet';
 const Footer = () => (
   <Box
     as="footer"
-    background="neutral-1"
+    background="light-3"
     height="xsmall"
     pad={{bottom: "small"}} >
     <Box
