@@ -12,6 +12,7 @@ import { hpe } from 'grommet-theme-hpe';
 import { Grommet, Box } from 'grommet';
 
 import Header from "../header"
+import Footer from '../Footer';
 import "./style.css"
 
 const Layout = ({ children }) => (
@@ -34,12 +35,8 @@ const Layout = ({ children }) => (
             width="xlarge"
             >
             <main>{children}</main>
-            <footer>
-              © {new Date().getFullYear()}, Built with
-              {` `}
-              <a href="https://www.gatsbyjs.org">Gatsby</a>
-            </footer>
           </Box>
+          <Footer />
         </Grommet>
       </>
     )}
