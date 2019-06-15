@@ -1,7 +1,28 @@
-/**
- * Implement Gatsby's Node APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/node-apis/
- */
+const { resolve } = require(`path`)
+const slug = require("slug")
 
-// You can delete this file if you're not using it
+slug.defaults.mode = "rfc3986"
+
+exports.createPages = ({ graphql, actions }) => {
+  const { createPage } = actions
+  return graphql(`
+    query getAllComplexesList {
+      postgres {
+        allComplexesList {
+          id
+          name
+        }
+      }
+    }
+  `).then(result => {
+    result.data.postgres.allComplexesList.forEach(({ name, id}) => {
+      createPage({
+        path: slug(name),
+        component: resolve("./src/templates/complex.js"),
+        context: {
+          id
+        },
+      })
+    })
+  })
+}
