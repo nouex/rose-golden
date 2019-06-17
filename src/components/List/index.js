@@ -69,6 +69,10 @@ export default () => (
               hasWasher
               isHouse
               rent
+              imageByThumbnail {
+                id
+                slug
+              }
   					}
           }
         }
