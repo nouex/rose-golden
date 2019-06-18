@@ -24,7 +24,7 @@ const Header = ({ siteTitle }) => (
             color: "white"
           }}
         >
-          <Anchor label={siteTitle} color="brand" style={{textDecoration: "none"}}/>
+          <Anchor label={siteTitle} color="brand" style={{textDecoration: "none"}} as="span"/>
         </Link>
       </Heading>
       <Box

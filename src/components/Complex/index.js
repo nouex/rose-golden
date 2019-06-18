@@ -11,11 +11,10 @@ slug.defaults.mode = "rfc3986"
 const Complex = ({complex: c}) => {
   return (
     <Link to={`/${slug(c.name)}`}>
-      <Box pad="none" align="left" border={{all: "xsmall"}} gap="xsmall" width="320px">
+      <Box pad="none" align="start" border={{all: "xsmall"}} gap="xsmall" width="320px">
         <ComplexImage name={c.imageByThumbnail.slug}/>
         <Box pad="small">
           <Text>{c.name}</Text>
-          <Anchor href="" label="Link" />
           <Button label="Button" onClick={() => {}} />
         </Box>
       </Box>

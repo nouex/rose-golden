@@ -10,9 +10,9 @@ export default ({data}) => (
     <SEO title="Home" keywords={[`byui`, `housing`, `students`, 'approved']} />
     <Box as="main">
       {
-        Object.keys(data.postgres.complexById).map((key) => {
+        Object.keys(data.postgres.complexById).map((key, ind) => {
           return (
-            <Box>
+            <Box key={ind}>
               <Text>{key}: {String(data.postgres.complexById[key])}</Text>
             </Box>
           )
