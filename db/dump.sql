@@ -55,7 +55,6 @@ CREATE TABLE public.complexes (
     id uuid NOT NULL,
     name text,
     description text,
-    rent integer,
     "hasPrivateRoom" boolean,
     "hasMusicRoom" boolean,
     "hasWasher" boolean,
@@ -68,7 +67,9 @@ CREATE TABLE public.complexes (
     "wardInfo" text,
     "floorPlans" text,
     thumbnail uuid,
-    gender public.gender
+    gender public.gender,
+    "minRent" integer,
+    "maxRent" integer
 );
 
 
@@ -136,11 +137,11 @@ ALTER TABLE ONLY public.contacts ALTER COLUMN id SET DEFAULT nextval('public.con
 -- Data for Name: complexes; Type: TABLE DATA; Schema: public; Owner: amauri
 --
 
-COPY public.complexes (id, name, description, rent, "hasPrivateRoom", "hasMusicRoom", "hasWasher", "isHouse", "studentCapacity", "parkingSpaces", "processingFee", "securityDeposit", "vacancyStatus", "wardInfo", "floorPlans", thumbnail, gender) FROM stdin;
-c7b443da-203c-4ef1-9170-d060af69161b	Towers One	\N	1300	f	t	t	f	90	80	\N	\N	\N	\N	\N	f0816391-f3be-4463-9d81-be67454a8b6f	F
-44fe8e92-01a8-41f1-804b-adf15af9324e	Spori Villa	\N	950	t	f	t	t	9	10	\N	\N	\N	\N	\N	f0816391-f3be-4463-9d81-be67454a8c7f	M
-c7794c9e-0430-498b-a68e-4b3b99c9b616	Centre Square	\N	1400	f	t	t	f	220	130	\N	\N	\N	\N	\N	f0816391-f3be-4463-9d81-be67454a8c3f	B
-c7b443da-203c-4ef1-9170-d060af69162b	Tuscanny	\N	1500	t	t	f	f	150	75	\N	\N	\N	\N	\N	f0816391-f3be-4463-9d81-be67454a8a7f	B
+COPY public.complexes (id, name, description, "hasPrivateRoom", "hasMusicRoom", "hasWasher", "isHouse", "studentCapacity", "parkingSpaces", "processingFee", "securityDeposit", "vacancyStatus", "wardInfo", "floorPlans", thumbnail, gender, "minRent", "maxRent") FROM stdin;
+c7b443da-203c-4ef1-9170-d060af69162b	Tuscanny	\N	t	t	f	f	150	75	\N	\N	\N	\N	\N	f0816391-f3be-4463-9d81-be67454a8a7f	B	1390	1570
+44fe8e92-01a8-41f1-804b-adf15af9324e	Spori Villa	\N	t	f	t	t	9	10	\N	\N	\N	\N	\N	f0816391-f3be-4463-9d81-be67454a8c7f	M	950	950
+c7b443da-203c-4ef1-9170-d060af69161b	Towers Two	\N	f	t	t	f	90	80	\N	\N	\N	\N	\N	f0816391-f3be-4463-9d81-be67454a8b6f	F	1350	1450
+c7794c9e-0430-498b-a68e-4b3b99c9b616	Centre Square	\N	f	t	t	f	220	130	\N	\N	\N	\N	\N	f0816391-f3be-4463-9d81-be67454a8c3f	B	1399	1499
 \.
 
 

@@ -32,7 +32,8 @@ export const query = graphql`
         hasMusicRoom
         hasWasher
         isHouse
-        rent
+        minRent
+        maxRent
       }
     }
   }

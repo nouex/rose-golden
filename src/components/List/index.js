@@ -68,7 +68,8 @@ export default () => (
               hasMusicRoom
               hasWasher
               isHouse
-              rent
+              minRent
+              maxRent
               studentCapacity
               parkingSpaces
               imageByThumbnail {
