@@ -30,6 +30,19 @@ CREATE EXTENSION IF NOT EXISTS citext WITH SCHEMA public;
 COMMENT ON EXTENSION citext IS 'data type for case-insensitive character strings';
 
 
+--
+-- Name: gender; Type: TYPE; Schema: public; Owner: amauri
+--
+
+CREATE TYPE public.gender AS ENUM (
+    'M',
+    'F',
+    'B'
+);
+
+
+ALTER TYPE public.gender OWNER TO amauri;
+
 SET default_tablespace = '';
 
 SET default_with_oids = false;
@@ -41,7 +54,6 @@ SET default_with_oids = false;
 CREATE TABLE public.complexes (
     id uuid NOT NULL,
     name text,
-    gender text,
     description text,
     rent integer,
     "hasPrivateRoom" boolean,
@@ -55,7 +67,8 @@ CREATE TABLE public.complexes (
     "vacancyStatus" text,
     "wardInfo" text,
     "floorPlans" text,
-    thumbnail uuid
+    thumbnail uuid,
+    gender public.gender
 );
 
 
@@ -123,11 +136,11 @@ ALTER TABLE ONLY public.contacts ALTER COLUMN id SET DEFAULT nextval('public.con
 -- Data for Name: complexes; Type: TABLE DATA; Schema: public; Owner: amauri
 --
 
-COPY public.complexes (id, name, gender, description, rent, "hasPrivateRoom", "hasMusicRoom", "hasWasher", "isHouse", "studentCapacity", "parkingSpaces", "processingFee", "securityDeposit", "vacancyStatus", "wardInfo", "floorPlans", thumbnail) FROM stdin;
-c7794c9e-0430-498b-a68e-4b3b99c9b616	Centre Square	\N	\N	1400	f	t	t	f	\N	\N	\N	\N	\N	\N	\N	f0816391-f3be-4463-9d81-be67454a8c3f
-c7b443da-203c-4ef1-9170-d060af69162b	Tuscanny	\N	\N	1500	t	t	f	f	\N	\N	\N	\N	\N	\N	\N	f0816391-f3be-4463-9d81-be67454a8a7f
-44fe8e92-01a8-41f1-804b-adf15af9324e	Spori Villa	\N	\N	950	t	f	t	t	\N	\N	\N	\N	\N	\N	\N	f0816391-f3be-4463-9d81-be67454a8c7f
-c7b443da-203c-4ef1-9170-d060af69161b	Towers One	\N	\N	1300	f	t	t	f	\N	\N	\N	\N	\N	\N	\N	f0816391-f3be-4463-9d81-be67454a8b6f
+COPY public.complexes (id, name, description, rent, "hasPrivateRoom", "hasMusicRoom", "hasWasher", "isHouse", "studentCapacity", "parkingSpaces", "processingFee", "securityDeposit", "vacancyStatus", "wardInfo", "floorPlans", thumbnail, gender) FROM stdin;
+c7b443da-203c-4ef1-9170-d060af69161b	Towers One	\N	1300	f	t	t	f	90	80	\N	\N	\N	\N	\N	f0816391-f3be-4463-9d81-be67454a8b6f	F
+44fe8e92-01a8-41f1-804b-adf15af9324e	Spori Villa	\N	950	t	f	t	t	9	10	\N	\N	\N	\N	\N	f0816391-f3be-4463-9d81-be67454a8c7f	M
+c7794c9e-0430-498b-a68e-4b3b99c9b616	Centre Square	\N	1400	f	t	t	f	220	130	\N	\N	\N	\N	\N	f0816391-f3be-4463-9d81-be67454a8c3f	B
+c7b443da-203c-4ef1-9170-d060af69162b	Tuscanny	\N	1500	t	t	f	f	150	75	\N	\N	\N	\N	\N	f0816391-f3be-4463-9d81-be67454a8a7f	B
 \.
 
 
@@ -156,6 +169,14 @@ f0816391-f3be-4463-9d81-be67454a8b6f	towers-one.jpg
 --
 
 SELECT pg_catalog.setval('public.contact_id_seq', 1, false);
+
+
+--
+-- Name: complexes complexes_name_key; Type: CONSTRAINT; Schema: public; Owner: amauri
+--
+
+ALTER TABLE ONLY public.complexes
+    ADD CONSTRAINT complexes_name_key UNIQUE (name);
 
 
 --
