@@ -33,17 +33,19 @@ const Layout = ({ children }) => (
     render={data => (
       <>
         <Grommet theme={hpe}>
-          <Header siteTitle={data.site.siteMetadata.title} />
-          <Box
-            style={{
-              minHeight: "100vh"
-            }}
-            margin={{vertical: "0", horizontal: "auto"}}
-            width="xlarge"
-            >
-            <main>{children}</main>
+          <Box background="light-1">
+            <Header siteTitle={data.site.siteMetadata.title} />
+            <Box
+              style={{
+                minHeight: "100vh"
+              }}
+              margin={{vertical: "0", horizontal: "auto"}}
+              width="xlarge"
+              >
+              <main>{children}</main>
+            </Box>
+            <Footer />
           </Box>
-          <Footer />
         </Grommet>
       </>
     )}

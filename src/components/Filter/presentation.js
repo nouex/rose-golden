@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 
 export const Content = ({onFieldChange, onSubmit, settings}) => {
   return (
-    <Box width="small">
+    <Box width="small" background="light-1">
       Filter by:
       <Form onSubmit={onSubmit}>
         {

@@ -69,6 +69,8 @@ export default () => (
               hasWasher
               isHouse
               rent
+              studentCapacity
+              parkingSpaces
               imageByThumbnail {
                 id
                 slug

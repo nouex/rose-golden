@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 
 export const Content = ({ onSave, onChange, value }) => {
   return (
-    <Box width="small">
+    <Box width="small" background="light-1">
       Sort by:
       <Form onSubmit={onSave}>
         <RadioButtonGroup
