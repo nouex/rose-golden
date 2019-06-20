@@ -72,9 +72,18 @@ export default () => (
               maxRent
               studentCapacity
               parkingSpaces
-              imageByThumbnail {
+              thumbnail: imageByThumbnail {
                 id
                 slug
+              }
+              contact: contactByContact {
+                id
+                manager
+                address
+                phone
+                email
+                fax
+                website
               }
   					}
           }
