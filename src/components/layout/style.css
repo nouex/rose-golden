@@ -13,3 +13,9 @@ a {
   text-decoration: none;
   color: inherit;
 }
+
+.custom-icon {
+  width: 30px;
+  height: 30px;
+  fill: #555555; /* dark-2 */
+}

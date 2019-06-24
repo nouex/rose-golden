@@ -4,6 +4,7 @@ import { Link } from 'gatsby';
 import { Anchor, Box, Button, Text } from 'grommet';
 import { Music as MusicIcon, Bus as BusIcon, Run as RunIcon, Link as LinkIcon } from 'grommet-icons';
 import slug from 'slug';
+import GenderIcon from "../../images/gender-both.svg"
 
 import ComplexImage from '../ComplexImage';
 
@@ -28,6 +29,7 @@ const ComplexPresentation = ({data}) => {
               <MusicIcon size="medium" color="dark-2"/>
               <BusIcon size="medium" color="dark-2" />
               <RunIcon size="medium" color="dark-2" />
+              <GenderIcon className="custom-icon"/>
             </Box>
             <Box pad={{bottom: "small"}}>
               <Box pad={{bottom: "xsmall"}}>
