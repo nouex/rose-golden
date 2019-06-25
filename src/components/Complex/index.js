@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import ComplexPresentation from './presentation';
-import formatter from "../../utils/currency-formatter";
+import formatter from "./currency-formatter";
 import iconPicker from './icon-picker';
 
 const Complex = ({complex: c}) => {
