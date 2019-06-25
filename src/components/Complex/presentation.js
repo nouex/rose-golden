@@ -28,11 +28,6 @@ const ComplexPresentation = ({data, icons}) => {
              {icons}
             </Box>
             <Box pad={{bottom: "small"}}>
-              <Box pad={{bottom: "xsmall"}}>
-                <Text size="medium" color="dark-3">
-                  <Anchor href={data.contact.website} icon={<LinkIcon size="small"/>} label="go to website" reverse color="dark-3" target="_blank"/>
-                </Text>
-              </Box>
               <Text size="medium">student capacity <Text weight="bold" color="dark-2">{data.studentCapacity}</Text></Text>
               <Text size="medium">parking spaces <Text weight="bold" color="dark-2">{data.parkingSpaces}</Text></Text>
             </Box>
