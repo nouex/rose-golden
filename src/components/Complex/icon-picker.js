@@ -15,13 +15,13 @@ function iconPicker(complex) {
     function gender(c) {
       switch (c.gender) {
         case "B":
-          return <GenderBothIcon className="custom-icon" />
+          return <GenderBothIcon className="custom-icon" key="gender-both-icon"/>
 
         case "M":
-          return <GenderMaleIcon className="custom-icon" />
+          return <GenderMaleIcon className="custom-icon" key="gender-male-icon"/>
 
         case "F":
-          return <GenderFemaleIcon className="custom-icon" />
+          return <GenderFemaleIcon className="custom-icon" key="gender-female-icon"/>
 
         default:
           throw new TypeError("Uknown gender value for " + c.name)
@@ -38,7 +38,7 @@ export default iconPicker
 function generateFnFromBoolAttribute(attribute, type) {
   return c => (
       c[attribute] ?
-        React.createElement(type, { className: "custom-icon" }) :
+        React.createElement(type, { className: "custom-icon", key: attribute }) :
         null
     )
 }
