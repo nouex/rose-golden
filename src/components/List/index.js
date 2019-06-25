@@ -64,6 +64,7 @@ export default () => (
   					allComplexesList {
   					  id
               name
+              gender
               hasPrivateRoom
               hasMusicRoom
               hasWasher

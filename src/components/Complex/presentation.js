@@ -2,15 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
 import { Anchor, Box, Button, Text } from 'grommet';
-import { Music as MusicIcon, Bus as BusIcon, Run as RunIcon, Link as LinkIcon } from 'grommet-icons';
+import { Link as LinkIcon } from 'grommet-icons';
 import slug from 'slug';
-import GenderIcon from "../../images/gender-both.svg"
 
 import ComplexImage from '../ComplexImage';
 
 slug.defaults.mode = "rfc3986"
 
-const ComplexPresentation = ({data}) => {
+const ComplexPresentation = ({data, icons}) => {
   return (
     <Box margin={{bottom: "medium"}}>
       <Link to={`/${slug(data.name)}`}>
@@ -26,10 +25,7 @@ const ComplexPresentation = ({data}) => {
               <Text size="medium">{data.contact.phone}</Text>
             </Box>
             <Box direction="row" justify="between" pad={{bottom: "small"}}>
-              <MusicIcon size="medium" color="dark-2"/>
-              <BusIcon size="medium" color="dark-2" />
-              <RunIcon size="medium" color="dark-2" />
-              <GenderIcon className="custom-icon"/>
+             {icons}
             </Box>
             <Box pad={{bottom: "small"}}>
               <Box pad={{bottom: "xsmall"}}>
@@ -48,7 +44,8 @@ const ComplexPresentation = ({data}) => {
 };;
 
 ComplexPresentation.propTypes = {
-  data: PropTypes.object.isRequired
+  data: PropTypes.object.isRequired,
+  icons: PropTypes.array.isRequired
 }
 
 export default ComplexPresentation

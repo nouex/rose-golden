@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import ComplexPresentation from './presentation';
 import formatter from "../../utils/currency-formatter";
+import iconPicker from './icon-picker';
 
 const Complex = ({complex: c}) => {
   const rent =
@@ -12,8 +13,10 @@ const Complex = ({complex: c}) => {
 
   const data = Object.assign({}, c, { rent })
 
+  const icons = iconPicker(c)
+
   return (
-    <ComplexPresentation data={data}/>
+    <ComplexPresentation data={data} icons={icons}/>
   )
 }
 
