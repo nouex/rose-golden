@@ -1,5 +1,5 @@
 import React from "react"
-import { Box, Markdown } from 'grommet';
+import { Box } from 'grommet';
 
 import Layout from "../components/layout"
 // import Image from "../components/image"

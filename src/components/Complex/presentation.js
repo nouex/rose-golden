@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
-import { Anchor, Box, Button, Text } from 'grommet';
-import { Link as LinkIcon } from 'grommet-icons';
+import { Box, Text } from 'grommet';
 import slug from 'slug';
 
 import ComplexImage from '../ComplexImage';
