@@ -3,7 +3,7 @@ import React from 'react';
 import GenderBothIcon from '../../images/icon-gender-both.svg';
 import GenderMaleIcon from '../../images/icon-gender-male.svg';
 import GenderFemaleIcon from '../../images/icon-gender-female.svg';
-import HouseIcon from "../../images/icon-house.svg";
+// import HouseIcon from "../../images/icon-house.svg";
 import PrivateRoomIcon from "../../images/icon-private-room.svg";
 import MusicRoomIcon from '../../images/icon-music-room.svg';
 import WasherIcon from '../../images/icon-washer.svg';
