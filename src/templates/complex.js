@@ -90,6 +90,7 @@ Complex.propTypes = {
           id: PropTypes.string.isRequired,
           address: PropTypes.string.isRequired,
         }).isRequired,
+        images: PropTypes.array.isRequired,
       }).isRequired,
     }).isRequired,
   }).isRequired,
@@ -112,6 +113,10 @@ export const query = graphql`
         contact: contactByContact {
           id
           address
+        }
+        images: imagesByComplexIdList {
+          id
+          slug
         }
       }
     }

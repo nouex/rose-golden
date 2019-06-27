@@ -1,12 +1,12 @@
 import React from 'react';
 
-import GenderBothIcon from '../../images/icons/gender-both.svg';
-import GenderMaleIcon from '../../images/icons/gender-male.svg';
-import GenderFemaleIcon from '../../images/icons/gender-female.svg';
+import GenderBothIcon from '../../../static/icons/gender-both.svg';
+import GenderMaleIcon from '../../../static/icons/gender-male.svg';
+import GenderFemaleIcon from '../../../static/icons/gender-female.svg';
 // import HouseIcon from "../../images/icon-house.svg";
-import PrivateRoomIcon from '../../images/icons/private-room.svg';
-import MusicRoomIcon from '../../images/icons/music-room.svg';
-import WasherIcon from '../../images/icons/washer.svg';
+import PrivateRoomIcon from '../../../static/icons/private-room.svg';
+import MusicRoomIcon from '../../../static/icons/music-room.svg';
+import WasherIcon from '../../../static/icons/washer.svg';
 
 // TODO: you're prolly gonna wanna export the array of functions for testing
 // QUESTION: is using the index a wrong use for 'key' prop
