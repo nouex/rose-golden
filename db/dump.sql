@@ -149,10 +149,10 @@ c2fe8486-69d3-477b-9a16-fab2c9d6bb62	Brita Reber	335 W 5th S	(208) 390-3706	mana
 --
 
 COPY public.images (id, slug, "complexId") FROM stdin;
-f0816391-f3be-4463-9d81-be67454a8b6f	towers-two-1.jpg	c7b443da-203c-4ef1-9170-d060af69161b
-f0816391-f3be-4463-9d81-be67454a8a7f	milano-flats-1.jpg	c7b443da-203c-4ef1-9170-d060af69162b
-f0816391-f3be-4463-9d81-be67454a8c7f	spori-villa-1.jpg	44fe8e92-01a8-41f1-804b-adf15af9324e
-f0816391-f3be-4463-9d81-be67454a8c3f	centre-square-men-1.jpg	c7794c9e-0430-498b-a68e-4b3b99c9b616
+f0816391-f3be-4463-9d81-be67454a8a7f	milano-flats-1.jpeg	c7b443da-203c-4ef1-9170-d060af69162b
+f0816391-f3be-4463-9d81-be67454a8c7f	spori-villa-1.jpeg	44fe8e92-01a8-41f1-804b-adf15af9324e
+f0816391-f3be-4463-9d81-be67454a8c3f	centre-square-men-1.jpeg	c7794c9e-0430-498b-a68e-4b3b99c9b616
+f0816391-f3be-4463-9d81-be67454a8b6f	towers-two-1.jpeg	c7b443da-203c-4ef1-9170-d060af69161b
 \.
 
 
