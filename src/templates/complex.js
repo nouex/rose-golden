@@ -1,7 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import {
-  Box, Text, DataTable, Meter, Heading,
+  Box, Text, DataTable, Meter, Heading, Carousel, Image,
 } from 'grommet';
 import PropTypes from 'prop-types';
 
@@ -12,8 +12,11 @@ const Complex = ({ data }) => (
   <Layout>
     <SEO title="Home" keywords={['byui', 'housing', 'students', 'approved']} />
     <Box as="main">
-      <Box>
-        [photo gallery]
+      <Box width="520px" height="440px">
+        <Carousel fill>
+          { data.postgres.complex.images.map(image => (<Image fit="cover" src={image.slug} key={image.id} />)) }
+        </Carousel>
+        {' '}
         <br />
         ---
       </Box>
