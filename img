@@ -1,0 +1,10 @@
+#!/bin/bash
+
+mkdir -p $2;
+echo "Created dir " $2;
+for filename in "$1"/*.*; do
+  filename2=$2"/""${filename##*/}"
+  echo "Converting " $filename " as " $filename2
+  convert $filename -resize 540x -normalize $filename2;
+  echo "Done."
+done

@@ -1,0 +1,10 @@
+#!/bin/bash
+
+echo "Reading from " $1
+echo "Using" $2
+
+for path in "$1"/*.*; do
+  filename="${path##*/}"
+  newPath=$1"/"$2"-"$filename
+  mv -v $path $newPath
+done

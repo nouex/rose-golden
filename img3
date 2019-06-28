@@ -1,0 +1,11 @@
+#!/bin/bash
+
+echo "Reading from " $1;
+echo "Using complex id " $2;
+
+for filename in "$1"/*.*; do
+  slug="${filename##*/}"
+  psql -U amauri -d housing -c 'INSERT INTO images(id, slug, "complexId")  VALUES (uuid_generate_v4(), '"'""$slug""'"', '"'""$2""'"');';
+  cp $1"/"* static;
+
+done
