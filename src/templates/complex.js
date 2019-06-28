@@ -8,17 +8,19 @@ import PropTypes from 'prop-types';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 
+// TODO: make carousel responsive
 const Complex = ({ data }) => (
   <Layout>
     <SEO title="Home" keywords={['byui', 'housing', 'students', 'approved']} />
     <Box as="main">
-      <Box width="520px" height="440px">
+      <Box width="600px" margin={{ horizontal: 'auto' }}>
         <Carousel fill>
-          { data.postgres.complex.images.map(image => (<Image fit="cover" src={image.slug} key={image.id} />)) }
+          { data.postgres.complex.images.map(image => (
+            <Box width="550px" margin={{ horizontal: 'auto' }}>
+              <Image fit="contain" src={image.slug} key={image.id} />
+            </Box>
+          ))}
         </Carousel>
-        {' '}
-        <br />
-        ---
       </Box>
       <Box>
         <Box as="span">{data.postgres.complex.name}</Box>
