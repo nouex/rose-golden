@@ -1,15 +1,28 @@
 #!/bin/bash
-# Resize and enhance images.
+# Resize and enhance images, then rename images
 # $1 directory to read from
 # $2 directory to output new images
+# $3: string to prepend to file names
 
 echo "Reading from" $1
 echo "Ouputing to" $2
+echo "Using prepend string " $3
+
 mkdir -p $2;
 echo "Created dir " $2;
+echo "resizing and enhancing images..."
 for filename in "$1"/*.*; do
   filename2=$2"/""${filename##*/}"
   echo "Converting " $filename " as " $filename2
   convert $filename -resize 540x -normalize $filename2;
-  echo "Done."
 done
+echo "DONE"
+
+printf "\n"
+echo "renaming files..."
+for path in "$2"/*.*; do
+  filename3="${path##*/}"
+  newPath=$2"/"$3"-"$filename3
+  mv -v $path $newPath
+done
+echo "DONE"
