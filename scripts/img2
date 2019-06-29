@@ -1,5 +1,7 @@
 #!/bin/bash
-
+# Rename images
+# $1: directory to read from
+# $2: string to prepend to file names
 echo "Reading from " $1
 echo "Using" $2
 

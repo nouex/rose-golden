@@ -1,4 +1,7 @@
 #!/bin/bash
+# Add image links to postgres
+# $1 directory to read from
+# $2 uuid of complex the images belong to
 
 echo "Reading from " $1;
 echo "Using complex id " $2;
