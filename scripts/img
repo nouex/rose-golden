@@ -1,8 +1,10 @@
 #!/bin/bash
-# Normalize images.
+# Resize and enhance images.
 # $1 directory to read from
-# $2 directory to output
+# $2 directory to output new images
 
+echo "Reading from" $1
+echo "Ouputing to" $2
 mkdir -p $2;
 echo "Created dir " $2;
 for filename in "$1"/*.*; do
