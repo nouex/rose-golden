@@ -7,6 +7,7 @@ import PropTypes from 'prop-types';
 
 import Layout from '../components/layout';
 import SEO from '../components/seo';
+import formatPriceRange from '../utils/format-price-range';
 
 // TODO: make carousel responsive
 const Complex = ({ data }) => (
@@ -33,12 +34,14 @@ const Complex = ({ data }) => (
         </Box>
         <Box>
           <Text size="large">
+            {formatPriceRange(data.postgres.complex.minRent, data.postgres.complex.maxRent)}
+          </Text>
+        </Box>
+        <Box margin={{ top: 'small' }}>
+          <Text size="large">
             {data.postgres.complex.contact.address}
 , Rexburg ID
           </Text>
-        </Box>
-        <Box>
-          <Text size="large">Rent goes here</Text>
         </Box>
       </Box>
       {/** *** General Info End **** */}
