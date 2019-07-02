@@ -13,6 +13,8 @@ const Complex = ({ data }) => (
   <Layout>
     <SEO title="Home" keywords={['byui', 'housing', 'students', 'approved']} />
     <Box as="main">
+
+      {/** *** Carousal Start **** */}
       <Box width="600px" margin={{ horizontal: 'auto' }}>
         <Carousel fill>
           { data.postgres.complex.images.map(image => (
@@ -22,13 +24,25 @@ const Complex = ({ data }) => (
           ))}
         </Carousel>
       </Box>
+      {/** *** Carousal End **** */}
+
+      {/** *** General Info Start **** */}
       <Box>
-        <Box as="span">{data.postgres.complex.name}</Box>
-        <Box as="span">{data.postgres.complex.contact.address}</Box>
-        <Box as="span">{`from: $${data.postgres.complex.minRent}`}</Box>
-        ---
-        <br />
+        <Box>
+          <Heading level="1">{data.postgres.complex.name}</Heading>
+        </Box>
+        <Box>
+          <Text size="large">
+            {data.postgres.complex.contact.address}
+, Rexburg ID
+          </Text>
+        </Box>
+        <Box>
+          <Text size="large">Rent goes here</Text>
+        </Box>
       </Box>
+      {/** *** General Info End **** */}
+
       <Box>
         <Heading level="2">Floorplans</Heading>
         <DataTable
