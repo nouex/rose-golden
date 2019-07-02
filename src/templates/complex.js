@@ -32,12 +32,12 @@ const Complex = ({ data }) => (
         <Box>
           <Heading level="1">{data.postgres.complex.name}</Heading>
         </Box>
-        <Box>
-          <Text size="large">
+        <Box margin={{ left: 'small' }}>
+          <Text size="xlarge">
             {formatPriceRange(data.postgres.complex.minRent, data.postgres.complex.maxRent)}
           </Text>
         </Box>
-        <Box margin={{ top: 'small' }}>
+        <Box margin={{ top: 'small', left: 'small' }}>
           <Text size="large">
             {data.postgres.complex.contact.address}
 , Rexburg ID
