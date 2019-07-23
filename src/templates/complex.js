@@ -46,6 +46,7 @@ const Complex = ({ data }) => (
       </Box>
       {/** *** General Info End **** */}
 
+      {/** *** Floorplans Start **** */}
       <Box>
         <Heading level="2">Floorplans</Heading>
         <DataTable
@@ -77,21 +78,30 @@ const Complex = ({ data }) => (
           ]}
         />
       </Box>
+
+      {/** *** Amenities Start **** */}
+
       <Box>
-        <Heading level="3">Amenities</Heading>
+        <Heading level="2">Amenities</Heading>
+        ...
+      </Box>
+
+      {/** *** Amenities End **** */}
+
+      <Box>
+        <Heading level="2">Special Features</Heading>
         ...
       </Box>
       <Box>
-        <Heading level="3">Special Features</Heading>
-        ...
-      </Box>
-      <Box>
-        <Heading level="3">Community Features</Heading>
+        <Heading level="2">Community Features</Heading>
         ...
       </Box>
       <Box>
         [Google Maps goes here]
       </Box>
+
+      {/** *** Floorplans Start **** */}
+
     </Box>
   </Layout>
 );
