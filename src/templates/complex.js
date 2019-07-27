@@ -4,9 +4,11 @@ import {
   Box, Text, DataTable, Meter, Heading, Carousel, Image,
 } from 'grommet';
 import PropTypes from 'prop-types';
+import cloneDeep from 'lodash.clonedeep';
 
 import Layout from '../components/layout';
 import SEO from '../components/seo';
+import Features from '../components/Features';
 import formatPriceRange from '../utils/format-price-range';
 
 // TODO: make carousel responsive
@@ -79,29 +81,13 @@ const Complex = ({ data }) => (
         />
       </Box>
 
-      {/** *** Amenities Start **** */}
+      {/** *** Features Start **** */}
+      <Features attributes={cloneDeep(data.postgres.complex)} />
+      {/** *** Features End **** */}
 
-      <Box>
-        <Heading level="2">Amenities</Heading>
-        ...
-      </Box>
-
-      {/** *** Amenities End **** */}
-
-      <Box>
-        <Heading level="2">Special Features</Heading>
-        ...
-      </Box>
-      <Box>
-        <Heading level="2">Community Features</Heading>
-        ...
-      </Box>
       <Box>
         [Google Maps goes here]
       </Box>
-
-      {/** *** Floorplans Start **** */}
-
     </Box>
   </Layout>
 );
