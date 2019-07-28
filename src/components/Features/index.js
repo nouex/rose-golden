@@ -23,15 +23,14 @@ const amenities = [
 ];
 const communityFeatures = [];
 const specialFeatures = [];
+const specifications = []; // student capacity, parking spaces, initial deposti, ...
 
-function pickFeatures(arr, attr) {
-  return arr.map(([key, icon, displayName]) => {
+function pickFeatures(arr, attr, sectionName) {
+  const res = arr.map(([key, icon, displayName]) => {
     if (attr[key] === true) {
       return (
         <Box key={key} direction="row" pad={{ bottom: 'small', left: 'small' }}>
           <Text margin={{ right: 'medium' }}>
-            {'\u2022'}
-            {' '}
             {displayName}
           </Text>
           {icon}
@@ -40,24 +39,23 @@ function pickFeatures(arr, attr) {
     }
     return null;
   });
+
+  if (res.length > 0) {
+    return (
+      <Box>
+        <Heading level="2">{sectionName}</Heading>
+        {res}
+      </Box>
+    );
+  }
+  return null;
 }
 
 const Features = ({ attributes }) => (
   <div>
-    <Box>
-      <Heading level="2">Amenities</Heading>
-      { pickFeatures(amenities, attributes) }
-    </Box>
-
-    <Box>
-      <Heading level="2">Special Features</Heading>
-      { /* pickFeatures(communityFeatures) */}
-    </Box>
-
-    <Box>
-      <Heading level="2">Community Features</Heading>
-      { /* pickFeatures(specialFeatures) */}
-    </Box>
+    { pickFeatures(amenities, attributes, 'Features') }
+    { pickFeatures(specialFeatures, attributes, 'Special Features') }
+    { pickFeatures(communityFeatures, attributes, 'Community Features') }
   </div>
 );
 
