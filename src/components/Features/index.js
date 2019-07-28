@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {
-  Box, Heading,
+  Box, Heading, Text,
 } from 'grommet';
 
 import PrivateRoomIcon from '../../../static/icons/private-room.svg';
@@ -17,9 +17,9 @@ import WasherIcon from '../../../static/icons/washer.svg';
 
 // key, icon, display name
 const amenities = [
-  ['isPrivateRoom', <PrivateRoomIcon />, 'Private Room'],
-  ['hasMusicRoom', <MusicRoomIcon />, 'Music Room'],
-  ['hasWasher', <WasherIcon />, 'In-Apartment Washer'],
+  ['isPrivateRoom', <PrivateRoomIcon className="custom-icon" />, 'Private Room'],
+  ['hasMusicRoom', <MusicRoomIcon className="custom-icon" />, 'Music Room'],
+  ['hasWasher', <WasherIcon className="custom-icon" />, 'In-Apartment Washer'],
 ];
 const communityFeatures = [];
 const specialFeatures = [];
@@ -28,10 +28,14 @@ function pickFeatures(arr, attr) {
   return arr.map(([key, icon, displayName]) => {
     if (attr[key] === true) {
       return (
-        <div>
-          <span>{displayName}</span>
+        <Box key={key} direction="row" pad={{ bottom: 'small', left: 'small' }}>
+          <Text margin={{ right: 'medium' }}>
+            {'\u2022'}
+            {' '}
+            {displayName}
+          </Text>
           {icon}
-        </div>
+        </Box>
       );
     }
     return null;
