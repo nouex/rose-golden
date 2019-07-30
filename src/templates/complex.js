@@ -128,6 +128,15 @@ export const query = graphql`
         isHouse
         minRent
         maxRent
+        hasHotTub
+        hasOfficeCenter
+        hasShuttleService
+        hasFitnessCenter
+        hasCable
+        hasAirConditioning
+        hasWifi
+        isPetFriendly
+        hasExtraStorage
         contact: contactByContact {
           id
           address
