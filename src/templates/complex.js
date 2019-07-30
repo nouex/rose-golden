@@ -48,6 +48,12 @@ const Complex = ({ data }) => (
       </Box>
       {/** *** General Info End **** */}
 
+      {/** *** Description Start **** */}
+      <Box>
+        <Text>TODO: Description goes here</Text>
+      </Box>
+      {/** *** Description End **** */}
+
       {/** *** Floorplans Start **** */}
       <Box>
         <Heading level="2">Floorplans</Heading>

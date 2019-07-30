@@ -20,9 +20,21 @@ const amenities = [
   ['isPrivateRoom', <PrivateRoomIcon className="custom-icon" />, 'Private Room'],
   ['hasMusicRoom', <MusicRoomIcon className="custom-icon" />, 'Music Room'],
   ['hasWasher', <WasherIcon className="custom-icon" />, 'In-Apartment Washer'],
+  ['hasAirConditioning', <PrivateRoomIcon className="custom-icon" />, 'A/C'],
+  ['hasCable', <PrivateRoomIcon className="custom-icon" />, 'TV Cable'],
+  ['hasWifi', <PrivateRoomIcon className="custom-icon" />, 'Wifi'],
 ];
-const communityFeatures = [];
-const specialFeatures = [];
+
+const communityFeatures = [
+  ['hasExtraStorage', <PrivateRoomIcon className="custom-icon" />, 'Extra Storage'],
+  ['hasHotTub', <PrivateRoomIcon className="custom-icon" />, 'Hot Tub'],
+  ['hasOfficeCenter', <PrivateRoomIcon className="custom-icon" />, 'Office Center'],
+  ['hasShuttleService', <PrivateRoomIcon className="custom-icon" />, 'Shuttle Service'],
+  ['hasFitnessCenter', <PrivateRoomIcon className="custom-icon" />, 'Fitness Center'],
+];
+const specialFeatures = [
+  ['isPetFriendly', <PrivateRoomIcon className="custom-icon" />, 'Pet Friendly'],
+];
 const specifications = []; // student capacity, parking spaces, initial deposti, ...
 
 function pickFeatures(arr, attr, sectionName) {
@@ -53,9 +65,9 @@ function pickFeatures(arr, attr, sectionName) {
 
 const Features = ({ attributes }) => (
   <div>
-    { pickFeatures(amenities, attributes, 'Features') }
-    { pickFeatures(specialFeatures, attributes, 'Special Features') }
+    { pickFeatures(amenities, attributes, 'Amenities') }
     { pickFeatures(communityFeatures, attributes, 'Community Features') }
+    { pickFeatures(specialFeatures, attributes, 'Special Features') }
   </div>
 );
 
