@@ -134,10 +134,10 @@ ALTER TABLE public.images OWNER TO amauri;
 --
 
 COPY public.complexes (id, name, description, "hasPrivateRoom", "hasMusicRoom", "hasWasher", "isHouse", "parkingSpaces", "processingFee", "securityDeposit", "vacancyStatus", "wardInfo", "floorPlans", thumbnail, gender, "minRent", "maxRent", contact, "studentCapacity", "hasHotTub", "hasOfficeCenter", "hasShuttleService", "hasFitnessCenter", "hasCable", "hasAirConditioning", "hasWifi", "isPetFriendly", "hasExtraStorage") FROM stdin;
-c7b443da-203c-4ef1-9170-d060af69161b	Towers Two	\N	f	t	t	f	80	\N	\N	\N	\N	\N	7351aea3-ec1f-4561-92e9-6d1bc86bf072	F	1350	1450	c2fe8486-69d3-477b-9a16-fab2c9d6bb62	90	\N	\N	\N	\N	\N	\N	\N	\N	\N
-c7b443da-203c-4ef1-9170-d060af69162b	Milano Flats	\N	t	t	f	f	75	\N	\N	\N	\N	\N	92c2dcb0-df33-49f7-bd63-b3c724546467	B	1390	1570	1498ba3f-9521-452f-b9a2-7df5b86c2fc5	150	\N	\N	\N	\N	\N	\N	\N	\N	\N
-c7794c9e-0430-498b-a68e-4b3b99c9b616	Centre Square (Men)	\N	f	t	t	f	130	\N	\N	\N	\N	\N	a5faaf0c-a8c7-4ba7-ad8d-d8b9f17df4db	M	1399	1499	e1172682-6a38-49a6-bd1c-aaa85ff7613c	220	\N	\N	\N	\N	\N	\N	\N	\N	\N
-44fe8e92-01a8-41f1-804b-adf15af9324e	Spori Villa	\N	t	t	t	t	10	\N	\N	\N	\N	\N	5a02ae83-79c1-4c1c-a6ca-3fd2dadc8fc0	M	950	950	db2c6476-4ca3-4f8f-bd31-0ed74be321b7	9	t	t	t	t	t	t	t	t	t
+44fe8e92-01a8-41f1-804b-adf15af9324e	Spori Villa	\N	t	f	t	t	10	\N	\N	\N	\N	\N	5a02ae83-79c1-4c1c-a6ca-3fd2dadc8fc0	M	950	950	db2c6476-4ca3-4f8f-bd31-0ed74be321b7	9	f	f	f	f	f	t	t	f	t
+c7794c9e-0430-498b-a68e-4b3b99c9b616	Centre Square (Men)	\N	f	t	t	f	130	\N	\N	\N	\N	\N	a5faaf0c-a8c7-4ba7-ad8d-d8b9f17df4db	M	1399	1499	e1172682-6a38-49a6-bd1c-aaa85ff7613c	220	\N	t	f	f	t	t	t	f	t
+c7b443da-203c-4ef1-9170-d060af69161b	Towers Two	\N	f	t	t	f	80	\N	\N	\N	\N	\N	7351aea3-ec1f-4561-92e9-6d1bc86bf072	F	1350	1450	c2fe8486-69d3-477b-9a16-fab2c9d6bb62	90	\N	t	f	t	t	t	t	f	\N
+c7b443da-203c-4ef1-9170-d060af69162b	Milano Flats	\N	t	t	f	f	75	\N	\N	\N	\N	\N	92c2dcb0-df33-49f7-bd63-b3c724546467	B	1390	1570	1498ba3f-9521-452f-b9a2-7df5b86c2fc5	150	t	t	f	t	t	t	t	f	\N
 \.
 
 

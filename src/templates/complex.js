@@ -8,7 +8,7 @@ import cloneDeep from 'lodash.clonedeep';
 
 import Layout from '../components/layout';
 import SEO from '../components/seo';
-import Features from '../components/Features';
+import Amenities from '../components/Amenities';
 import StaticMap from '../components/StaticMap';
 import formatPriceRange from '../utils/format-price-range';
 
@@ -87,10 +87,19 @@ const Complex = ({ data }) => (
           ]}
         />
       </Box>
+      {/** *** Floorplans End **** */}
 
-      {/** *** Features Start **** */}
-      <Features attributes={cloneDeep(data.postgres.complex)} />
-      {/** *** Features End **** */}
+
+      {/** *** Amenities Title Start **** */}
+      <Box>
+        <Heading level="2">Amenities</Heading>
+      </Box>
+      {/** *** Amenities Title Start **** */}
+
+
+      {/** *** Amenities Start **** */}
+      <Amenities attributes={cloneDeep(data.postgres.complex)} />
+      {/** *** Amenities End **** */}
 
       <Box>
         <StaticMap address={data.postgres.complex.contact.address} />
