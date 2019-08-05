@@ -9,6 +9,7 @@ import cloneDeep from 'lodash.clonedeep';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 import Features from '../components/Features';
+import StaticMap from '../components/StaticMap';
 import formatPriceRange from '../utils/format-price-range';
 
 // TODO: make carousel responsive
@@ -92,7 +93,7 @@ const Complex = ({ data }) => (
       {/** *** Features End **** */}
 
       <Box>
-        [Google Maps goes here]
+        <StaticMap address={data.postgres.complex.contact.address} />
       </Box>
     </Box>
   </Layout>
