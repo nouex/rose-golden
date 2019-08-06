@@ -35,7 +35,8 @@ describe('stringifyQueries', () => {
       size: '600x400',
     }, '174 College Ave');
 
-    expect(result).toEqual('key=AIzaSyCTIIF1-b667o-rL9nrkvioKiWjA8Ae7Q0&zoom=13&scale=false&maptype=roadmap&format=png&visual_refresh=true&size=600x400&center=174%20College%20Ave');
+    const regex = /key=[a-zA-Z0-9\-]{39}&zoom=13&scale=false&maptype=roadmap&format=png&visual_refresh=true&size=600x400&center=174%20College%20Ave/;
+    expect(result).toMatch(regex);
   });
 });
 
@@ -55,6 +56,7 @@ describe('makeUrl()', () => {
       label: '0',
     }, '174 College Ave');
 
-    expect(url).toEqual('https://maps.googleapis.com/maps/api/staticmap?key=AIzaSyCTIIF1-b667o-rL9nrkvioKiWjA8Ae7Q0&zoom=13&scale=false&maptype=roadmap&format=png&visual_refresh=true&size=600x400&center=174%20College%20Ave%20Rexburg%20ID&markers=size:small%7Ccolor:0x4CAA82%7Clabel:0%7C174+College+Ave+Rexburg+ID');
+    const regex = /https:\/\/maps.googleapis.com\/maps\/api\/staticmap\?key=[a-zA-Z0-9\-]{39}&zoom=13&scale=false&maptype=roadmap&format=png&visual_refresh=true&size=600x400&center=174%20College%20Ave%20Rexburg%20ID&markers=size:small%7Ccolor:0x4CAA82%7Clabel:0%7C174\+College\+Ave\+Rexburg\+ID/;
+    expect(url).toMatch(regex);
   });
 });
