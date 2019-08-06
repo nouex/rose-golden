@@ -10,7 +10,7 @@ if (GOOGLE_API_KEY === undefined) throw new Error('Goole API Key is undefined');
 if (GOOGLE_MAP_URL === undefined) throw new Error('GOOGLE_MAP_URL is undefined');
 
 const marker = {
-  size: 'small',
+  size: 'tiny',
   color: '0x4CAA82',
   label: '0',
 
@@ -18,12 +18,12 @@ const marker = {
 
 const queries = {
   key: GOOGLE_API_KEY,
-  zoom: '14',
-  scale: 'false',
+  zoom: '13',
+  scale: '2',
   maptype: 'roadmap',
   format: 'png',
   visual_refresh: 'true',
-  size: '600x400',
+  size: '1280x225',
 };
 
 export const stringifyMarker = (o, address) => {
@@ -51,9 +51,10 @@ const StaticMap = ({ address }) => {
   return (
     <img
       style={{
-        paddingTop: '50px',
+        marginTop: '50px',
+        width: '100vw',
       }}
-      width="600"
+      width="1280"
       src={src}
       alt="Google Map of Rexburg, ID"
     />
