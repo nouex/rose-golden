@@ -96,10 +96,11 @@ const Complex = ({ data }) => (
       </Box>
       <Amenities attributes={cloneDeep(data.postgres.complex)} />
       {/** *** Amenities End **** */}
-
-      <Box>
+      {/** *** Map Start **** */}
+      <Box direction="row" justify="center">
         <StaticMap address={data.postgres.complex.contact.address} />
       </Box>
+      {/** *** Map End **** */}
     </Box>
   </Layout>
 );

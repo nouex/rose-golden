@@ -50,6 +50,9 @@ const StaticMap = ({ address }) => {
   const src = makeUrl(queries, marker, address);
   return (
     <img
+      style={{
+        paddingTop: '50px',
+      }}
       width="600"
       src={src}
       alt="Google Map of Rexburg, ID"
