@@ -15,7 +15,9 @@ a {
 }
 
 .custom-icon {
-  width: 40px;
-  height: 40px;
+  width: 35px;
+  height: 35px;
   fill: #555555; /* dark-2 */
+  display: inline;
+  vertical-align: middle;
 }

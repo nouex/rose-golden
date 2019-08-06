@@ -90,14 +90,10 @@ const Complex = ({ data }) => (
       {/** *** Floorplans End **** */}
 
 
-      {/** *** Amenities Title Start **** */}
+      {/** *** Amenities Start **** */}
       <Box>
         <Heading level="2">Amenities</Heading>
       </Box>
-      {/** *** Amenities Title Start **** */}
-
-
-      {/** *** Amenities Start **** */}
       <Amenities attributes={cloneDeep(data.postgres.complex)} />
       {/** *** Amenities End **** */}
 

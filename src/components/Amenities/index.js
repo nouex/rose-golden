@@ -4,9 +4,10 @@ import {
   Box, Heading, Text, Compliance,
 } from 'grommet';
 
-import PrivateRoomIcon from '../../../static/icons/private-room.svg';
-import MusicRoomIcon from '../../../static/icons/music-room.svg';
-import WasherIcon from '../../../static/icons/washer.svg';
+import DogIcon from '../../../static/icons/dog.svg';
+import FeaturesIcon from '../../../static/icons/features.svg';
+import GymIcon from '../../../static/icons/gym.svg';
+import SpecialIcon from '../../../static/icons/special.svg';
 
 /**
  * NOTE: whenever thes schema of the Complex relation changes, i.e. when we add more possible
@@ -35,6 +36,13 @@ const groupNames = {
   [UNIQUE_FEATURES]: 'Unique Features',
   [PET_POLICY]: 'Pet Policy',
   [FITNESS_AND_RECREATION]: 'Fitness and Recreation',
+};
+
+const icons = {
+  [GENERAL]: <FeaturesIcon className="custom-icon" />,
+  [UNIQUE_FEATURES]: <SpecialIcon className="custom-icon" />,
+  [PET_POLICY]: <DogIcon className="custom-icon" />,
+  [FITNESS_AND_RECREATION]: <GymIcon className="custom-icon" />,
 };
 
 [
@@ -75,7 +83,7 @@ const names = {
 };
 // TODO: 'hasOfficeCenter'
 
-const Features = ({ attributes }) => {
+const Amenities = ({ attributes }) => {
   const sections = Object.create(null);
 
   amenities.forEach((a) => {
@@ -94,13 +102,13 @@ const Features = ({ attributes }) => {
   const len = Object.getOwnPropertySymbols(sections).length;
   for (let i = 0; i < len / 3; i++) {
     const row = (
-      <Box direction="row" justify="between" wrap>
+      <Box direction="row" justify="around" wrap>
         {
           Object.getOwnPropertySymbols(sections).slice(i * 3, i * 3 + 3).map(sym => (
             <Box>
               <Heading level="3">
                 {groupNames[sym]}
-                <MusicRoomIcon className="custom-icon" />
+                {icons[sym]}
               </Heading>
               {
                   sections[sym].map(name => (
@@ -131,4 +139,4 @@ const Features = ({ attributes }) => {
 //
 // }
 
-export default Features;
+export default Amenities;
