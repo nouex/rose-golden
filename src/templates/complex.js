@@ -1,7 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import {
-  Box, Text, DataTable, Meter, Heading, Carousel, Image,
+  Box, Text, DataTable, Meter, Heading, Carousel, Image, Paragraph,
 } from 'grommet';
 import PropTypes from 'prop-types';
 import cloneDeep from 'lodash.clonedeep';
@@ -50,8 +50,11 @@ const Complex = ({ data }) => (
       {/** *** General Info End **** */}
 
       {/** *** Description Start **** */}
-      <Box>
-        <Text>TODO: Description goes here</Text>
+      <Box className="complex-description-box">
+        <Paragraph>
+          {data.postgres.complex.description || 'No description provided.'}
+        </Paragraph>
+        <Text>- Management</Text>
       </Box>
       {/** *** Description End **** */}
 
@@ -135,6 +138,7 @@ export const query = graphql`
       complex: complexById(id: $id) {
         id
         name
+        description
         hasPrivateRoom
         hasMusicRoom
         hasWasher

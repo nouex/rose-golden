@@ -21,3 +21,11 @@ a {
   display: inline;
   vertical-align: middle;
 }
+
+.complex-description-box {
+  margin-left: 30px;
+}
+
+.complex-description-box p {
+  font-style: italic;
+}
