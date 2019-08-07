@@ -51,4 +51,12 @@ a {
   .complex-general-info {
     order: 3;
   }
+
+  .header {
+    padding: 0 50px;
+  }
+
+  .content {
+    padding: 0 50px;
+  }
 }
