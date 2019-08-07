@@ -41,7 +41,7 @@ const Layout = ({ children }) => (
               }}
               margin="0"
               width="100%"
-              pad={{ horizontal: '120px' }}
+              pad={{ horizontal: 'xlarge' }}
               className="content"
             >
               <Box as="main" width="xlarge" margin={{ horizontal: 'auto' }}>{children}</Box>

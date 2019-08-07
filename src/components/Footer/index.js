@@ -6,13 +6,19 @@ const Footer = () => (
     as="footer"
     background="light-3"
     height="xsmall"
-    pad={{bottom: "small"}} >
+    pad={{ vertical: 'small', horizontal: 'xlarge' }}
+  >
     <Box
-      margin={{vertical: "0", horizontal: "auto"}}
-      width="xlarge" >
-      © {new Date().getFullYear()} {"built with \u2665 by xoxo"}
+      margin={{ vertical: '0', horizontal: 'auto' }}
+      width="xlarge"
+    >
+      ©
+      {' '}
+      {new Date().getFullYear()}
+      {' '}
+      {'built with \u2665 by xoxo'}
     </Box>
   </Box>
-)
+);
 
-export default Footer
+export default Footer;

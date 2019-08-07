@@ -11,7 +11,7 @@ const Header = ({ siteTitle }) => (
   <Box
     as="header"
     background="light-3"
-    pad={{ bottom: 'small', horizontal: '120px' }}
+    pad={{ bottom: 'small', horizontal: 'xlarge' }}
     margin={{ bottom: '1.45rem' }}
     className="header"
   >
