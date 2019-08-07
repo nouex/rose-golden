@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: 'Skrilla',
-    description: 'Some not very long description.  I think this is for SEO.',
+    description: 'Find student housing in Rexburg.',
     author: '@baaae',
   },
   plugins: [
