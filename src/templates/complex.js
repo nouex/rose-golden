@@ -11,8 +11,13 @@ import SEO from '../components/seo';
 import Amenities from '../components/Amenities';
 import StaticMap from '../components/StaticMap';
 import formatPriceRange from '../utils/format-price-range';
+import GenderBothIcon from '../../static/icons/gender-both.svg';
+import GenderMaleIcon from '../../static/icons/gender-male.svg';
+import GenderFemaleIcon from '../../static/icons/gender-female.svg';
 
 // TODO: make carousel responsive
+// TODO: logic for picking the gender icon is used in two places so far; abstract ig, export it to
+// a common utility file, and use that single-source file
 const Complex = ({ data }) => (
   <Layout>
     <SEO title="Home" keywords={['byui', 'housing', 'students', 'approved']} />
@@ -43,6 +48,32 @@ const Complex = ({ data }) => (
               <Text size="xlarge">
                 {formatPriceRange(data.postgres.complex.minRent, data.postgres.complex.maxRent)}
               </Text>
+            </Box>
+            <Box>
+              {
+                (gender => (
+                  {
+                    M: (
+                      <Text size="large" margin={{ left: 'small', top: 'small' }}>
+                          Men
+                        <GenderMaleIcon className="custom-icon" key="gender-male-icon" />
+                      </Text>
+                    ),
+                    B: (
+                      <Text size="large" margin={{ left: 'small', top: 'small' }}>
+                          Men and Women
+                        <GenderBothIcon className="custom-icon" key="gender-both-icon" />
+                      </Text>
+                    ),
+                    F: (
+                      <Text size="large" margin={{ left: 'small', top: 'small' }}>
+                          Women
+                        <GenderFemaleIcon className="custom-icon" key="gender-female-icon" />
+                      </Text>
+                    ),
+                  }[gender]
+                ))(data.postgres.complex.gender)
+              }
             </Box>
             <Box margin={{ top: 'small', left: 'small' }}>
               <Text size="large">
@@ -146,6 +177,7 @@ export const query = graphql`
         id
         name
         description
+        gender
         hasPrivateRoom
         hasMusicRoom
         hasWasher
