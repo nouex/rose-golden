@@ -29,3 +29,26 @@ a {
 .complex-description-box p {
   font-style: italic;
 }
+
+.complex-carousel {
+  order: 2;
+}
+
+.complex-general-info {
+  order: 1
+}
+
+.complex-top {
+  flex-direction: row;
+}
+
+/* smaller screens, display carousel on top of .complex-general-info */
+@media screen and (max-width: 1024px) {
+  .complex-top {
+    flex-direction: column;
+  }
+
+  .complex-general-info {
+    order: 3;
+  }
+}

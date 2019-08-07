@@ -18,45 +18,52 @@ const Complex = ({ data }) => (
     <SEO title="Home" keywords={['byui', 'housing', 'students', 'approved']} />
     <Box as="main">
 
-      {/** *** Carousal Start **** */}
-      <Box width="600px" margin={{ horizontal: 'auto' }}>
-        <Carousel fill>
-          { data.postgres.complex.images.map(image => (
-            <Box width="550px" margin={{ horizontal: 'auto' }} key={image.id}>
-              <Image fit="contain" src={image.slug} />
+
+      <Box className="complex-top" pad={{ top: 'medium' }}>
+        {/** *** Carousal Start **** */}
+        <Box width="600px" margin={{ horizontal: 'auto', bottom: 'medium' }} className="complex-carousel">
+          <Carousel fill>
+            { data.postgres.complex.images.map(image => (
+              <Box width="550px" margin={{ horizontal: 'auto' }} key={image.id}>
+                <Image fit="contain" src={image.slug} />
+              </Box>
+            ))}
+          </Carousel>
+        </Box>
+        {/** *** Carousal End **** */}
+
+
+        <Box className="complex-general-info">
+          {/** *** Intro Start **** */}
+          <Box>
+            <Box>
+              <Heading level="1" margin={{ top: '0' }}>{data.postgres.complex.name}</Heading>
             </Box>
-          ))}
-        </Carousel>
-      </Box>
-      {/** *** Carousal End **** */}
+            <Box margin={{ left: 'small' }}>
+              <Text size="xlarge">
+                {formatPriceRange(data.postgres.complex.minRent, data.postgres.complex.maxRent)}
+              </Text>
+            </Box>
+            <Box margin={{ top: 'small', left: 'small' }}>
+              <Text size="large">
+                {data.postgres.complex.contact.address}
+  , Rexburg ID
+              </Text>
+            </Box>
+          </Box>
+          {/** *** Intro End **** */}
 
-      {/** *** General Info Start **** */}
-      <Box>
-        <Box>
-          <Heading level="1">{data.postgres.complex.name}</Heading>
-        </Box>
-        <Box margin={{ left: 'small' }}>
-          <Text size="xlarge">
-            {formatPriceRange(data.postgres.complex.minRent, data.postgres.complex.maxRent)}
-          </Text>
-        </Box>
-        <Box margin={{ top: 'small', left: 'small' }}>
-          <Text size="large">
-            {data.postgres.complex.contact.address}
-, Rexburg ID
-          </Text>
+          {/** *** Description Start **** */}
+          <Box className="complex-description-box">
+            <Paragraph>
+              {data.postgres.complex.description || 'No description provided.'}
+            </Paragraph>
+            <Text>- Management</Text>
+          </Box>
+          {/** *** Description End **** */}
         </Box>
       </Box>
-      {/** *** General Info End **** */}
 
-      {/** *** Description Start **** */}
-      <Box className="complex-description-box">
-        <Paragraph>
-          {data.postgres.complex.description || 'No description provided.'}
-        </Paragraph>
-        <Text>- Management</Text>
-      </Box>
-      {/** *** Description End **** */}
 
       {/** *** Floorplans Start **** */}
       <Box>
