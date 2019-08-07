@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: 'BYUI Approved Housing',
+    title: 'Skrilla',
     description: 'Some not very long description.  I think this is for SEO.',
     author: '@baaae',
   },

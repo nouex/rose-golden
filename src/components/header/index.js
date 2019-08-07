@@ -5,6 +5,8 @@ import {
   Box, Heading, Button, Anchor,
 } from 'grommet';
 
+import SkrillaIcon from '../../../static/icons/skrilla.svg';
+
 const Header = ({ siteTitle }) => (
   <Box
     as="header"
@@ -17,19 +19,14 @@ const Header = ({ siteTitle }) => (
       margin={{ vertical: '0', horizontal: 'auto' }}
       width="xlarge"
     >
-      <Heading
-        level="1"
-        margin="0"
+      <Link
+        to="/"
+        style={{
+          color: 'white',
+        }}
       >
-        <Link
-          to="/"
-          style={{
-            color: 'white',
-          }}
-        >
-          <Anchor label={siteTitle} color="brand" style={{ textDecoration: 'none' }} as="span" />
-        </Link>
-      </Heading>
+        <SkrillaIcon />
+      </Link>
       <Box
         direction="row"
       >
