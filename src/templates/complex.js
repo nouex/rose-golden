@@ -102,13 +102,13 @@ const Complex = ({ data }) => (
         <DataTable
           columns={[
             {
-              property: 'Plan 1',
-              header: <Text>Name</Text>,
+              property: 'name',
+              header: <Text>Plan</Text>,
               primary: true,
             },
             {
-              property: 'Plan 2',
-              header: 'Complete',
+              property: 'percent',
+              header: 'Sum Graphic',
               render: datum => (
                 <Box pad={{ vertical: 'xsmall' }}>
                   <Meter
@@ -119,12 +119,28 @@ const Complex = ({ data }) => (
                 </Box>
               ),
             },
+            {
+              property: 'beds',
+              header: 'Beds',
+            },
+            {
+              property: 'baths',
+              header: 'Baths',
+            },
           ]}
           data={[
-            { name: 'Alan', percent: 20 },
-            { name: 'Bryan', percent: 30 },
-            { name: 'Chris', percent: 40 },
-            { name: 'Eric', percent: 80 },
+            {
+              name: 'Single', percent: 20, beds: 2, baths: 1,
+            },
+            {
+              name: 'Basic', percent: 30, beds: 4, baths: 2,
+            },
+            {
+              name: 'Lux', percent: 40, beds: 6, baths: 3,
+            },
+            {
+              name: 'Platinum', percent: 80, beds: 8, baths: 4,
+            },
           ]}
         />
       </Box>
