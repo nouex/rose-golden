@@ -85,7 +85,7 @@ const Complex = ({ data }) => (
           {/** *** Intro End **** */}
 
           {/** *** Description Start **** */}
-          <Box className="complex-description-box">
+          <Box className="complex-description-box" margin={{ left: 'small' }}>
             <Paragraph>
               {data.postgres.complex.description || 'No description provided.'}
             </Paragraph>
