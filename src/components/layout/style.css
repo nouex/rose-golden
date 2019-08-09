@@ -56,3 +56,7 @@ a {
     padding: 0 50px;
   }
 }
+
+.complex-card:hover {
+  transform: scale(1.01);
+}
