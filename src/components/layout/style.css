@@ -57,6 +57,6 @@ a {
   }
 }
 
-.complex-card:hover {
+.scale-on-hover:hover {
   transform: scale(1.01);
 }

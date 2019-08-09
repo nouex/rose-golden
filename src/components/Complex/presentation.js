@@ -11,7 +11,7 @@ slug.defaults.mode = "rfc3986"
 const ComplexPresentation = ({data, icons}) => {
   return (
     <Box margin={{bottom: "medium"}}>
-      <Link to={`/${slug(data.name)}`} style={{height: "100%"}} className="complex-card">
+      <Link to={`/${slug(data.name)}`} style={{height: "100%"}} className="scale-on-hover">
         <Box pad="none" align="start" border={{all: "xsmall"}} gap="xsmall" width="320px" height="100%" as="article" background="light-3">
           <ComplexImage name={data.thumbnail.slug}/>
           <Box pad="xsmall" width="100%" className="complex-card-title">
