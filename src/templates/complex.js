@@ -27,7 +27,7 @@ const Complex = ({ data }) => (
       <Box className="complex-top" pad={{ top: 'medium' }}>
         {/** *** Carousal Start **** */}
         <Box width="600px" margin={{ horizontal: 'auto', bottom: 'medium' }} className="complex-carousel">
-          <Carousel fill>
+          <Carousel fill play="5000">
             { data.postgres.complex.images.map(image => (
               <Box width="550px" margin={{ horizontal: 'auto' }} key={image.id}>
                 <Image fit="contain" src={image.slug} />
