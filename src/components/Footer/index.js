@@ -11,12 +11,17 @@ const Footer = () => (
     <Box
       margin={{ vertical: '0', horizontal: 'auto' }}
       width="xlarge"
+      direction="row"
     >
       ©
+      {`${new Date().getFullYear()} `}
+      built with
       {' '}
-      {new Date().getFullYear()}
+      {'\u2665'}
       {' '}
-      {'built with \u2665 by xoxo'}
+by
+      {' '}
+      <a href="https://github.com/baaae" target="_blank" style={{ textDecoration: 'underline' }}>xoxo</a>
     </Box>
   </Box>
 );
