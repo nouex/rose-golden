@@ -31,7 +31,7 @@ const Sort = ({ onSave, onChange, onClose, value }) => {
   return (
     <DropButton
       dropContent={<Content onSave={onSave} onChange={onChange} value={value} />}
-      label={<SortIcon />}
+      label={<Box direction="row" align="center">Sort<SortIcon /></Box>}
       onClose={onClose}
       dropAlign={{
         top: "bottom",

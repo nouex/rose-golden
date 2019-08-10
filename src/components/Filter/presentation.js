@@ -36,11 +36,23 @@ Content.propTypes = {
   settings: PropTypes.object.isRequired
 }
 
-const Filter = ({onFieldChange, onSubmit, onDropButtonClose, settings}) => {
+export const Label = () => {
+  return (
+    <Box align="center" direction="row">Filter
+      <FilterIcon/>
+    </Box>
+  )
+}
+
+Label.propTypes = {
+
+}
+
+export const Filter = ({onFieldChange, onSubmit, onDropButtonClose, settings}) => {
   return (
     <DropButton
       onClose={onDropButtonClose}
-      label={<FilterIcon/>}
+      label={<Label />}
       margin={{right: "small"}}
       dropAlign={{
         top: "bottom",
