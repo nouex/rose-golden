@@ -5,10 +5,17 @@ import sortOn from 'sort-on';
 
 // TODO: name should be in all caps or all lowercase before comparing
 
-const sortingAlgorithms = {
-  name: (arr) => sortOn(arr, "name"),
-  rent: (arr) => sortOn(arr, "minRent"),
-  size: (arr) => sortOn(arr, "studentCapacity")
+const algos = {
+  asc: {
+    name: (arr) => sortOn(arr, "name"),
+    rent: (arr) => sortOn(arr, "minRent"),
+    size: (arr) => sortOn(arr, "studentCapacity")
+  },
+  desc: { /* filled programatically */}
 }
 
-export default sortingAlgorithms
+Object.keys(algos.asc).forEach((key) => {
+  algos.desc[key] = arr => algos.asc[key](arr).reverse()
+})
+
+export default algos

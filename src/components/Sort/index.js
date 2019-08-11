@@ -4,15 +4,21 @@ import PropTypes from 'prop-types';
 import SortPresentation from './presentation';
 
 class Sort extends React.PureComponent {
-  savedValue = "name"
   state = {
-    currentValue: "name"
+    currentValue: "name",
+    isAscending: true
+  }
+
+  saved = {
+    value: name,
+    isAscending: true
   }
 
   static onSave() {
-    if (this.savedValue !== this.state.currentValue) {
-      this.savedValue = this.state.currentValue
-      this.props.onUpdate(this.savedValue)
+    if (this.saved.value !== this.state.currentValue || this.saved.isAscending !== this.state.isAscending) {
+      this.saved.value = this.state.currentValue
+      this.saved.isAscending = this.state.isAscending
+      this.props.onUpdate(this.saved.value, this.saved.isAscending)
     }
   }
 
@@ -24,7 +30,14 @@ class Sort extends React.PureComponent {
 
   static onClose() {
     this.setState({
-      currentValue: this.savedValue
+      currentValue: this.saved.value,
+      isAscending: this.saved.isAscending
+    })
+  }
+
+  static onOrderChange() {
+    this.setState({
+      isAscending: !this.state.isAscending
     })
   }
 
@@ -34,11 +47,12 @@ class Sort extends React.PureComponent {
     this.onSave = Sort.onSave.bind(this)
     this.onChange = Sort.onChange.bind(this)
     this.onClose = Sort.onClose.bind(this)
+    this.onOrderChange = Sort.onOrderChange.bind(this)
   }
 
   render() {
     return (
-      <SortPresentation onSave={this.onSave} onChange={this.onChange} onClose={this.onClose} value={this.state.currentValue}/>
+      <SortPresentation onSave={this.onSave} onChange={this.onChange} onClose={this.onClose} onOrderChange={this.onOrderChange} value={this.state.currentValue} isAscending={this.state.isAscending}/>
     )
   }
 }

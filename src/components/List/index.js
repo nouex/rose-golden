@@ -3,7 +3,7 @@ import { StaticQuery, graphql } from 'gatsby';
 import PropTypes from 'prop-types'
 
 import ListPresentation from "./presentation";
-import sortingAlgorithms from './sorting-algorithms';
+import algos from './sorting-algorithms';
 
 /**
  * Implement with a class component and then try doing the same thing but with hooks.
@@ -26,8 +26,9 @@ export class List extends React.Component {
     })
   }
 
-  static onSortUpdate(sortBy) {
-    const sortedComplexes = sortingAlgorithms[sortBy](this.state.complexes)
+  static onSortUpdate(sortBy, isAscending) {
+    const sortedComplexes = (isAscending ? algos.asc : algos.desc)[sortBy](this.state.complexes )
+
     this.setState({
       complexes: sortedComplexes
     })
@@ -40,7 +41,7 @@ export class List extends React.Component {
     this.onSortUpdate = List.onSortUpdate.bind(this)
 
     let { data: { postgres: { allComplexesList }}} = props
-    allComplexesList = sortingAlgorithms.name(allComplexesList)
+    allComplexesList = algos.asc.name(allComplexesList)
     this.allComplexes = this.state.complexes = allComplexesList
   }
 
