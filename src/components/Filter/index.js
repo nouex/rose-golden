@@ -26,7 +26,7 @@ class Filter extends React.PureComponent {
       settings[name] = synEvent.target.checked
     }
 
-    const onSubmit = () => {
+    const onSave = () => {
       const shouldUpdate = Object.keys(settings).some((name) => settings[name] !== this.oldSettings[name])
       if (shouldUpdate) {
         Object.assign(this.oldSettings, settings)
@@ -40,7 +40,7 @@ class Filter extends React.PureComponent {
 
 
     return (
-      <FilterPresentation onFieldChange={onFieldChange} onSubmit={onSubmit} settings={settings} onDropButtonClose={onDropButtonClose}/>
+      <FilterPresentation onFieldChange={onFieldChange} onSave={onSave} settings={settings} onDropButtonClose={onDropButtonClose}/>
     )
   }
 }
