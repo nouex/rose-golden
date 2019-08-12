@@ -5,8 +5,7 @@ import PropTypes from 'prop-types';
 
 export const Content = ({onFieldChange, onSubmit, settings}) => {
   return (
-    <Box width="small" background="light-1">
-      Filter by:
+    <Box width="small" pad="10px 5px 0" background="light-1">
       <Form onSubmit={onSubmit}>
         {
           Object.keys(settings).map((name) => {
@@ -24,7 +23,7 @@ export const Content = ({onFieldChange, onSubmit, settings}) => {
             )
           })
         }
-        <Button type="submit" primary label="Save" />
+        <Button type="submit" primary label="Save" margin={{top: "xsmall"}} />
       </Form>
     </Box>
   )
@@ -54,10 +53,7 @@ export const Filter = ({onFieldChange, onSubmit, onDropButtonClose, settings}) =
       onClose={onDropButtonClose}
       label={<Label />}
       margin={{right: "small"}}
-      dropAlign={{
-        top: "bottom",
-        right: "right"
-      }}
+      dropAlign={{"top": "bottom", "left": "left"}}
       dropContent={<Content onSubmit={onSubmit} onFieldChange={onFieldChange} settings={settings}/>}
       />
   )
