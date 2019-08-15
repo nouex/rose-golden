@@ -18,8 +18,8 @@ export class List extends React.Component {
   }
 
   static onFilterUpdate(settings) {
-    const fieldsThatMustBeTruthy = Object.keys(settings).filter((name) => settings[name])
-    const filteredComplexes = this.allComplexes.filter((complex) => fieldsThatMustBeTruthy.every((name) => complex[name] === true))
+    // TODO: optimize by matching agasint settings that are "turned on"
+    const filteredComplexes = this.allComplexes.filter(complex => settings.every(setting => setting.isMatch(complex)))
     // TODO: compare nextStae to previous state and update only if they differ
     this.setState({
       complexes: filteredComplexes

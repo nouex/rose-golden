@@ -8,17 +8,16 @@ export const Content = ({onFieldChange, onSave, settings}) => {
     <Box width="small" pad="10px 5px 0" background="light-1">
       <Form onSubmit={onSave}>
         {
-          Object.keys(settings).map((name) => {
-            const value = settings[name]
+          settings.map(({type, value, key, name}) => {
             return (
               <FormField
-                key={name}
-                name={name}
+                key={key}
+                name={key}
                 component={CheckBox}
                 pad
                 label={name}
                 checked={value}
-                onChange={onFieldChange.bind(null, name )}
+                onChange={onFieldChange.bind(null, key )}
               />
             )
           })
@@ -32,7 +31,7 @@ export const Content = ({onFieldChange, onSave, settings}) => {
 Content.propTypes = {
   onSave: PropTypes.func.isRequired,
   onFieldChange: PropTypes.func.isRequired,
-  settings: PropTypes.object.isRequired
+  settings: PropTypes.array.isRequired
 }
 
 export const Label = () => {
@@ -63,7 +62,7 @@ Filter.propTypes = {
   onSave: PropTypes.func.isRequired,
   onFieldChange: PropTypes.func.isRequired,
   onDropButtonClose: PropTypes.func.isRequired,
-  settings: PropTypes.object.isRequired
+  settings: PropTypes.array.isRequired
 }
 
 export default Filter
