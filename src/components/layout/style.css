@@ -60,3 +60,10 @@ a {
 .scale-on-hover:hover {
   transform: scale(1.01);
 }
+
+
+/**** Filter ****/
+
+.filter-gender-radio-button-group > label > div {
+  margin-right: 0;
+}

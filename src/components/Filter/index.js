@@ -11,6 +11,12 @@ export const findSettingByKey = (settings, key) => settings.find(setting => sett
 
 const initialSettings = [
   {
+    type: "gender",
+    value: "M",
+    key: "gender",
+    name: "Gender"
+  },
+  {
     type: "bool",
     value: false,
     key: "hasPrivateRoom",
@@ -53,6 +59,7 @@ export const types = {
       const [ selectedV1, selectedV2 ] = this.value,
             { [ this.key[0] ]: complexV1, [ this.key[1] ]: complexV2} = complex
 
+      // TODO: use an assertion lib
       if (selectedV1 > selectedV2) throw new Error("`Invalid: selectedV1 > selectedV2`")
       if (copmlexV1 > complexV2) throw new Error("`Invalid: complexV1 > complexV2`")
 
@@ -66,9 +73,9 @@ export const types = {
     }
   },
   "gender": {
-    isMatch: function (complex) {complex[this.key] === this.value},
-    hasChanged: function (oldSetting) {this.value !== oldSetting.value},
-    assignValue: function (synEvent) {this.value = synEvent.target.value} // FIXME: not sure
+    isMatch: function (complex) {return "B" === this.value || complex[this.key] === this.value || "B" === complex[this.key]},
+    hasChanged: function (oldSetting) {return this.value !== oldSetting.value},
+    assignValue: function (synEvent) { this.value = synEvent.target.value }
   },
   // "int": {
   //   isMatch: null,
@@ -107,6 +114,9 @@ class Filter extends React.PureComponent {
     const onFieldChange = (key, synEvent) => {
       const setting = findSettingByKey(this.state.settings, key)
       setting.assignValue(synEvent)
+      this.setState({
+        settings: cloneDeep(this.state.settings)
+      })
     }
 
     const onSave = () => {

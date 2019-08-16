@@ -1,7 +1,11 @@
 import React from 'react';
-import { DropButton, CheckBox, Box, Form, FormField, Button } from 'grommet';
+import { DropButton, CheckBox, Box, Form, FormField, Button, RadioButtonGroup } from 'grommet';
 import { Filter as FilterIcon } from 'grommet-icons';
 import PropTypes from 'prop-types';
+
+import GenderBothIcon from '../../../static/icons/gender-both.svg';
+import GenderMaleIcon from '../../../static/icons/gender-male.svg';
+import GenderFemaleIcon from '../../../static/icons/gender-female.svg';
 
 export const Content = ({onFieldChange, onSave, settings}) => {
   return (
@@ -9,17 +13,56 @@ export const Content = ({onFieldChange, onSave, settings}) => {
       <Form onSubmit={onSave}>
         {
           settings.map(({type, value, key, name}) => {
-            return (
-              <FormField
-                key={key}
-                name={key}
-                component={CheckBox}
-                pad
-                label={name}
-                checked={value}
-                onChange={onFieldChange.bind(null, key )}
-              />
-            )
+            switch (type) {
+              case "bool":
+                return (
+                  <FormField
+                    key={key}
+                    name={key}
+                    component={CheckBox}
+                    pad
+                    label={name}
+                    checked={value}
+                    onChange={onFieldChange.bind(null, key )}
+                  />
+                )
+
+              case "range":
+                return <div>range slider</div>
+
+              case "gender":
+                return (
+                  <RadioButtonGroup
+                    className="filter-gender-radio-button-group"
+                    direction="row"
+                    key={key}
+                    name="gender filter"
+                    options={[
+                      {
+                        value: "M",
+                        label: <GenderMaleIcon className="custom-icon"/>
+                      },
+                      {
+                        value: "F",
+                        label: <GenderFemaleIcon className="custom-icon" />
+                      },
+                      {
+                        value: "B",
+                        label: <GenderBothIcon className="custom-icon" />
+                      }
+                    ]}
+                    value={value}
+                    onChange={onFieldChange.bind(null, key)}
+                  />
+                )
+
+              case "int":
+                return <div>int</div>
+
+              default:
+                throw new Error(`unkonwn type: ${type}`)
+
+            }
           })
         }
         <Button type="submit" primary label="Save" margin={{top: "xsmall"}} />
