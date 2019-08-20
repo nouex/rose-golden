@@ -3,94 +3,12 @@ import PropTypes from 'prop-types';
 import cloneDeep from 'lodash.clonedeep';
 
 import FilterPresentation from "./presentation"
+import initialSettings from './settings.js';
 import { findSettingByKey } from './utils.js';
 
-// TODO: use a different dat structure that suites us better, instead of array, for settings
 // TODO:  think of the side effects of deep copying
 // TODO: as of now, we replace state.settings to trigger a re-render, however it would be more
 //       ideal if we replaced only what we changed and triggered a re-render
-
-// NOTE: settings are rendered in this order
-const initialSettings = [
-  {
-    type: "gender",
-    value: "M",
-    key: "gender",
-    name: "Gender"
-  },
-  {
-    type: "range",
-    value: [1000, 1300],
-    key: ["minRent", "maxRent"],
-    name: "Price Range"
-  },
-  {
-    type: "bool",
-    value: false,
-    key: "hasPrivateRoom",
-    name: "Private Room"
-  },
-  {
-    type: "bool",
-    value: false,
-    key: "hasMusicRoom",
-    name: "Music Room"
-  },
-  {
-    type: "bool",
-    value: false,
-    key: "hasWasher",
-    name: "Washer"
-  },
-  {
-    type: "bool",
-    value: false,
-    key: "isHouse",
-    name: "House"
-  }
-]
-
-export const types = {
-  "bool" : {
-    isMatch: function (complex) {return false === this.value || complex[this.key] === true},
-    hasChanged: function (oldSetting) { return this.value !== oldSetting.value},
-    assignValue: function (synEvent) { return this.value = synEvent.target.checked }
-  },
-  "range": {
-    isMatch: function (complex) {
-      const [ selectedV1, selectedV2 ] = this.value,
-            { [ this.key[0] ]: complexV1, [ this.key[1] ]: complexV2} = complex
-
-      // TODO: use an assertion lib
-      if (selectedV1 > selectedV2) throw new Error("`Invalid: selectedV1 > selectedV2`")
-      if (complexV1 > complexV2) throw new Error("`Invalid: complexV1 > complexV2`")
-
-      return !(selectedV2 < complexV1 || selectedV1 > complexV2)
-    },
-    hasChanged: function (oldSetting) {
-      return this.value[0] !== oldSetting.value[0] || this.value[1] !== oldSetting.value[1]
-    },
-    assignValue: function (range) {
-      this.value = [range.min, range.max]
-    }
-  },
-  "gender": {
-    isMatch: function (complex) {return "B" === this.value || complex[this.key] === this.value || "B" === complex[this.key]},
-    hasChanged: function (oldSetting) {return this.value !== oldSetting.value},
-    assignValue: function (synEvent) { this.value = synEvent.target.value }
-  },
-  // "int": {
-  //   isMatch: null,
-  //   hasChanged: null,
-  //   assignValue: null
-  // }
-}
-
-initialSettings.forEach(setting => {
-  setting.isMatch = types[setting.type].isMatch
-  setting.hasChanged = types[setting.type].hasChanged
-  setting.assignValue = types[setting.type].assignValue
-})
 
 class Filter extends React.PureComponent {
   state = {
@@ -98,12 +16,6 @@ class Filter extends React.PureComponent {
   }
 
   oldSettings = null
-
-  /**
-   * isMatch()      object setting matches the given complex row, so it is not to be filtered out
-   * hasChanged()   old  setting value is not equal to current setting value
-   * assignValue()  assigns a value derived from syntheticEvent into the value field of the setting
-   */
 
   constructor(props) {
     super(props);
