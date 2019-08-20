@@ -3,18 +3,26 @@ import PropTypes from 'prop-types';
 import cloneDeep from 'lodash.clonedeep';
 
 import FilterPresentation from "./presentation"
+import { findSettingByKey } from './utils.js';
 
 // TODO: use a different dat structure that suites us better, instead of array, for settings
 // TODO:  think of the side effects of deep copying
+// TODO: as of now, we replace state.settings to trigger a re-render, however it would be more
+//       ideal if we replaced only what we changed and triggered a re-render
 
-export const findSettingByKey = (settings, key) => settings.find(setting => setting.key === key)
-
+// NOTE: settings are rendered in this order
 const initialSettings = [
   {
     type: "gender",
     value: "M",
     key: "gender",
     name: "Gender"
+  },
+  {
+    type: "range",
+    value: [1000, 1300],
+    key: ["minRent", "maxRent"],
+    name: "Price Range"
   },
   {
     type: "bool",
@@ -39,13 +47,7 @@ const initialSettings = [
     value: false,
     key: "isHouse",
     name: "House"
-  },
-  // {
-  //   type: "range",
-  //   value: [1000, 1300],
-  //   key: ["minRent", "maxRent"],
-  //   name: "Price Range"
-  // }
+  }
 ]
 
 export const types = {
@@ -61,15 +63,15 @@ export const types = {
 
       // TODO: use an assertion lib
       if (selectedV1 > selectedV2) throw new Error("`Invalid: selectedV1 > selectedV2`")
-      if (copmlexV1 > complexV2) throw new Error("`Invalid: complexV1 > complexV2`")
+      if (complexV1 > complexV2) throw new Error("`Invalid: complexV1 > complexV2`")
 
-      return !(selectedV2 < copmlexV1 || selectedV1 > copmlexV2)
+      return !(selectedV2 < complexV1 || selectedV1 > complexV2)
     },
     hasChanged: function (oldSetting) {
       return this.value[0] !== oldSetting.value[0] || this.value[1] !== oldSetting.value[1]
     },
-    assignValue: (synEvent) => {
-      // ...
+    assignValue: function (range) {
+      this.value = [range.min, range.max]
     }
   },
   "gender": {

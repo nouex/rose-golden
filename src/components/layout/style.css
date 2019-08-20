@@ -67,3 +67,16 @@ a {
 .filter-gender-radio-button-group > label > div {
   margin-right: 0;
 }
+
+.maxLabel {
+  color: blue;
+}
+
+/* HACK: */
+.input-range__label--min > .input-range__label-container {
+  left: 0 !important;
+}
+
+.input-range__label--max > .input-range__label-container {
+  left: 0 !important;
+}

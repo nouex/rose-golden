@@ -2,10 +2,13 @@ import React from 'react';
 import { DropButton, CheckBox, Box, Form, FormField, Button, RadioButtonGroup } from 'grommet';
 import { Filter as FilterIcon } from 'grommet-icons';
 import PropTypes from 'prop-types';
+import InputRange from 'react-input-range';
 
+import { formatter } from '../../utils/format-price-range.js';
 import GenderBothIcon from '../../../static/icons/gender-both.svg';
 import GenderMaleIcon from '../../../static/icons/gender-male.svg';
 import GenderFemaleIcon from '../../../static/icons/gender-female.svg';
+import "react-input-range/lib/css/index.css"
 
 export const Content = ({onFieldChange, onSave, settings}) => {
   return (
@@ -28,7 +31,17 @@ export const Content = ({onFieldChange, onSave, settings}) => {
                 )
 
               case "range":
-                return <div>range slider</div>
+                return (
+                  <Box margin={{vertical: "medium"}}>
+                    <InputRange
+                      key={key[0] + "-" + key[1]}
+                      maxValue={1700}
+                      minValue={800}
+                      value={{ min: value[0], max: value[1] }}
+                      formatLabel={val => formatter.format(val)}
+                      onChange={value => onFieldChange(key, value)} />
+                  </Box>
+                )
 
               case "gender":
                 return (
