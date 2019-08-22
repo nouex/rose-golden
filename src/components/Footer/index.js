@@ -16,11 +16,8 @@ const Footer = () => (
       ©
       {`${new Date().getFullYear()} `}
       built with
-      {' '}
       {'\u2665'}
-      {' '}
-by
-      {' '}
+      {' -'}
       <a href="https://github.com/baaae" target="_blank" style={{ textDecoration: 'underline' }}>xoxo</a>
     </Box>
   </Box>

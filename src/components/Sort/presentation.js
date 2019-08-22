@@ -8,7 +8,7 @@ import PropTypes from 'prop-types';
 export const Content = ({ onSave, onChange, value, onOrderChange, isAscending }) => {
   return (
     <Box width="small" pad="10px 5px 0" background="light-1">
-      <Box align="end">
+      <Box align="end" title="Order by Ascending?">
         <CheckBox
           toggle
           checked={isAscending}
