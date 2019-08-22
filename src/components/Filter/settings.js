@@ -43,6 +43,15 @@ export const typeHandlers = {
 }
 
 // NOTE: settings are rendered in this order
+/**
+ * {
+   type: bool|range|gender|int,
+   value: null|bool|int|arr(2), // null: it doesn't apply, arr: range, bool and int: strict comparison
+   key: string|arr(2) // arr only applies to range values
+   name: string
+ }
+
+ */
 const settings = [
   {
     type: "gender",
