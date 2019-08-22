@@ -29,16 +29,6 @@ const ComplexPresentation = ({data, icons}) => {
             <Box direction="row" justify="between" pad={{bottom: "small"}}>
              {icons}
             </Box>
-            <Box pad={{bottom: "small"}}>
-              <Box direction="row" justify="between">
-                <Text size="medium">student capacity</Text>
-                <Text color="dark-2">{data.studentCapacity}</Text>
-              </Box>
-              <Box direction="row" justify="between">
-                <Text size="medium">parking spaces</Text>
-                <Text color="dark-2">{data.parkingSpaces}</Text>
-              </Box>
-            </Box>
           </Box>
         </Box>
       </Link>
