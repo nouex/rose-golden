@@ -10,6 +10,7 @@ import Layout from '../components/layout';
 import SEO from '../components/seo';
 import Amenities from '../components/Amenities';
 import StaticMap from '../components/StaticMap';
+import AdditionalInfo from '../components/AdditionalInfo';
 import formatPriceRange from '../utils/format-price-range';
 import GenderBothIcon from '../../static/icons/gender-both.svg';
 import GenderMaleIcon from '../../static/icons/gender-male.svg';
@@ -153,6 +154,16 @@ const Complex = ({ data }) => (
       </Box>
       <Amenities attributes={cloneDeep(data.postgres.complex)} />
       {/** *** Amenities End **** */}
+
+
+      {/** *** Additional Info Start **** */}
+      <Box>
+        <Heading level="2">Additional Info</Heading>
+        <AdditionalInfo complex={data.postgres.complex} />
+      </Box>
+      {/** *** Additional Info End **** */}
+
+
       {/** *** Map Start **** */}
       <Box direction="row" justify="center">
         <StaticMap address={data.postgres.complex.contact.address} />
@@ -209,6 +220,10 @@ export const query = graphql`
         hasWifi
         isPetFriendly
         hasExtraStorage
+        studentCapacity
+        parkingSpaces
+        processingFee
+        securityDeposit
         contact: contactByContact {
           id
           address
