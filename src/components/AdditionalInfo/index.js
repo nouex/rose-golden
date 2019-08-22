@@ -6,6 +6,10 @@ import StudentCapacityIcon from '../../../static/icons/students.svg';
 import ParkingSpacesIcon from '../../../static/icons/parking-lot.svg';
 import ProcessingFeeIcon from '../../../static/icons/fees.svg';
 import SecurityDepositIcon from '../../../static/icons/deposit.svg';
+import { formatter as priceFormatter } from '../../utils/format-price-range';
+
+// TODO: instead of using separate arrays for each fiel property, use a single array of objects that
+//       contain properties for that field
 
 const fields = [
   "studentCapacity",
@@ -28,15 +32,22 @@ const icons = [
   <SecurityDepositIcon className="custom-icon" />
 ]
 
+const formatters = [
+  v => v,
+  v => v,
+  priceFormatter.format.bind(priceFormatter),
+  priceFormatter.format.bind(priceFormatter)
+]
+
 const AdditionalInfo = ({ complex }) => {
   const names = fieldNames.map((name, index) => (
     <Box direction="row">
       { icons[index] }
-      <Box margin={{ bottom: "xsmall", left: "small" }}>{name}</Box>
+      <Box margin={{ bottom: "small", left: "small" }}>{name}</Box>
     </Box>
   ))
 
-  const values = fields.map(field => <Box margin={{bottom: "xsmall"}}>{complex[field] || "N/A"}</Box>)
+  const values = fields.map((field, index) => <Box margin={{bottom: "xsmall"}}>{formatters[index](complex[field]) || "N/A"}</Box>)
 
   return (
     <Box direction="row" justify="around">
