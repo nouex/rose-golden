@@ -54,7 +54,6 @@ const StaticMap = ({ address }) => {
         marginTop: '50px',
         width: '100vw',
       }}
-      className="scale-on-hover"
       width="1280"
       src={src}
       alt="Google Map of Rexburg, ID"
