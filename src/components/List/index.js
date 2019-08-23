@@ -39,13 +39,46 @@ export class List extends React.Component {
     const complex = this.state.complexes.find(c => c.id === complexId)
     const isFavorite = complex.isFavorite = !complex.isFavorite
 
+    // TODO: don't add if it's already present
+    const localStorageFavs = localStorage.getItem("favorites")
+
+    if (localStorageFavs === null) {
+      if (isFavorite) {
+        localStorage.setItem("favorites", complexId)
+      } else {
+        void(0)
+      }
+    } else {
+      if (isFavorite) {
+        localStorage.setItem("favorites", localStorageFavs + `:${complexId}`)
+      } else {
+        const localStorageFavsArr = localStorageFavs.split(":")
+
+        if (localStorageFavsArr.length === 1) {
+          localStorage.removeItem("favorites")
+        } else {
+          const indexToRemoveAt = localStorageFavsArr.findIndex(favId => favId === complexId)
+          localStorageFavsArr.splice(indexToRemoveAt, 1)
+          localStorage.setItem("favorites", localStorageFavsArr.join(":"))
+        }
+      }
+    }
+
     // FIXME: this will work but is it really the best option ???
     this.forceUpdate()
   }
 
   static setFavorites(arr) {
-    // TODO: local storage...
     arr.forEach(complex => complex.isFavorite = false)
+
+    const localStorageFavs = localStorage.getItem("favorites")
+
+    if (localStorageFavs !== null) {
+      const favIds = localStorageFavs.split(":")
+      // QUESTION: what about when we don't find an id... what scenario would cause that ? and
+      // what do we do?
+      favIds.forEach(id => arr.find(c => c.id === id).isFavorite = true)
+    }
   }
 
   constructor(props) {
@@ -56,7 +89,7 @@ export class List extends React.Component {
     this.onToggleFavorite = List.onToggleFavorite.bind(this)
 
     let { data: { postgres: { allComplexesList }}} = props
-    
+
     List.setFavorites(allComplexesList)
     allComplexesList = algos.asc.name(allComplexesList)
     this.allComplexes = this.state.complexes = allComplexesList
