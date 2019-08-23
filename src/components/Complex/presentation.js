@@ -5,12 +5,14 @@ import { Box, Text } from 'grommet';
 import slug from 'slug';
 
 import ComplexImage from '../ComplexImage';
+import Favorite from '../Favorite';
 
 slug.defaults.mode = "rfc3986"
 
-const ComplexPresentation = ({data, icons}) => {
+const ComplexPresentation = ({data, icons, onToggleFavorite}) => {
   return (
-    <Box margin={{bottom: "medium"}}>
+    <Box margin={{bottom: "medium"}} className="favorite-container-parent">
+      <Favorite onToggleFavorite={onToggleFavorite} isFavorite={data.isFavorite}/>
       <Link to={`/${slug(data.name)}`} style={{height: "100%"}} className="scale-on-hover">
         <Box pad="none" align="start" border={{all: "xsmall"}} gap="xsmall" width="320px" height="100%" as="article" background="light-3">
           <ComplexImage name={data.thumbnail.slug}/>
@@ -38,7 +40,8 @@ const ComplexPresentation = ({data, icons}) => {
 
 ComplexPresentation.propTypes = {
   data: PropTypes.object.isRequired,
-  icons: PropTypes.array.isRequired
+  icons: PropTypes.array.isRequired,
+  onToggleFavorite: PropTypes.func.isRequired
 }
 
 export default ComplexPresentation

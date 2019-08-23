@@ -80,3 +80,24 @@ a {
 .input-range__label--max > .input-range__label-container {
   left: 0 !important;
 }
+
+
+/**** Complex Card ****/
+.favorite-container-parent {
+  position: relative;
+}
+
+.favorite-container {
+  background-color: rgba(255, 255, 255, 0.8);
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 38px;
+  width: 38px;
+  z-index: 1;
+}
+
+.favorite-star {
+  height: 35px;
+  width: 35px;
+}
