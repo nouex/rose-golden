@@ -12,18 +12,23 @@ import algos from './sorting-algorithms';
 
 export class List extends React.Component {
   allComplexes = null
+  filteredComplexesBeforeFavorites = null
 
   state = {
     complexes: null,
-    showFavorites: false
+    isShowingFavorites: false
   }
 
   static onFilterUpdate(settings) {
     // TODO: optimize by matching agasint settings that are "turned on"
     const filteredComplexes = this.allComplexes.filter(complex => settings.every(setting => setting.isMatch(complex)))
     // TODO: compare nextStae to previous state and update only if they differ
+
+    if (this.state.isShowingFavorites) this.filteredComplexesBeforeFavorites = null
+
     this.setState({
-      complexes: filteredComplexes
+      complexes: filteredComplexes,
+      isShowingFavorites: false
     })
   }
 
@@ -70,17 +75,20 @@ export class List extends React.Component {
   }
 
   static onToggleFavorites() {
-    // ...
-    this.setState({
-      showFavorites: !this.state.showFavorites
-    })
-  }
+    const isShowingFavorites = !this.state.isShowingFavorites
+    let complexes
 
-  static onFavoritesClick() {
-    const filteredComplexes = this.allComplexes.filter(complex => complex.isFavorite)
+    if (isShowingFavorites) {
+      this.filteredComplexesBeforeFavorites = this.state.complexes
+      complexes = this.allComplexes.filter(complex => complex.isFavorite)
+    } else {
+      complexes = this.filteredComplexesBeforeFavorites
+      this.filteredComplexesBeforeFavorites = null
+    }
 
     this.setState({
-      complexes: filteredComplexes
+      isShowingFavorites,
+      complexes
     })
   }
 
@@ -103,7 +111,7 @@ export class List extends React.Component {
     this.onFilterUpdate = List.onFilterUpdate.bind(this)
     this.onSortUpdate = List.onSortUpdate.bind(this)
     this.onToggleFavorite = List.onToggleFavorite.bind(this)
-    this.onFavoritesClick = List.onFavoritesClick.bind(this)
+    this.onToggleFavorites = List.onToggleFavorites.bind(this)
 
     let { data: { postgres: { allComplexesList }}} = props
 
@@ -115,11 +123,11 @@ export class List extends React.Component {
   render() {
     return <ListPresentation
             complexes={this.state.complexes}
-            showFavorites={this.state.showFavorites}
+            isShowingFavorites={this.state.isShowingFavorites}
             onFilterUpdate={this.onFilterUpdate}
             onSortUpdate={this.onSortUpdate}
             onToggleFavorite={this.onToggleFavorite}
-            onFavoritesClick={this.onFavoritesClick} />
+            onToggleFavorites={this.onToggleFavorites} />
   }
 }
 

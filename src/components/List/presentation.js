@@ -7,11 +7,11 @@ import Filter from '../Filter';
 import Sort from '../Sort';
 import Favorites from '../Favorites';
 
-const List = ({complexes, showFavorites, onFilterUpdate, onSortUpdate, onToggleFavorite, onFavoritesClick }) => (
+const List = ({complexes, isShowingFavorites, onFilterUpdate, onSortUpdate, onToggleFavorite, onToggleFavorites }) => (
   <div className="list">
     <Filter onUpdate={onFilterUpdate}/>
     <Sort onUpdate={onSortUpdate} />
-    <Favorites onClick={onFavoritesClick} showFavorites={showFavorites} />
+    <Favorites onClick={onToggleFavorites} isShowingFavorites={isShowingFavorites} />
     <Box
       direction="row"
       justify="between"
@@ -31,11 +31,11 @@ const List = ({complexes, showFavorites, onFilterUpdate, onSortUpdate, onToggleF
 
 List.propTypes = {
   complexes: PropTypes.array.isRequired,
-  showFavorites: PropTypes.bool.isRequired,
+  isShowingFavorites: PropTypes.bool.isRequired,
   onFilterUpdate: PropTypes.func.isRequired,
   onSortUpdate: PropTypes.func.isRequired,
   onToggleFavorite: PropTypes.func.isRequired,
-  onFavoritesClick: PropTypes.func.isRequired
+  onToggleFavorites: PropTypes.func.isRequired
 }
 
 export default List;
