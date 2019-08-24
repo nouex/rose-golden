@@ -5,11 +5,13 @@ import { Box } from 'grommet';
 import Complex from '../Complex';
 import Filter from '../Filter';
 import Sort from '../Sort';
+import Favorites from '../Favorites';
 
-const List = ({complexes, onFilterUpdate, onSortUpdate, onToggleFavorite}) => (
+const List = ({complexes, showFavorites, onFilterUpdate, onSortUpdate, onToggleFavorite, onFavoritesClick }) => (
   <div className="list">
     <Filter onUpdate={onFilterUpdate}/>
     <Sort onUpdate={onSortUpdate} />
+    <Favorites onClick={onFavoritesClick} showFavorites={showFavorites} />
     <Box
       direction="row"
       justify="between"
@@ -29,9 +31,11 @@ const List = ({complexes, onFilterUpdate, onSortUpdate, onToggleFavorite}) => (
 
 List.propTypes = {
   complexes: PropTypes.array.isRequired,
+  showFavorites: PropTypes.bool.isRequired,
   onFilterUpdate: PropTypes.func.isRequired,
   onSortUpdate: PropTypes.func.isRequired,
-  onToggleFavorite: PropTypes.func.isRequired
+  onToggleFavorite: PropTypes.func.isRequired,
+  onFavoritesClick: PropTypes.func.isRequired
 }
 
 export default List;

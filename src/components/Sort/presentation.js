@@ -53,7 +53,7 @@ const Sort = ({ onSave, onChange, onClose, onOrderChange, value, isAscending }) 
     <DropButton
       dropContent={<Content onSave={onSave} onChange={onChange} onOrderChange={onOrderChange} value={value} isAscending={isAscending} />}
       dropAlign={{"top": "top", "left": "left"}}
-      label={<Box direction="row" align="center">Sort<SortIcon /></Box>}
+      label={<Box direction="row" align="center"><SortIcon />Sort</Box>}
       onClose={onClose}
       dropAlign={{
         top: "bottom",

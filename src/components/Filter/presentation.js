@@ -92,8 +92,9 @@ Content.propTypes = {
 
 export const Label = () => {
   return (
-    <Box align="center" direction="row">Filter
+    <Box align="center" direction="row">
       <FilterIcon/>
+      Filter
     </Box>
   )
 }

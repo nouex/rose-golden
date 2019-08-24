@@ -4,7 +4,7 @@ import { Box } from 'grommet';
 import { Star } from 'grommet-icons';
 
 const Favorite = ({ onToggleFavorite, isFavorite }) => {
-  const color = isFavorite ? "gold" : "dark-2"
+  const color = isFavorite ? "gold" : "white"
 
   return (
     <Box className="favorite-container" title="favorite" onClick={onToggleFavorite}>

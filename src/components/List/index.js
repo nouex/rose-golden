@@ -14,7 +14,8 @@ export class List extends React.Component {
   allComplexes = null
 
   state = {
-    complexes: null
+    complexes: null,
+    showFavorites: false
   }
 
   static onFilterUpdate(settings) {
@@ -68,6 +69,21 @@ export class List extends React.Component {
     this.forceUpdate()
   }
 
+  static onToggleFavorites() {
+    // ...
+    this.setState({
+      showFavorites: !this.state.showFavorites
+    })
+  }
+
+  static onFavoritesClick() {
+    const filteredComplexes = this.allComplexes.filter(complex => complex.isFavorite)
+
+    this.setState({
+      complexes: filteredComplexes
+    })
+  }
+
   static setFavorites(arr) {
     arr.forEach(complex => complex.isFavorite = false)
 
@@ -87,6 +103,7 @@ export class List extends React.Component {
     this.onFilterUpdate = List.onFilterUpdate.bind(this)
     this.onSortUpdate = List.onSortUpdate.bind(this)
     this.onToggleFavorite = List.onToggleFavorite.bind(this)
+    this.onFavoritesClick = List.onFavoritesClick.bind(this)
 
     let { data: { postgres: { allComplexesList }}} = props
 
@@ -98,9 +115,11 @@ export class List extends React.Component {
   render() {
     return <ListPresentation
             complexes={this.state.complexes}
+            showFavorites={this.state.showFavorites}
             onFilterUpdate={this.onFilterUpdate}
             onSortUpdate={this.onSortUpdate}
-            onToggleFavorite={this.onToggleFavorite} />
+            onToggleFavorite={this.onToggleFavorite}
+            onFavoritesClick={this.onFavoritesClick} />
   }
 }
 
