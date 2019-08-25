@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 
 import ListPresentation from "./presentation";
 import algos from './sorting-algorithms';
+import { getValue } from "../../utils/favorites";
 
 /**
  * Implement with a class component and then try doing the same thing but with hooks.
@@ -41,34 +42,9 @@ export class List extends React.Component {
   }
 
   static onToggleFavorite(complexId) {
-    // TODO: when do we instantiate complex.isFavorite ??? if at all??
-    const complex = this.state.complexes.find(c => c.id === complexId)
     const isFavorite = complex.isFavorite = !complex.isFavorite
 
-    // TODO: don't add if it's already present
-    const localStorageFavs = localStorage.getItem("favorites")
-
-    if (localStorageFavs === null) {
-      if (isFavorite) {
-        localStorage.setItem("favorites", complexId)
-      } else {
-        void(0)
-      }
-    } else {
-      if (isFavorite) {
-        localStorage.setItem("favorites", localStorageFavs + `:${complexId}`)
-      } else {
-        const localStorageFavsArr = localStorageFavs.split(":")
-
-        if (localStorageFavsArr.length === 1) {
-          localStorage.removeItem("favorites")
-        } else {
-          const indexToRemoveAt = localStorageFavsArr.findIndex(favId => favId === complexId)
-          localStorageFavsArr.splice(indexToRemoveAt, 1)
-          localStorage.setItem("favorites", localStorageFavsArr.join(":"))
-        }
-      }
-    }
+    toggle(complexId, isFavorite)
 
     // FIXME: this will work but is it really the best option ???
     this.forceUpdate()
@@ -93,16 +69,7 @@ export class List extends React.Component {
   }
 
   static setFavorites(arr) {
-    arr.forEach(complex => complex.isFavorite = false)
-
-    const localStorageFavs = localStorage.getItem("favorites")
-
-    if (localStorageFavs !== null) {
-      const favIds = localStorageFavs.split(":")
-      // QUESTION: what about when we don't find an id... what scenario would cause that ? and
-      // what do we do?
-      favIds.forEach(id => arr.find(c => c.id === id).isFavorite = true)
-    }
+    arr.forEach(complex => complex.isFavorite = getValue(complex.id))
   }
 
   constructor(props) {
