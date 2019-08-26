@@ -10,7 +10,7 @@ class Sort extends React.PureComponent {
   }
 
   saved = {
-    value: name,
+    value: "name",
     isAscending: true
   }
 
