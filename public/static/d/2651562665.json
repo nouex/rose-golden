@@ -1,0 +1,1 @@
+{"errors":[{"message":"column __local_0__.rent does not exist","locations":[{"line":3,"column":5}],"path":["postgres","allComplexesList"]}],"data":{"postgres":{"allComplexesList":null}}}
