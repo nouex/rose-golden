@@ -9,4 +9,7 @@ fi
 git checkout deploy;
 git rebase $1;
 npm run build;
+git add public/;
+git commit -m "deploy";
 git push origin deploy;
+git checkout master;
