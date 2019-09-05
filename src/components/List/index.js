@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 
 import ListPresentation from "./presentation";
 import algos from './sorting-algorithms';
-import { getValue } from "../../utils/favorites";
+import { getValue, toggle } from "../../utils/favorites";
 
 /**
  * Implement with a class component and then try doing the same thing but with hooks.
@@ -42,6 +42,7 @@ export class List extends React.Component {
   }
 
   static onToggleFavorite(complexId) {
+    const complex = this.state.complexes.find(c => c.id === complexId)
     const isFavorite = complex.isFavorite = !complex.isFavorite
 
     toggle(complexId, isFavorite)
