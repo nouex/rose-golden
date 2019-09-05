@@ -38,7 +38,8 @@ class Complex extends React.Component {
 
     this.onStarClick = Complex.onStarClick.bind(this)
 
-    this.state.isFavorite = getValue(props.data.postgres.complex.id)
+    if (typeof window !== "undefined")
+      this.state.isFavorite = getValue(props.data.postgres.complex.id)
   }
 
   render() {

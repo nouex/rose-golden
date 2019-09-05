@@ -82,7 +82,8 @@ export class List extends React.Component {
 
     let { data: { postgres: { allComplexesList }}} = props
 
-    List.setFavorites(allComplexesList)
+    if (typeof window !== "undefined")
+      List.setFavorites(allComplexesList)
     allComplexesList = algos.asc.name(allComplexesList)
     this.allComplexes = this.state.complexes = allComplexesList
   }
