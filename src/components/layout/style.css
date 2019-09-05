@@ -106,6 +106,8 @@ a {
 }
 
 .favorite-star {
-  height: 35px;
-  width: 35px;
+  /* TODO: avoid using !important, we currently use it bc the build classes take different
+      precendence order than the development build  */
+  height: 35px !important;
+  width: 35px !important;
 }
