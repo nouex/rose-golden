@@ -19,11 +19,15 @@ const List = ({complexes, isShowingFavorites, onFilterUpdate, onSortUpdate, onTo
       margin={{top: "xsmall"}}
       >
       {
-        complexes.map(comp =>
-          <Complex
-            complex={comp}
-            key={comp.id}
-            onToggleFavorite={onToggleFavorite.bind(null, comp.id)} />)
+        (
+          complexes.length > 0 ?
+            complexes.map(comp =>
+              <Complex
+                complex={comp}
+                key={comp.id}
+                onToggleFavorite={onToggleFavorite.bind(null, comp.id)} />) :
+            "Nothing to show"
+        )
       }
     </Box>
   </div>
