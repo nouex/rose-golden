@@ -15,7 +15,7 @@ const ComplexPresentation = ({data, icons, onToggleFavorite}) => {
       <Favorite onToggleFavorite={onToggleFavorite} isFavorite={data.isFavorite}/>
       <Link to={`/${slug(data.name)}`} style={{height: "100%"}} className="scale-on-hover">
         <Box pad="none" align="start" border={{all: "xsmall"}} gap="xsmall" width="320px" height="100%" as="article" background="light-3">
-          <ComplexImage name={data.thumbnail.slug}/>
+          <ComplexImage name={data.thumbnail.image.slug}/>
           <Box pad="xsmall" width="100%" className="complex-card-title">
             <Text size="xlarge">{data.name}</Text>
             <Box as="div" width="100%" height="0" pad={{bottom: "xsmall"}} style={{borderBottom: "1px solid rgba(68, 68, 68, 0.6)"}}></Box>

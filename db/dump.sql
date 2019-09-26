@@ -79,7 +79,6 @@ CREATE TABLE public.complexes (
     "vacancyStatus" text,
     "wardInfo" text,
     "floorPlans" text,
-    thumbnail uuid,
     gender public.gender,
     "minRent" integer,
     "maxRent" integer,
@@ -130,14 +129,26 @@ CREATE TABLE public.images (
 ALTER TABLE public.images OWNER TO amauri;
 
 --
+-- Name: thumbnails; Type: TABLE; Schema: public; Owner: amauri
+--
+
+CREATE TABLE public.thumbnails (
+    complex uuid NOT NULL,
+    image uuid
+);
+
+
+ALTER TABLE public.thumbnails OWNER TO amauri;
+
+--
 -- Data for Name: complexes; Type: TABLE DATA; Schema: public; Owner: amauri
 --
 
-COPY public.complexes (id, name, description, "hasPrivateRoom", "hasMusicRoom", "hasWasher", "isHouse", "parkingSpaces", "processingFee", "securityDeposit", "vacancyStatus", "wardInfo", "floorPlans", thumbnail, gender, "minRent", "maxRent", contact, "studentCapacity", "hasHotTub", "hasOfficeCenter", "hasShuttleService", "hasFitnessCenter", "hasCable", "hasAirConditioning", "hasWifi", "isPetFriendly", "hasExtraStorage") FROM stdin;
-44fe8e92-01a8-41f1-804b-adf15af9324e	Spori Villa	Very convenient to college (across the street) and to downtown (2 blocks). Remodeled home next to N. side of campus. All utilities included. Plenty of off street parking for tenants. We limit the occupancy to 9 rather than the approved 10 to provide more living space. Free Laundry. Utilities included. High speed wireless included. Sunroom, patio, fire-pit, lawn.	t	f	t	t	10	0	150	\N	\N	\N	5a02ae83-79c1-4c1c-a6ca-3fd2dadc8fc0	M	950	950	db2c6476-4ca3-4f8f-bd31-0ed74be321b7	9	f	f	f	t	t	t	t	t	t
-c7794c9e-0430-498b-a68e-4b3b99c9b616	Centre Square (Men)	If you want to live in Zion, this is the place. We listened to your needs/wants and here they are. Extra storage, large kitchen & pantry, wonderful vanities, free washer & dryer in each apartment, study rooms, gathering rooms, music rooms, green space, etc. Come enjoy.	f	t	t	f	130	25	75	\N	\N	\N	a5faaf0c-a8c7-4ba7-ad8d-d8b9f17df4db	M	1399	1499	e1172682-6a38-49a6-bd1c-aaa85ff7613c	220	\N	t	f	f	t	t	t	f	t
-c7b443da-203c-4ef1-9170-d060af69162b	Milano Flats	Milano Flats offers all private rooms. Our amenities include a hot tub, two grills, a fitness center, study room with free printing, music room, pool table, fire pits, tanning beds, and more. The apartments include radiant floor heating and a/c units . We have lots of parking if you own a vehicle, if not, we are just a 10 minute walk to most buildings on campus. Come check us out!	t	t	f	f	75	90	125	\N	\N	\N	92c2dcb0-df33-49f7-bd63-b3c724546467	B	1390	1570	1498ba3f-9521-452f-b9a2-7df5b86c2fc5	150	t	t	f	t	t	t	t	f	\N
-c7b443da-203c-4ef1-9170-d060af69161b	Towers Two	Towers Two is the newest premier women's housing at BYUI. Built with you in mind-there is nothing more that you will need! Assigned underground parking,the safety of enclosed hallways,a theater room,a gym,several lounges-providing lots to do! Inside each unit you have the luxury of a washer/dryer,2 fridges,spacious living room,& huge bedrooms. Schedule a tour today to see the beauty for yourself!	f	t	t	f	80	35	75	\N	\N	\N	7351aea3-ec1f-4561-92e9-6d1bc86bf072	F	1350	1450	c2fe8486-69d3-477b-9a16-fab2c9d6bb62	90	\N	t	f	t	t	t	t	f	\N
+COPY public.complexes (id, name, description, "hasPrivateRoom", "hasMusicRoom", "hasWasher", "isHouse", "parkingSpaces", "processingFee", "securityDeposit", "vacancyStatus", "wardInfo", "floorPlans", gender, "minRent", "maxRent", contact, "studentCapacity", "hasHotTub", "hasOfficeCenter", "hasShuttleService", "hasFitnessCenter", "hasCable", "hasAirConditioning", "hasWifi", "isPetFriendly", "hasExtraStorage") FROM stdin;
+44fe8e92-01a8-41f1-804b-adf15af9324e	Spori Villa	Very convenient to college (across the street) and to downtown (2 blocks). Remodeled home next to N. side of campus. All utilities included. Plenty of off street parking for tenants. We limit the occupancy to 9 rather than the approved 10 to provide more living space. Free Laundry. Utilities included. High speed wireless included. Sunroom, patio, fire-pit, lawn.	t	f	t	t	10	0	150	\N	\N	\N	M	950	950	db2c6476-4ca3-4f8f-bd31-0ed74be321b7	9	f	f	f	t	t	t	t	t	t
+c7794c9e-0430-498b-a68e-4b3b99c9b616	Centre Square (Men)	If you want to live in Zion, this is the place. We listened to your needs/wants and here they are. Extra storage, large kitchen & pantry, wonderful vanities, free washer & dryer in each apartment, study rooms, gathering rooms, music rooms, green space, etc. Come enjoy.	f	t	t	f	130	25	75	\N	\N	\N	M	1399	1499	e1172682-6a38-49a6-bd1c-aaa85ff7613c	220	\N	t	f	f	t	t	t	f	t
+c7b443da-203c-4ef1-9170-d060af69162b	Milano Flats	Milano Flats offers all private rooms. Our amenities include a hot tub, two grills, a fitness center, study room with free printing, music room, pool table, fire pits, tanning beds, and more. The apartments include radiant floor heating and a/c units . We have lots of parking if you own a vehicle, if not, we are just a 10 minute walk to most buildings on campus. Come check us out!	t	t	f	f	75	90	125	\N	\N	\N	B	1390	1570	1498ba3f-9521-452f-b9a2-7df5b86c2fc5	150	t	t	f	t	t	t	t	f	\N
+c7b443da-203c-4ef1-9170-d060af69161b	Towers Two	Towers Two is the newest premier women's housing at BYUI. Built with you in mind-there is nothing more that you will need! Assigned underground parking,the safety of enclosed hallways,a theater room,a gym,several lounges-providing lots to do! Inside each unit you have the luxury of a washer/dryer,2 fridges,spacious living room,& huge bedrooms. Schedule a tour today to see the beauty for yourself!	f	t	t	f	80	35	75	\N	\N	\N	F	1350	1450	c2fe8486-69d3-477b-9a16-fab2c9d6bb62	90	\N	t	f	t	t	t	t	f	\N
 \.
 
 
@@ -192,6 +203,18 @@ c5c8aee0-ca01-42d6-a5d4-8a0ae091d231	centre-square-men-3.jpg	c7794c9e-0430-498b-
 
 
 --
+-- Data for Name: thumbnails; Type: TABLE DATA; Schema: public; Owner: amauri
+--
+
+COPY public.thumbnails (complex, image) FROM stdin;
+44fe8e92-01a8-41f1-804b-adf15af9324e	5a02ae83-79c1-4c1c-a6ca-3fd2dadc8fc0
+c7794c9e-0430-498b-a68e-4b3b99c9b616	a5faaf0c-a8c7-4ba7-ad8d-d8b9f17df4db
+c7b443da-203c-4ef1-9170-d060af69161b	7351aea3-ec1f-4561-92e9-6d1bc86bf072
+c7b443da-203c-4ef1-9170-d060af69162b	92c2dcb0-df33-49f7-bd63-b3c724546467
+\.
+
+
+--
 -- Name: complexes complexes_name_key; Type: CONSTRAINT; Schema: public; Owner: amauri
 --
 
@@ -224,6 +247,14 @@ ALTER TABLE ONLY public.images
 
 
 --
+-- Name: thumbnails thumbnails_pkey; Type: CONSTRAINT; Schema: public; Owner: amauri
+--
+
+ALTER TABLE ONLY public.thumbnails
+    ADD CONSTRAINT thumbnails_pkey PRIMARY KEY (complex);
+
+
+--
 -- Name: complexes complexes_contact_fkey; Type: FK CONSTRAINT; Schema: public; Owner: amauri
 --
 
@@ -232,19 +263,27 @@ ALTER TABLE ONLY public.complexes
 
 
 --
--- Name: complexes complexes_thumbnail_fkey; Type: FK CONSTRAINT; Schema: public; Owner: amauri
---
-
-ALTER TABLE ONLY public.complexes
-    ADD CONSTRAINT complexes_thumbnail_fkey FOREIGN KEY (thumbnail) REFERENCES public.images(id);
-
-
---
 -- Name: images images_complexId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: amauri
 --
 
 ALTER TABLE ONLY public.images
     ADD CONSTRAINT "images_complexId_fkey" FOREIGN KEY ("complexId") REFERENCES public.complexes(id);
+
+
+--
+-- Name: thumbnails thumbnails_complex_fkey; Type: FK CONSTRAINT; Schema: public; Owner: amauri
+--
+
+ALTER TABLE ONLY public.thumbnails
+    ADD CONSTRAINT thumbnails_complex_fkey FOREIGN KEY (complex) REFERENCES public.complexes(id);
+
+
+--
+-- Name: thumbnails thumbnails_image_fkey; Type: FK CONSTRAINT; Schema: public; Owner: amauri
+--
+
+ALTER TABLE ONLY public.thumbnails
+    ADD CONSTRAINT thumbnails_image_fkey FOREIGN KEY (image) REFERENCES public.images(id);
 
 
 --
