@@ -1,0 +1,6 @@
+#!/bin/bash
+# discard db changes from db instance and git
+
+pg_dump housing > ./db/dump.sql && echo "BEFORE: " && git status --short db/dump.sql &&
+git checkout -- db/dump.sql && sh ./db/reset.sh && pg_dump housing > ./db/dump.sql &&
+echo "AFTER: " && git status --short db/dump.sql
