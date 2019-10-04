@@ -149,6 +149,7 @@ COPY public.complexes (id, name, description, "hasPrivateRoom", "hasMusicRoom", 
 c7794c9e-0430-498b-a68e-4b3b99c9b616	Centre Square (Men)	If you want to live in Zion, this is the place. We listened to your needs/wants and here they are. Extra storage, large kitchen & pantry, wonderful vanities, free washer & dryer in each apartment, study rooms, gathering rooms, music rooms, green space, etc. Come enjoy.	f	t	t	f	130	25	75	\N	\N	\N	M	1399	1499	e1172682-6a38-49a6-bd1c-aaa85ff7613c	220	\N	t	f	f	t	t	t	f	t
 c7b443da-203c-4ef1-9170-d060af69162b	Milano Flats	Milano Flats offers all private rooms. Our amenities include a hot tub, two grills, a fitness center, study room with free printing, music room, pool table, fire pits, tanning beds, and more. The apartments include radiant floor heating and a/c units . We have lots of parking if you own a vehicle, if not, we are just a 10 minute walk to most buildings on campus. Come check us out!	t	t	f	f	75	90	125	\N	\N	\N	B	1390	1570	1498ba3f-9521-452f-b9a2-7df5b86c2fc5	150	t	t	f	t	t	t	t	f	\N
 c7b443da-203c-4ef1-9170-d060af69161b	Towers Two	Towers Two is the newest premier women's housing at BYUI. Built with you in mind-there is nothing more that you will need! Assigned underground parking,the safety of enclosed hallways,a theater room,a gym,several lounges-providing lots to do! Inside each unit you have the luxury of a washer/dryer,2 fridges,spacious living room,& huge bedrooms. Schedule a tour today to see the beauty for yourself!	f	t	t	f	80	35	75	\N	\N	\N	F	1350	1450	c2fe8486-69d3-477b-9a16-fab2c9d6bb62	90	\N	t	f	t	t	t	t	f	\N
+ea78a3a5-fa8a-4d34-ae98-41f5be783831	The Cove	Arbor Cove is truly a one of a kind community. Each apartment has a unique layout with options for large bedrooms, private bathrooms, and large spacious living areas. We are one block from campus, right next to Porter Park, and within walking distance to the grocery store. You can also spend time in our field playing volleyball, soccer, or having a BBQ with your friends!	f	t	t	f	450	50	100	\N	\N	\N	M	1499	1569	8b25ddb0-4845-483d-9759-98f09f8f52fd	224	\N	\N	\N	t	t	t	t	f	\N
 \.
 
 
@@ -161,6 +162,7 @@ db2c6476-4ca3-4f8f-bd31-0ed74be321b7	Richard Taylor	174 College Ave	(208) 351-80
 1498ba3f-9521-452f-b9a2-7df5b86c2fc5	Cami Park	440 S 2nd W	(208) 356-3480	milanoflats@redstoneresidential.com	\N	https://www.milanoflats.com/
 e1172682-6a38-49a6-bd1c-aaa85ff7613c	Guido Araya	650 S 1st W	(208) 496-9220	housing@byui.edu	(208) 496-5220	http://www.byui.edu/housing/centre-square
 c2fe8486-69d3-477b-9a16-fab2c9d6bb62	Brita Reber	335 W 5th S	(208) 390-3706	managers@thetowerstwo.com	\N	https://www.thetowerstwo.com/
+8b25ddb0-4845-483d-9759-98f09f8f52fd	Samantha Andra	220 S 2nd W	(208) 356-8988	leasing@rexburgcove.com	\N	http://rexburgcove.com
 \.
 
 
@@ -199,6 +201,9 @@ c5c8aee0-ca01-42d6-a5d4-8a0ae091d231	centre-square-men-3.jpg	c7794c9e-0430-498b-
 535123cf-2268-448a-9ade-a7c07cf62dc1	centre-square-men-5.jpg	c7794c9e-0430-498b-a68e-4b3b99c9b616
 6bcb2544-eef2-4853-986c-67cb412ac39c	centre-square-men-6.jpg	c7794c9e-0430-498b-a68e-4b3b99c9b616
 813a53d1-9ed8-47d4-a3e6-93b574cbd404	centre-square-men-7.jpg	c7794c9e-0430-498b-a68e-4b3b99c9b616
+84689c7e-cf3b-46d9-9292-d885bdc40cdc	the-cove-1.jpeg	ea78a3a5-fa8a-4d34-ae98-41f5be783831
+e9eef2ad-c7f3-41d6-8980-d47982c0ce4e	the-cove-2.jpeg	ea78a3a5-fa8a-4d34-ae98-41f5be783831
+255b8e88-fdc0-4615-9874-b07350115860	the-cove-3.jpeg	ea78a3a5-fa8a-4d34-ae98-41f5be783831
 \.
 
 
@@ -211,6 +216,7 @@ COPY public.thumbnails (complex, image) FROM stdin;
 c7794c9e-0430-498b-a68e-4b3b99c9b616	a5faaf0c-a8c7-4ba7-ad8d-d8b9f17df4db
 c7b443da-203c-4ef1-9170-d060af69161b	7351aea3-ec1f-4561-92e9-6d1bc86bf072
 c7b443da-203c-4ef1-9170-d060af69162b	92c2dcb0-df33-49f7-bd63-b3c724546467
+ea78a3a5-fa8a-4d34-ae98-41f5be783831	e9eef2ad-c7f3-41d6-8980-d47982c0ce4e
 \.
 
 
