@@ -71,5 +71,5 @@ yarn-error.log
 *.txt
 
 # psql scripts
-scripts/add_complex
-scripts/add_thumbnail
+db/add_complex
+db/add_thumbnail
