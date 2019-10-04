@@ -1,0 +1,9 @@
+#!/bin/bash
+# TEMPLATE SCRIPT, don't commit if only changes to values
+
+# passing arguments e.g.
+# psql -v v1=12  -v v2="'Hello World'" -v v3="'2010-11-12'"
+
+psql -U amauri -d housing  -f ./scripts/add_thumbnail.sql \
+  -v complex="" \
+  -v image="";
