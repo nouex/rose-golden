@@ -1,0 +1,37 @@
+#!/bin/bash
+
+# passing arguments e.g.
+# psql -v v1=12  -v v2="'Hello World'" -v v3="'2010-11-12'"
+
+psql -U amauri -d housing  -f ./scripts/create_complex.sql \
+  -v manager="'Adam'" \
+  -v address="'14908 W 145th St'" \
+  -v phone="'000 000 000'" \
+  -v email="'idk@whatever.com'" \
+  -v fax="null" \
+  -v website="null" \
+  -v name="'Bob'" \
+  -v description="'You know...'" \
+  -v hasPrivateRoom="true" \
+  -v hasMusicRoom="true" \
+  -v hasWasher="true" \
+  -v isHouse="true" \
+  -v parkingSpaces="10" \
+  -v processingFee="100" \
+  -v securityDeposit="200" \
+  -v vacancyStatus="null" \
+  -v wardInfo="null" \
+  -v floorPlans="null" \
+  -v gender="'M'" \
+  -v minRent="999" \
+  -v maxRent="1300" \
+  -v studentCapacity="300" \
+  -v hasHotTub="true" \
+  -v hasOfficeCenter="true" \
+  -v hasShuttleService="true" \
+  -v hasFitnessCenter="true" \
+  -v hasCable="true" \
+  -v hasAirConditioning="true" \
+  -v hasWifi="true" \
+  -v isPetFriendly="true" \
+  -v hasExtraStorage="true";
