@@ -73,3 +73,5 @@ yarn-error.log
 # psql scripts
 db/add_complex
 db/add_thumbnail
+
+tmp/
