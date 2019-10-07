@@ -150,6 +150,7 @@ c7794c9e-0430-498b-a68e-4b3b99c9b616	Centre Square (Men)	If you want to live in 
 c7b443da-203c-4ef1-9170-d060af69162b	Milano Flats	Milano Flats offers all private rooms. Our amenities include a hot tub, two grills, a fitness center, study room with free printing, music room, pool table, fire pits, tanning beds, and more. The apartments include radiant floor heating and a/c units . We have lots of parking if you own a vehicle, if not, we are just a 10 minute walk to most buildings on campus. Come check us out!	t	t	f	f	75	90	125	\N	\N	\N	B	1390	1570	1498ba3f-9521-452f-b9a2-7df5b86c2fc5	150	t	t	f	t	t	t	t	f	\N
 c7b443da-203c-4ef1-9170-d060af69161b	Towers Two	Towers Two is the newest premier women's housing at BYUI. Built with you in mind-there is nothing more that you will need! Assigned underground parking,the safety of enclosed hallways,a theater room,a gym,several lounges-providing lots to do! Inside each unit you have the luxury of a washer/dryer,2 fridges,spacious living room,& huge bedrooms. Schedule a tour today to see the beauty for yourself!	f	t	t	f	80	35	75	\N	\N	\N	F	1350	1450	c2fe8486-69d3-477b-9a16-fab2c9d6bb62	90	\N	t	f	t	t	t	t	f	\N
 ea78a3a5-fa8a-4d34-ae98-41f5be783831	The Cove	Arbor Cove is truly a one of a kind community. Each apartment has a unique layout with options for large bedrooms, private bathrooms, and large spacious living areas. We are one block from campus, right next to Porter Park, and within walking distance to the grocery store. You can also spend time in our field playing volleyball, soccer, or having a BBQ with your friends!	f	t	t	f	450	50	100	\N	\N	\N	M	1499	1569	8b25ddb0-4845-483d-9759-98f09f8f52fd	224	\N	\N	\N	t	t	t	t	f	\N
+14d2c020-c91b-4d60-9faa-f68c0c2c041e	Rose Casa	This is the newest addition to student housing at The Red Door Apartments. Both houses in front of the complex are now available! This price is for a limited time only! Visit thedoors.roomchoice.com to sign a contract.	f	f	t	t	0	70	80	\N	\N	\N	M	995	995	f784d680-0a7a-4bde-abf4-57dc6cd2c813	6	f	f	f	f	\N	\N	t	\N	\N
 \.
 
 
@@ -163,6 +164,7 @@ db2c6476-4ca3-4f8f-bd31-0ed74be321b7	Richard Taylor	174 College Ave	(208) 351-80
 e1172682-6a38-49a6-bd1c-aaa85ff7613c	Guido Araya	650 S 1st W	(208) 496-9220	housing@byui.edu	(208) 496-5220	http://www.byui.edu/housing/centre-square
 c2fe8486-69d3-477b-9a16-fab2c9d6bb62	Brita Reber	335 W 5th S	(208) 390-3706	managers@thetowerstwo.com	\N	https://www.thetowerstwo.com/
 8b25ddb0-4845-483d-9759-98f09f8f52fd	Samantha Andra	220 S 2nd W	(208) 356-8988	leasing@rexburgcove.com	\N	http://rexburgcove.com
+f784d680-0a7a-4bde-abf4-57dc6cd2c813	Makayla Lee	135 S 1st E	(208)-356-3001	thereddoorapts@gmail.com	\N	https://thedoors.roomchoice.com/home#sign-up
 \.
 
 
@@ -204,6 +206,13 @@ c5c8aee0-ca01-42d6-a5d4-8a0ae091d231	centre-square-men-3.jpg	c7794c9e-0430-498b-
 84689c7e-cf3b-46d9-9292-d885bdc40cdc	the-cove-1.jpeg	ea78a3a5-fa8a-4d34-ae98-41f5be783831
 e9eef2ad-c7f3-41d6-8980-d47982c0ce4e	the-cove-2.jpeg	ea78a3a5-fa8a-4d34-ae98-41f5be783831
 255b8e88-fdc0-4615-9874-b07350115860	the-cove-3.jpeg	ea78a3a5-fa8a-4d34-ae98-41f5be783831
+7ba73c59-71f4-4099-b274-9593d4e01515	rose-casa-1.jpeg	14d2c020-c91b-4d60-9faa-f68c0c2c041e
+35f05e38-e102-4a5e-9d02-08bc8009d9d6	rose-casa-2.jpeg	14d2c020-c91b-4d60-9faa-f68c0c2c041e
+6cc7fc22-a46c-41fa-bd63-2029c22c4a0b	rose-casa-3.jpeg	14d2c020-c91b-4d60-9faa-f68c0c2c041e
+5a77d374-570b-4c41-8281-2799b9409f2e	rose-casa-4.jpeg	14d2c020-c91b-4d60-9faa-f68c0c2c041e
+02f3a58e-046c-4096-bdb2-20d2e051b0ac	rose-casa-5.jpeg	14d2c020-c91b-4d60-9faa-f68c0c2c041e
+e1330e5e-0b23-4065-8042-e80308f27902	rose-casa-6.jpeg	14d2c020-c91b-4d60-9faa-f68c0c2c041e
+1ae5cddc-e185-4ede-8ba8-31233bbb921d	rose-casa-7.jpeg	14d2c020-c91b-4d60-9faa-f68c0c2c041e
 \.
 
 
@@ -217,6 +226,7 @@ c7794c9e-0430-498b-a68e-4b3b99c9b616	a5faaf0c-a8c7-4ba7-ad8d-d8b9f17df4db
 c7b443da-203c-4ef1-9170-d060af69161b	7351aea3-ec1f-4561-92e9-6d1bc86bf072
 c7b443da-203c-4ef1-9170-d060af69162b	92c2dcb0-df33-49f7-bd63-b3c724546467
 ea78a3a5-fa8a-4d34-ae98-41f5be783831	e9eef2ad-c7f3-41d6-8980-d47982c0ce4e
+14d2c020-c91b-4d60-9faa-f68c0c2c041e	7ba73c59-71f4-4099-b274-9593d4e01515
 \.
 
 
