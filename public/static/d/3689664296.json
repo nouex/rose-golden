@@ -1,1 +1,0 @@
-{"errors":[{"message":"Cannot query field \"isPartyHouse\" on type \"PostGraphile_Complex\". Did you mean \"isHouse\"?","locations":[{"line":6,"column":7}]}]}
