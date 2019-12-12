@@ -5,7 +5,7 @@ import {
   Box, Heading, Button, Anchor,
 } from 'grommet';
 
-import SkrillaIcon from '../../../static/icons/skrilla.svg';
+import HoneypotIcon from '../../../static/icons/honeypot.svg';
 
 const Header = ({ siteTitle }) => (
   <Box
@@ -25,7 +25,7 @@ const Header = ({ siteTitle }) => (
           color: 'white',
         }}
       >
-        <SkrillaIcon />
+        <HoneypotIcon />
       </Link>
       <Box
         direction="row"

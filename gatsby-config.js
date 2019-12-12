@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: 'Skrilla',
+    title: 'Honeypot',
     description: 'Find student housing in Rexburg.',
     author: '@baaae',
   },
