@@ -9,7 +9,8 @@ const IndexPage = () => (
   <Layout>
     <SEO title="Home" keywords={[`byui`, `housing`, `students`, 'approved']} />
       <Box as="main">
-        reecehudson10@gmail.com
+        Questions, Comments, Concerns ? 💌 ⬇️
+        <address><a href="mailto:reecehudson10@gmail.com">reecehudson10@gmail.com</a></address>
       </Box>
   </Layout>
 )
