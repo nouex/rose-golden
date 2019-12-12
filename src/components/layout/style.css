@@ -111,3 +111,10 @@ a {
   height: 35px !important;
   width: 35px !important;
 }
+
+.about-page-image {
+  width: 45%;
+  min-width: 400px;
+  border-radius: 50%;
+  overflow: hidden;
+}
