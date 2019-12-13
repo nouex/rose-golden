@@ -7,7 +7,7 @@ import {
 
 import HoneypotIcon from '../../../static/icons/honeypot.svg';
 
-const Header = ({ siteTitle }) => (
+const Header = ({ siteTitle, location }) => (
   <Box
     as="header"
     background="light-3"
@@ -31,13 +31,13 @@ const Header = ({ siteTitle }) => (
         direction="row"
       >
         <Link to="/" style={{ color: 'white', paddingRight: '10px' }}>
-          <Button label="Home" color="brand" />
+          <Button label="Home" color="brand" active={location.pathname === "/" ? true : false}/>
         </Link>
         <Link to="/contact" style={{ color: 'white', paddingRight: '10px' }}>
-          <Button label="Contact" color="brand" />
+          <Button label="Contact" color="brand" active={location.pathname === "/contact" ? true : false}/>
         </Link>
         <Link to="/about" style={{ color: 'white', paddingRight: '10px' }}>
-          <Button label="About" color="brand" />
+          <Button label="About" color="brand" active={location.pathname === "/about" ? true : false}/>
         </Link>
       </Box>
     </Box>
@@ -49,6 +49,7 @@ const Header = ({ siteTitle }) => (
 
 Header.propTypes = {
   siteTitle: PropTypes.string,
+  location: PropTypes.object.isRequired
 };
 
 Header.defaultProps = {

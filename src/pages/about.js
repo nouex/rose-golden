@@ -6,8 +6,8 @@ import Img from "gatsby-image"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-const IndexPage = ({ data }) => (
-  <Layout>
+const IndexPage = ({ data, location }) => (
+  <Layout location={location} >
     <SEO title="Home" keywords={[`byui`, `housing`, `students`, 'approved']} />
       <Box as="main" direction="row" justify="between" wrap align="center">
         <Box>

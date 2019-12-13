@@ -19,7 +19,7 @@ import Header from '../header';
 import Footer from '../Footer';
 import './style.css';
 
-const Layout = ({ children }) => (
+const Layout = ({ children, location }) => (
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {
@@ -34,7 +34,7 @@ const Layout = ({ children }) => (
       <>
         <Grommet theme={hpe}>
           <Box background="light-1">
-            <Header siteTitle={data.site.siteMetadata.title} />
+            <Header location={location} />
             <Box
               style={{
                 minHeight: '100vh',
@@ -56,6 +56,7 @@ const Layout = ({ children }) => (
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
+  location: PropTypes.object.isRequired
 };
 
 export default Layout;
