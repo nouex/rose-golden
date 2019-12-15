@@ -4,6 +4,7 @@ import React from 'react';
 import {
   Box, Heading, Button, Anchor,
 } from 'grommet';
+import { isBrowser } from 'browser-or-node';
 
 import HoneypotIcon from '../../../static/icons/honeypot.svg';
 
@@ -24,20 +25,20 @@ const Header = ({ siteTitle, location }) => (
         style={{
           color: 'white',
         }}
-      >
+      > 
         <HoneypotIcon />
       </Link>
       <Box
         direction="row"
       >
         <Link to="/" style={{ color: 'white', paddingRight: '10px' }}>
-          <Button label="Home" color="brand" active={location.pathname === "/" ? true : false}/>
+          <Button label="Home" color="brand" active={isBrowser && location.pathname === "/" ? true : false}/>
         </Link>
         <Link to="/contact" style={{ color: 'white', paddingRight: '10px' }}>
-          <Button label="Contact" color="brand" active={location.pathname === "/contact" ? true : false}/>
+          <Button label="Contact" color="brand" active={isBrowser  && location.pathname === "/contact" ? true : false}/>
         </Link>
         <Link to="/about" style={{ color: 'white', paddingRight: '10px' }}>
-          <Button label="About" color="brand" active={location.pathname === "/about" ? true : false}/>
+          <Button label="About" color="brand" active={isBrowser  && location.pathname === "/about" ? true : false}/>
         </Link>
       </Box>
     </Box>
