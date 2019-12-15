@@ -90,25 +90,17 @@ Content.propTypes = {
   settings: PropTypes.array.isRequired
 }
 
-export const Label = () => {
-  return (
-    <Box align="center" direction="row">
-      <FilterIcon/>
-      Filter
-    </Box>
-  )
-}
-
-Label.propTypes = {
-
-}
-
 export const Filter = ({onFieldChange, onSave, onDropButtonClose, settings}) => {
   return (
     <DropButton
+      plain
+      hoverIndicator
+      margin={{right: "medium"}}
+      color="dark-1"
+      gap="xsmall"
       onClose={onDropButtonClose}
-      label={<Label />}
-      margin={{right: "small"}}
+      label="Filter"
+      icon={<FilterIcon />}
       dropAlign={{"top": "bottom", "left": "left"}}
       dropContent={<Content onSave={onSave} onFieldChange={onFieldChange} settings={settings}/>}
       />

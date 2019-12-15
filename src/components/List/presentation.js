@@ -16,7 +16,7 @@ const List = ({complexes, isShowingFavorites, onFilterUpdate, onSortUpdate, onTo
       direction="row"
       justify="between"
       wrap
-      margin={{top: "xsmall"}}
+      margin={{top: "small"}}
       >
       {
         (

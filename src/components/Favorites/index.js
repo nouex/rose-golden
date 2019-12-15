@@ -8,15 +8,16 @@ const Favorites = ({ onClick, isShowingFavorites }) => {
 
   return (
     <Button
+      plain
+      hoverIndicator
+      color="dark-1"
       title="Toggle Favorites"
-      icon={<Star />}
+      icon={<Star color={isShowingFavorites ? "gold" : null}/>}
       label="Favorites"
       onClick={ onClick }
       margin={{left: "small"}}
       gap="xsmall"
-      style={{
-        backgroundColor
-      }}
+      active={isShowingFavorites ? true : false}
     />
   )
 }

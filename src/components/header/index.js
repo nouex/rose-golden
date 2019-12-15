@@ -11,7 +11,7 @@ import HoneypotIcon from '../../../static/icons/honeypot.svg';
 const Header = ({ siteTitle, location }) => (
   <Box
     as="header"
-    background="light-3"
+    background="light-2"
     pad={{ bottom: 'small', horizontal: 'xlarge' }}
     margin={{ bottom: '1.45rem' }}
     className="header"
@@ -25,7 +25,7 @@ const Header = ({ siteTitle, location }) => (
         style={{
           color: 'white',
         }}
-      > 
+      >
         <HoneypotIcon />
       </Link>
       <Box

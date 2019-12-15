@@ -51,9 +51,15 @@ Content.propTypes = {
 const Sort = ({ onSave, onChange, onClose, onOrderChange, value, isAscending }) => {
   return (
     <DropButton
+      plain
+      hoverIndicator
+      margin={{right: "medium"}}
+      color="dark-1"
       dropContent={<Content onSave={onSave} onChange={onChange} onOrderChange={onOrderChange} value={value} isAscending={isAscending} />}
       dropAlign={{"top": "top", "left": "left"}}
-      label={<Box direction="row" align="center"><SortIcon />Sort</Box>}
+      gap="xsmall"
+      label="Sort"
+      icon={<SortIcon/>}
       onClose={onClose}
       dropAlign={{
         top: "bottom",
