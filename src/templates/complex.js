@@ -43,11 +43,11 @@ class Complex extends React.Component {
   }
 
   render() {
-    const { data } = this.props
+    const { data, location } = this.props
     const starColor = this.state.isFavorite ? "gold" : "dark-6"
 
     return (
-      <Layout>
+      <Layout location={location}>
         <SEO title="Home" keywords={['byui', 'housing', 'students', 'approved']} />
         <Box as="main">
 
