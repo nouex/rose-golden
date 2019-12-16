@@ -7,7 +7,7 @@ const Favorite = ({ onToggleFavorite, isFavorite }) => {
   const color = isFavorite ? "gold" : "white"
 
   return (
-    <Box className="favorite-container" title="favorite" onClick={onToggleFavorite}>
+    <Box className="favorite-container scale-on-hover" title="favorite" onClick={onToggleFavorite}>
       <Star className="favorite-star" color={ color } />
     </Box>
   )

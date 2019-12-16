@@ -71,7 +71,7 @@ class Complex extends React.Component {
               <Box>
                 <Box direction="row">
                   <Heading level="1" margin={{ top: '0' }}>{data.postgres.complex.name}</Heading>
-                  <Star size="large" color={starColor} className="lighten-on-hover complex-page-star"
+                  <Star size="large" color={starColor} className="lighten-on-hover complex-page-star scale-on-hover"
                         onClick={this.onStarClick} />
                 </Box>
                 <Box margin={{ left: 'small' }}>

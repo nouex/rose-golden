@@ -69,6 +69,10 @@ a {
   transform: scale(1.01);
 }
 
+.favorite-container.scale-on-hover:hover, .complex-page-star.scale-on-hover:hover {
+  transform: scale(1.05)
+}
+
 
 /**** Filter ****/
 

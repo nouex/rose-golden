@@ -17,15 +17,14 @@ const ComplexPresentation = ({data, icons, onToggleFavorite}) => {
         <Box pad="none" align="start" border={{all: "xsmall"}} gap="xsmall" width="320px" height="100%" as="article" background="light-3">
           <ComplexImage name={data.thumbnail.image.slug}/>
           <Box pad="xsmall" width="100%" className="complex-card-title">
-            <Text size="xlarge">{data.name}</Text>
-            <Box as="div" width="100%" height="0" pad={{bottom: "xsmall"}} style={{borderBottom: "1px solid rgba(68, 68, 68, 0.6)"}}></Box>
+            <Text size="xlarge" color="dark-1" textAlign="center">{data.name}</Text>
           </Box>
           <Box pad="small" width="100%">
             <Box direction="row" justify="between" pad={{bottom: "small"}}>
               <Text size="large" color="dark-1">{data.rent}</Text>
             </Box>
             <Box pad={{bottom: "small"}}>
-              <Text size="medium">{data.contact.address}</Text>
+              <Text size="medium">{data.contact.address}, Rexburg, ID</Text>
               <Text size="medium">{data.contact.phone}</Text>
             </Box>
             <Box direction="row" justify="between" pad={{bottom: "small"}}>

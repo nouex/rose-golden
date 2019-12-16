@@ -14,7 +14,7 @@ const List = ({complexes, isShowingFavorites, onFilterUpdate, onSortUpdate, onTo
     <Favorites onClick={onToggleFavorites} isShowingFavorites={isShowingFavorites} />
     <Box
       direction="row"
-      justify="between"
+      justify="around"
       wrap
       margin={{top: "small"}}
       >

@@ -4,7 +4,6 @@ import { Button } from 'grommet';
 import { Star } from 'grommet-icons';
 
 const Favorites = ({ onClick, isShowingFavorites }) => {
-  const backgroundColor = isShowingFavorites ? "#4CAA82" : "inherit"
 
   return (
     <Button
