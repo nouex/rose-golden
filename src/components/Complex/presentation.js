@@ -23,13 +23,15 @@ const ComplexPresentation = ({data, icons, onToggleFavorite}) => {
             <Box direction="row" justify="between" pad={{bottom: "small"}}>
               <Text size="large" color="dark-1">{data.rent}</Text>
             </Box>
-            <Box pad={{bottom: "small"}}>
+            <Box pad={{bottom: "medium"}}>
               <Text size="medium">{data.contact.address}, Rexburg, ID</Text>
               <Text size="medium">{data.contact.phone}</Text>
             </Box>
-            <Box direction="row" justify="between" pad={{bottom: "small"}}>
-             {icons}
-            </Box>
+            <div className="complex-card-icons-container">
+              <Box>
+                {icons}
+               </Box>
+             </div>
           </Box>
         </Box>
       </Link>
