@@ -17,7 +17,8 @@ export class List extends React.Component {
 
   state = {
     complexes: null,
-    isShowingFavorites: false
+    isShowingFavorites: false,
+    showLoader: null
   }
 
   static onFilterUpdate(settings) {
@@ -27,6 +28,7 @@ export class List extends React.Component {
 
     if (this.state.isShowingFavorites) this.filteredComplexesBeforeFavorites = null
 
+    this.flashLoader()
     this.setState({
       complexes: filteredComplexes,
       isShowingFavorites: false
@@ -36,6 +38,7 @@ export class List extends React.Component {
   static onSortUpdate(sortBy, isAscending) {
     const sortedComplexes = (isAscending ? algos.asc : algos.desc)[sortBy](this.state.complexes )
 
+    this.flashLoader()
     this.setState({
       complexes: sortedComplexes
     })
@@ -63,6 +66,7 @@ export class List extends React.Component {
       this.filteredComplexesBeforeFavorites = null
     }
 
+    this.flashLoader()
     this.setState({
       isShowingFavorites,
       complexes
@@ -73,6 +77,18 @@ export class List extends React.Component {
     arr.forEach(complex => complex.isFavorite = getValue(complex.id))
   }
 
+  static flashLoader() {
+    this.setState({
+      showLoader: true
+    })
+
+    setTimeout(() => {
+      this.setState({
+        showLoader: false
+      })
+    }, 500)
+  }
+
   constructor(props) {
     super(props)
 
@@ -80,6 +96,7 @@ export class List extends React.Component {
     this.onSortUpdate = List.onSortUpdate.bind(this)
     this.onToggleFavorite = List.onToggleFavorite.bind(this)
     this.onToggleFavorites = List.onToggleFavorites.bind(this)
+    this.flashLoader = List.flashLoader.bind(this)
 
     let { data: { postgres: { allComplexesList }}} = props
 
@@ -93,6 +110,7 @@ export class List extends React.Component {
     return <ListPresentation
             complexes={this.state.complexes}
             isShowingFavorites={this.state.isShowingFavorites}
+            showLoader={this.state.showLoader}
             onFilterUpdate={this.onFilterUpdate}
             onSortUpdate={this.onSortUpdate}
             onToggleFavorite={this.onToggleFavorite}

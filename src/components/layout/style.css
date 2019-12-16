@@ -2,6 +2,8 @@
 * This acts as a css normalizer and alse overrides some other stuff so we don't have to in every
 * component.  TODO: turn this into a grommet theme and merge it into the hpe theme that is in
 * place before passing it to grommet
+*
+* NOTE: aprox (~) means the measurement value was not taken from source, e.g. it was measured with a ruler
 */
 
 body {
@@ -127,4 +129,33 @@ a {
   min-width: 400px;
   border-radius: 50%;
   overflow: hidden;
+}
+
+.list {
+  position: relative;  /* position .list-overlay according to .list */
+}
+
+.list-overlay {
+  /* NOTE: background-color is set in jsx using a grommet value */
+  display: block;  /* override grommet's default `display: flexbox` for <Box />, also set in jsx */
+  position: absolute;
+  width: 100%;
+  height: calc(100% - 30px); /* sibling btns are ~30px in height  across all devices */
+  z-index: 2;  /* 2 bc we already use a z-index of 1 for the star icon */
+
+
+
+
+
+  /* background-color: gray; */
+  /* opacity: 0.5; */
+}
+
+.list-overlay > * {
+  /**
+    * The beat loader is ~60px by ~15px, header is ~175px, use that to center it in .list-overlay
+    */
+  position: relative;
+  left: calc(50% - 60px);
+  top: calc(50vh - 175px - 15px);
 }

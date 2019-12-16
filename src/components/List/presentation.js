@@ -1,17 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Box } from 'grommet';
+import BeatLoader from 'react-spinners/BeatLoader';
 
 import Complex from '../Complex';
 import Filter from '../Filter';
 import Sort from '../Sort';
 import Favorites from '../Favorites';
 
-const List = ({complexes, isShowingFavorites, onFilterUpdate, onSortUpdate, onToggleFavorite, onToggleFavorites }) => (
+const List = ({complexes, isShowingFavorites, onFilterUpdate, onSortUpdate, onToggleFavorite, onToggleFavorites, showLoader }) => (
   <div className="list">
     <Filter onUpdate={onFilterUpdate}/>
     <Sort onUpdate={onSortUpdate} />
     <Favorites onClick={onToggleFavorites} isShowingFavorites={isShowingFavorites} />
+    <Box className="list-overlay" background="light-1" style={{display: showLoader ? "block" : "none"}}><BeatLoader loading margin="4px"/></Box>
     <Box
       direction="row"
       justify="around"
