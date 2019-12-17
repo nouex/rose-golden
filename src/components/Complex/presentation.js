@@ -9,7 +9,14 @@ import Favorite from '../Favorite';
 
 slug.defaults.mode = "rfc3986"
 
-const ComplexPresentation = ({data, icons, onToggleFavorite}) => {
+/**
+ * Next big change: men's housing, amineyt score, 8 minute walk from campus
+ * TODO: before we complete this big change we must make sure that what we removce on the complex
+ * card will be placed on the complex page and not lost forever.  i.e. private room, music room,
+ * and washer... gender will be kept on complex card
+ */
+
+const ComplexPresentation = ({data, gender, amenityScore, walkDistance, onToggleFavorite}) => {
   return (
     <Box margin={{bottom: "medium"}} className="favorite-container-parent">
       <Favorite onToggleFavorite={onToggleFavorite} isFavorite={data.isFavorite}/>
@@ -29,8 +36,10 @@ const ComplexPresentation = ({data, icons, onToggleFavorite}) => {
             </Box>
             <div className="complex-card-icons-container">
               <Box>
-                {icons}
-               </Box>
+                <Box>{gender}</Box>
+                <Box>{amenityScore}</Box>
+                <Box>{walkDistance}</Box>
+              </Box>
              </div>
           </Box>
         </Box>
@@ -41,8 +50,10 @@ const ComplexPresentation = ({data, icons, onToggleFavorite}) => {
 
 ComplexPresentation.propTypes = {
   data: PropTypes.object.isRequired,
-  icons: PropTypes.array.isRequired,
-  onToggleFavorite: PropTypes.func.isRequired
+  onToggleFavorite: PropTypes.func.isRequired,
+  // gender: PropTypes.object.isRequired, // Proptypes.reactcomponent.isRequired ???
+  amenityScore: PropTypes.number.isRequired,
+  walkDistance: PropTypes.string.isRequired
 }
 
 export default ComplexPresentation

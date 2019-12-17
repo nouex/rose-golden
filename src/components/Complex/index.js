@@ -1,19 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Text } from 'grommet';
 
 import ComplexPresentation from './presentation';
 import formatPriceRange from '../../utils/format-price-range';
-import iconPicker from './icon-picker';
+import GenderBothIcon from '../../../static/icons/gender-both.svg';
+import GenderMaleIcon from '../../../static/icons/gender-male.svg';
+import GenderFemaleIcon from '../../../static/icons/gender-female.svg';
 
 const Complex = ({ complex: c, onToggleFavorite }) => {
   const rent = formatPriceRange(c.minRent, c.maxRent);
-
   const data = Object.assign({}, c, { rent });
-
-  const icons = iconPicker(c);
+  const gender = formatGender(c)
+  const amenityScore = "tbd"
+  const walkDistance = "idk"
 
   return (
-    <ComplexPresentation data={data} icons={icons} onToggleFavorite={onToggleFavorite}/>
+    <ComplexPresentation data={data} gender={gender} onToggleFavorite={onToggleFavorite}
+                         amenityScore={amenityScore} walkDistance={walkDistance} />
   );
 };
 
@@ -23,3 +27,40 @@ Complex.propTypes = {
 };
 
 export default Complex;
+
+// TODO: export for testing
+function formatGender(c) {
+  let icon
+  switch (c.gender) {
+    case 'B':
+      icon = <GenderBothIcon className="custom-icon" key="gender-both-icon" />;
+      break;
+
+    case 'M':
+      icon = <GenderMaleIcon className="custom-icon" key="gender-male-icon" />;
+      break;
+
+    case 'F':
+      icon = <GenderFemaleIcon className="custom-icon" key="gender-female-icon" />;
+      break;
+
+    default:
+      throw new TypeError(`Uknown gender value for ${c.name}`);
+  }
+
+
+  return (
+    <div>
+      {icon}
+      <Text>
+        {
+          {
+            B: "Men and Women's Housing",
+            M: "Men's Housing",
+            F: "Women's Housing"
+          }[c.gender]
+        }
+      </Text>
+    </div>
+  )
+}
