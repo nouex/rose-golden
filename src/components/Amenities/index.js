@@ -10,6 +10,10 @@ import GymIcon from '../../../static/icons/gym.svg';
 import SpecialIcon from '../../../static/icons/special.svg';
 
 /**
+ * Amenities are attributes with a boolean value with the exception of isHouse
+ */
+
+/**
  * NOTE: whenever thes schema of the Complex relation changes, i.e. when we add more possible
  * features to a complex, remember to update this component
  *
@@ -52,6 +56,7 @@ const icons = {
   'hasAirConditioning',
   'hasCable',
   'hasWifi',
+  'hasOfficeCenter'
 ].forEach((field) => { amenityGroups[field] = GENERAL; amenities.push(field); });
 
 [
@@ -80,8 +85,8 @@ const names = {
   isPetFriendly: 'Pet Friendly',
   hasFitnessCenter: 'Fitness Center',
   hasHotTub: 'Hot Tub',
+  hasOfficeCenter: "Office Center"
 };
-// TODO: 'hasOfficeCenter'
 
 const Amenities = ({ attributes }) => {
   const sections = Object.create(null);
