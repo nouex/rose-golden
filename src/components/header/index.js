@@ -34,6 +34,9 @@ const Header = ({ siteTitle, location }) => (
         <Link to="/" style={{ color: 'white', paddingRight: '10px' }}>
           <Button label="Home" color="brand" active={isBrowser && location.pathname === "/" ? true : false}/>
         </Link>
+        <Link to="/faq" style={{ color: 'white', paddingRight: '10px' }}>
+          <Button label="FAQ" color="brand" active={isBrowser && location.pathname === "/faq" ? true : false}/>
+        </Link>
         <Link to="/contact" style={{ color: 'white', paddingRight: '10px' }}>
           <Button label="Contact" color="brand" active={isBrowser  && location.pathname === "/contact" ? true : false}/>
         </Link>
