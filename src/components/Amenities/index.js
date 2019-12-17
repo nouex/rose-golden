@@ -26,7 +26,7 @@ import SpecialIcon from '../../../static/icons/special.svg';
 // pet_policy
 
 const amenityGroups = Object.create(null);
-const amenities = [];
+export const amenities = [];
 const GENERAL = Symbol('general');
 const UNIQUE_FEATURES = Symbol('unique_features');
 const PET_POLICY = Symbol('pet_policy');
@@ -46,7 +46,7 @@ const icons = {
 };
 
 [
-  'isPrivateRoom',
+  'hasPrivateRoom',
   'hasMusicRoom',
   'hasWasher',
   'hasAirConditioning',
@@ -69,7 +69,7 @@ const icons = {
 ].forEach((field) => { amenityGroups[field] = FITNESS_AND_RECREATION; amenities.push(field); });
 
 const names = {
-  isPrivateRoom: 'Private Room',
+  hasPrivateRoom: 'Private Room',
   hasMusicRoom: 'Music Room',
   hasWasher: 'In-Aparment Washer',
   hasAirConditioning: 'A/C',
