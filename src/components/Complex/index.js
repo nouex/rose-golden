@@ -7,17 +7,18 @@ import formatPriceRange from '../../utils/format-price-range';
 import GenderBothIcon from '../../../static/icons/gender-both.svg';
 import GenderMaleIcon from '../../../static/icons/gender-male.svg';
 import GenderFemaleIcon from '../../../static/icons/gender-female.svg';
+import { amenities } from '../Amenities';
 
 const Complex = ({ complex: c, onToggleFavorite }) => {
   const rent = formatPriceRange(c.minRent, c.maxRent);
   const data = Object.assign({}, c, { rent });
   const gender = formatGender(c)
-  const amenityScore = "tbd"
-  const walkDistance = "idk"
+  const amenityScore = getAmenityScore(c, amenities)
+  const walkingDistance = "idk"
 
   return (
     <ComplexPresentation data={data} gender={gender} onToggleFavorite={onToggleFavorite}
-                         amenityScore={amenityScore} walkDistance={walkDistance} />
+                         amenityScore={amenityScore} walkingDistance={walkingDistance} />
   );
 };
 
@@ -63,4 +64,13 @@ function formatGender(c) {
       </Text>
     </div>
   )
+}
+
+// TODO: export for testing
+function getAmenityScore(complex, amenities) {
+  // NOTE: don't check for truthy for for strict true, some properties of the complex might be
+  //       null and that doens't mean false but that we don't know the value
+  // const points = amenities.reduce((accum, amenity) => accum + (complex[amenity] === true), 0);
+  const points = amenities.filter(amenity => complex[amenity] === true).length
+  return points / amenities.length * 100
 }

@@ -137,6 +137,15 @@ export default () => (
               hasPrivateRoom
               hasMusicRoom
               hasWasher
+              hasAirConditioning
+              hasCable
+              hasWifi
+              hasExtraStorage
+              hasShuttleService
+              hasFitnessCenter
+              hasHotTub
+              hasOfficeCenter
+              isPetFriendly
               isHouse
               minRent
               maxRent

@@ -16,7 +16,7 @@ slug.defaults.mode = "rfc3986"
  * and washer... gender will be kept on complex card
  */
 
-const ComplexPresentation = ({data, gender, amenityScore, walkDistance, onToggleFavorite}) => {
+const ComplexPresentation = ({data, gender, amenityScore, walkingDistance, onToggleFavorite}) => {
   return (
     <Box margin={{bottom: "medium"}} className="favorite-container-parent">
       <Favorite onToggleFavorite={onToggleFavorite} isFavorite={data.isFavorite}/>
@@ -37,8 +37,8 @@ const ComplexPresentation = ({data, gender, amenityScore, walkDistance, onToggle
             <div className="complex-card-icons-container">
               <Box>
                 <Box>{gender}</Box>
-                <Box>{amenityScore}</Box>
-                <Box>{walkDistance}</Box>
+                <Box>{"Amenity Score " + amenityScore.toFixed(0) + "%"}</Box>
+                <Box>{walkingDistance}</Box>
               </Box>
              </div>
           </Box>
@@ -53,7 +53,7 @@ ComplexPresentation.propTypes = {
   onToggleFavorite: PropTypes.func.isRequired,
   // gender: PropTypes.object.isRequired, // Proptypes.reactcomponent.isRequired ???
   amenityScore: PropTypes.number.isRequired,
-  walkDistance: PropTypes.string.isRequired
+  walkingDistance: PropTypes.string.isRequired
 }
 
 export default ComplexPresentation
