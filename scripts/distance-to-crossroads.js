@@ -5,19 +5,6 @@ const googleMapsClient = require('@google/maps').createClient({
   Promise: Promise
 });
 
-// NOTE: google maps didn't give me an address for some buildings so i just clicked on it and used
-//  the coordinates given
-const destinations =
-[
-  "43.820693,-111.783917", // snow
-  "525 S Center St, Rexburg, ID 83460", // hart
-  "43.819380,-111.781210", // smith
-  "510 S Center St, Rexburg, ID 83460", // stc
-  "43.815855,-111.779542", // hicnkley
-  "43.817630,-111.784946", // biddulph
-  "43.817342,-111.781194" // kimball
-]
-
 if (process.env.API_KEY === undefined) {
   console.log("must set API_KEY first")
   process.exit(1)
@@ -33,7 +20,7 @@ async function distanceToCampus(address) {
     const { json: { rows }} =
       await googleMapsClient.distanceMatrix({
         origins: [address],
-        destinations,
+        destinations: [ "43.818460,-111.782175" ], // The Crossroads
         mode: "walking"
       }).asPromise()
 

@@ -14,7 +14,7 @@ const Complex = ({ complex: c, onToggleFavorite }) => {
   const data = Object.assign({}, c, { rent });
   const gender = formatGender(c)
   const amenityScore = getAmenityScore(c, amenities)
-  const walkingDistance = "idk"
+  const walkingDistance = `${c.walkToCampus} min to The Crossroads`
 
   return (
     <ComplexPresentation data={data} gender={gender} onToggleFavorite={onToggleFavorite}

@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
 import { Box, Text } from 'grommet';
 import slug from 'slug';
+import WalkerIcon from '../../../static/icons/walker.svg';
+import ScoreIcon from '../../../static/icons/wifi.svg';
 
 import ComplexImage from '../ComplexImage';
 import Favorite from '../Favorite';
@@ -37,8 +39,8 @@ const ComplexPresentation = ({data, gender, amenityScore, walkingDistance, onTog
             <div className="complex-card-icons-container">
               <Box>
                 <Box>{gender}</Box>
-                <Box>{"Amenity Score " + amenityScore.toFixed(0) + "%"}</Box>
-                <Box>{walkingDistance}</Box>
+                <Box><div><ScoreIcon className="custom-icon" /><Text>{"Amenity Score " + amenityScore.toFixed(0) + "%"}</Text></div></Box>
+                <Box><div><WalkerIcon className="custom-icon" /><Text>{walkingDistance}</Text></div></Box>
               </Box>
              </div>
           </Box>

@@ -151,6 +151,7 @@ export default () => (
               maxRent
               studentCapacity
               parkingSpaces
+              walkToCampus
               thumbnail: thumbnailByComplex {
                 image: imageByImage {
                   id
