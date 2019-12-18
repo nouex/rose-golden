@@ -3,7 +3,7 @@
 --
 
 -- Dumped from database version 11.3
--- Dumped by pg_dump version 11.3
+-- Dumped by pg_dump version 12.1
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -17,7 +17,7 @@ SET client_min_messages = warning;
 SET row_security = off;
 
 --
--- Name: citext; Type: EXTENSION; Schema: -; Owner: 
+-- Name: citext; Type: EXTENSION; Schema: -; Owner: -
 --
 
 CREATE EXTENSION IF NOT EXISTS citext WITH SCHEMA public;
@@ -31,7 +31,7 @@ COMMENT ON EXTENSION citext IS 'data type for case-insensitive character strings
 
 
 --
--- Name: uuid-ossp; Type: EXTENSION; Schema: -; Owner: 
+-- Name: uuid-ossp; Type: EXTENSION; Schema: -; Owner: -
 --
 
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp" WITH SCHEMA public;
@@ -58,8 +58,6 @@ CREATE TYPE public.gender AS ENUM (
 ALTER TYPE public.gender OWNER TO amauri;
 
 SET default_tablespace = '';
-
-SET default_with_oids = false;
 
 --
 -- Name: complexes; Type: TABLE; Schema: public; Owner: amauri
@@ -152,6 +150,7 @@ c7b443da-203c-4ef1-9170-d060af69161b	Towers Two	Towers Two is the newest premier
 ea78a3a5-fa8a-4d34-ae98-41f5be783831	The Cove	Arbor Cove is truly a one of a kind community. Each apartment has a unique layout with options for large bedrooms, private bathrooms, and large spacious living areas. We are one block from campus, right next to Porter Park, and within walking distance to the grocery store. You can also spend time in our field playing volleyball, soccer, or having a BBQ with your friends!	f	t	t	f	450	50	100	\N	\N	\N	M	1499	1569	8b25ddb0-4845-483d-9759-98f09f8f52fd	224	\N	\N	\N	t	t	t	t	f	\N
 14d2c020-c91b-4d60-9faa-f68c0c2c041e	Rose Casa	This is the newest addition to student housing at The Red Door Apartments. Both houses in front of the complex are now available! This price is for a limited time only! Visit thedoors.roomchoice.com to sign a contract.	f	f	t	t	0	70	80	\N	\N	\N	M	995	995	f784d680-0a7a-4bde-abf4-57dc6cd2c813	6	f	f	f	f	\N	\N	t	\N	\N
 6d254c21-1dff-4a0f-96d6-baffa72bb501	American Avenue (Men)	At American Avenue we have several apartment layouts for you to make home. We are currently under renovation and things are amazing! Our apartment homes have shared room or private room options next to campus and steps from downtown Rexburg. We offer covered parking and great savings when you sign multi-semester contracts. Right now you can save up to 75! Monthly rates as low as 50/month.	t	\N	t	f	95	75	100	\N	\N	\N	M	1015	1395	6822dfaa-1e37-428e-9c3e-70cf23a64226	86	f	\N	f	\N	\N	\N	t	\N	\N
+6de5aa7e-4ef3-410d-b512-4adc29aefd7d	Jordan Ridge	College is about students defining their future. We want to create a living environment that empowers student to do just that. We want to provide a framework for your future. *ALL PRIVATE BEDROOMS* All inclusive: Free laundry (3 Building have W/D in Units, free parking, Wifi live TV, internet, flat screen TV, Fitness center, hot tub, BBQ & more. BEST view in town!	t	\N	t	f	350	80	150	\N	\N	\N	B	1349	1399	eba1efa9-d7c7-49ec-a653-b42df686291d	360	t	t	f	t	\N	t	t	\N	\N
 \.
 
 
@@ -167,6 +166,7 @@ c2fe8486-69d3-477b-9a16-fab2c9d6bb62	Brita Reber	335 W 5th S	(208) 390-3706	mana
 8b25ddb0-4845-483d-9759-98f09f8f52fd	Samantha Andra	220 S 2nd W	(208) 356-8988	leasing@rexburgcove.com	\N	http://rexburgcove.com
 f784d680-0a7a-4bde-abf4-57dc6cd2c813	Makayla Lee	135 S 1st E	(208)-356-3001	thereddoorapts@gmail.com	\N	https://thedoors.roomchoice.com/home#sign-up
 6822dfaa-1e37-428e-9c3e-70cf23a64226	Danielle Mcguffin	151 S 1st E	(208) 356 5097	manager.americanavenue@gmail.com	\N	https://www.myamericanave.com
+eba1efa9-d7c7-49ec-a653-b42df686291d	Elizabeth Towery	291 E 7th S	(208) 359 2221	jordanridge@tritoninv.com	\N	https://www.meet-me-at-the-ridge.com
 \.
 
 
@@ -223,6 +223,15 @@ ff49a8c7-426f-455b-8a8b-1fd0ecf3c3f1	american-avenue-men-4.jpeg	6d254c21-1dff-4a
 e1ec8f00-55b5-4898-aacc-ea2f26d5ae59	american-avenue-men-6.jpeg	6d254c21-1dff-4a0f-96d6-baffa72bb501
 8f170d46-7c8b-4281-86b8-8f521f14fcb0	american-avenue-men-7.jpeg	6d254c21-1dff-4a0f-96d6-baffa72bb501
 e888fa53-3437-4489-b64d-32c520ce97ad	american-avenue-men-8.jpeg	6d254c21-1dff-4a0f-96d6-baffa72bb501
+fdbbd408-335c-42eb-a576-45d531ef23aa	jordan-ridge-1.jpeg	6de5aa7e-4ef3-410d-b512-4adc29aefd7d
+07e3b8d8-d9e8-4e06-a885-9dd4daea6897	jordan-ridge-2.jpeg	6de5aa7e-4ef3-410d-b512-4adc29aefd7d
+b5f6321b-6835-4ee1-9a2e-4a8ad18166f0	jordan-ridge-3.jpeg	6de5aa7e-4ef3-410d-b512-4adc29aefd7d
+2a2109aa-95bf-4e4a-a64b-044e4b146a3b	jordan-ridge-4.jpeg	6de5aa7e-4ef3-410d-b512-4adc29aefd7d
+04b3205a-2851-4e67-b60e-27502ba5e0bc	jordan-ridge-5.jpeg	6de5aa7e-4ef3-410d-b512-4adc29aefd7d
+4679dfea-2076-4b9d-9f26-80a366a012a2	jordan-ridge-6.jpeg	6de5aa7e-4ef3-410d-b512-4adc29aefd7d
+673098f7-82f8-487d-a860-dc96327f73b1	jordan-ridge-7.jpeg	6de5aa7e-4ef3-410d-b512-4adc29aefd7d
+2408fc4b-f7c7-4c53-ad05-d5663b4a777c	jordan-ridge-8.jpeg	6de5aa7e-4ef3-410d-b512-4adc29aefd7d
+9b9b0427-dff1-48c7-af9c-a5e09357b8f4	jordan-ridge-9.jpeg	6de5aa7e-4ef3-410d-b512-4adc29aefd7d
 \.
 
 
@@ -238,6 +247,7 @@ c7b443da-203c-4ef1-9170-d060af69162b	92c2dcb0-df33-49f7-bd63-b3c724546467
 ea78a3a5-fa8a-4d34-ae98-41f5be783831	e9eef2ad-c7f3-41d6-8980-d47982c0ce4e
 14d2c020-c91b-4d60-9faa-f68c0c2c041e	7ba73c59-71f4-4099-b274-9593d4e01515
 6d254c21-1dff-4a0f-96d6-baffa72bb501	4eb11330-5802-417e-b9e4-b2a7fd4afe52
+6de5aa7e-4ef3-410d-b512-4adc29aefd7d	fdbbd408-335c-42eb-a576-45d531ef23aa
 \.
 
 
