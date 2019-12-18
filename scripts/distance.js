@@ -1,7 +1,5 @@
 'use strict';
 
-const { min } = require("lodash/math")
-
 const googleMapsClient = require('@google/maps').createClient({
   key: process.env.API_KEY, // TODO: remove from source
   Promise: Promise
@@ -39,10 +37,15 @@ async function distanceToCampus(address) {
         mode: "walking"
       }).asPromise()
 
+    // console.log(require("util").inspect(rows[0], {color: true, depth: 5, showHidden: false}))
+
     const elementsOk = rows[0].elements.every(el => el.status === "OK")
     if (!elementsOk) throw new Error("not all elements status is 'OK'")
 
-    return min(rows[0].elements, element => element.duration.value)
+    return rows[0].elements.reduce((acc, cur) => {
+      if (acc.duration.value <= cur.duration.value) return acc
+      else return cur
+    })
   } catch (err) {
     console.error(err)
     process.exit(1)
