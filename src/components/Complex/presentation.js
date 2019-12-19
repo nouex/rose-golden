@@ -39,7 +39,7 @@ const ComplexPresentation = ({data, gender, amenityScore, walkingDistance, onTog
             <div className="complex-card-icons-container">
               <Box>
                 <Box>{gender}</Box>
-                <Box><div><ScoreIcon className="custom-icon" /><Text>{"Amenity Score " + amenityScore.toFixed(0) + "%"}</Text></div></Box>
+                <Box><div><ScoreIcon className="custom-icon" /><Text>{"Amenity Score " + amenityScore}</Text></div></Box>
                 <Box><div><WalkerIcon className="custom-icon" /><Text>{walkingDistance}</Text></div></Box>
               </Box>
              </div>

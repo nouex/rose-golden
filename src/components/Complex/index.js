@@ -68,9 +68,13 @@ function formatGender(c) {
 
 // TODO: export for testing
 function getAmenityScore(complex, amenities) {
-  // NOTE: don't check for truthy for for strict true, some properties of the complex might be
-  //       null and that doens't mean false but that we don't know the value
+  const levels = [ "😊", "🙂", "😐", "🙁"/*, "😞"*/ ].reverse()
+  amenities = amenities.filter(amenity => complex[amenity] !== null)
   // const points = amenities.reduce((accum, amenity) => accum + (complex[amenity] === true), 0);
   const points = amenities.filter(amenity => complex[amenity] === true).length
-  return points / amenities.length * 100
+  const base = 10
+  const bracketIncrement = base / (levels.length -1) // -1 to make the levels.length exclusive
+  const adjustedPoints = +((points / amenities.length) * base).toFixed(0)
+  const index = Math.floor(adjustedPoints / bracketIncrement)
+  return levels[index]
 }
