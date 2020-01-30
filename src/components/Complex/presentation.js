@@ -9,6 +9,7 @@ import ScoreIcon from '../../../static/icons/wifi.svg';
 import ComplexImage from '../ComplexImage';
 import Favorite from '../Favorite';
 
+// QUESTION: should this be on every module that imports 'slug'
 slug.defaults.mode = "rfc3986"
 
 /**

@@ -13,9 +13,9 @@ INSERT INTO ids (name, value)
   ( 'contact',  uuid_generate_v4() ),
   ( 'complex', uuid_generate_v4() );
 
-INSERT INTO contacts (id, manager, address, phone, email, fax, website)
+INSERT INTO contacts (id, manager, address, phone, email, fax, website, lat, lng)
   VALUES
-  ((SELECT value FROM ids WHERE name = 'contact'), :manager, :address, :phone, :email, :fax, :website);
+  ((SELECT value FROM ids WHERE name = 'contact'), :manager, :address, :phone, :email, :fax, :website, :lat, :lng);
 
 INSERT INTO complexes (
   id, contact,

@@ -95,6 +95,13 @@ a {
   left: 0 !important;
 }
 
+/**** View Button ****/
+
+.view-btn {
+  position: absolute; /* relative parent is .list */
+  right: 0;
+}
+
 
 /**** Complex Card ****/
 .favorite-container-parent {
@@ -158,4 +165,15 @@ a {
   position: relative;
   left: calc(50% - 60px);
   top: calc(50vh - 175px - 15px);
+}
+
+
+/**** Map ****/
+
+.map-list-item-heading {
+  font-weight: normal;
+}
+
+.map-list-item-arrow {
+  margin: auto;
 }

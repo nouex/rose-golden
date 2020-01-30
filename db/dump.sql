@@ -108,7 +108,9 @@ CREATE TABLE public.contacts (
     phone text,
     email text,
     fax text,
-    website text
+    website text,
+    lat numeric,
+    lng numeric
 );
 
 
@@ -159,15 +161,15 @@ c7b443da-203c-4ef1-9170-d060af69161b	Towers Two	Towers Two is the newest premier
 -- Data for Name: contacts; Type: TABLE DATA; Schema: public; Owner: amauri
 --
 
-COPY public.contacts (id, manager, address, phone, email, fax, website) FROM stdin;
-db2c6476-4ca3-4f8f-bd31-0ed74be321b7	Richard Taylor	174 College Ave	(208) 351-8072	taylorr@byui.edu	\N	\N
-1498ba3f-9521-452f-b9a2-7df5b86c2fc5	Cami Park	440 S 2nd W	(208) 356-3480	milanoflats@redstoneresidential.com	\N	https://www.milanoflats.com/
-e1172682-6a38-49a6-bd1c-aaa85ff7613c	Guido Araya	650 S 1st W	(208) 496-9220	housing@byui.edu	(208) 496-5220	http://www.byui.edu/housing/centre-square
-c2fe8486-69d3-477b-9a16-fab2c9d6bb62	Brita Reber	335 W 5th S	(208) 390-3706	managers@thetowerstwo.com	\N	https://www.thetowerstwo.com/
-8b25ddb0-4845-483d-9759-98f09f8f52fd	Samantha Andra	220 S 2nd W	(208) 356-8988	leasing@rexburgcove.com	\N	http://rexburgcove.com
-f784d680-0a7a-4bde-abf4-57dc6cd2c813	Makayla Lee	135 S 1st E	(208)-356-3001	thereddoorapts@gmail.com	\N	https://thedoors.roomchoice.com/home#sign-up
-6822dfaa-1e37-428e-9c3e-70cf23a64226	Danielle Mcguffin	151 S 1st E	(208) 356 5097	manager.americanavenue@gmail.com	\N	https://www.myamericanave.com
-eba1efa9-d7c7-49ec-a653-b42df686291d	Elizabeth Towery	291 E 7th S	(208) 359 2221	jordanridge@tritoninv.com	\N	https://www.meet-me-at-the-ridge.com
+COPY public.contacts (id, manager, address, phone, email, fax, website, lat, lng) FROM stdin;
+1498ba3f-9521-452f-b9a2-7df5b86c2fc5	Cami Park	440 S 2nd W	(208) 356-3480	milanoflats@redstoneresidential.com	\N	https://www.milanoflats.com/	43.81652	-111.79098
+6822dfaa-1e37-428e-9c3e-70cf23a64226	Danielle Mcguffin	151 S 1st E	(208) 356 5097	manager.americanavenue@gmail.com	\N	https://www.myamericanave.com	43.8221	-111.78098
+8b25ddb0-4845-483d-9759-98f09f8f52fd	Samantha Andra	220 S 2nd W	(208) 356-8988	leasing@rexburgcove.com	\N	http://rexburgcove.com	43.82116	-111.79036
+c2fe8486-69d3-477b-9a16-fab2c9d6bb62	Brita Reber	335 W 5th S	(208) 390-3706	managers@thetowerstwo.com	\N	https://www.thetowerstwo.com/	43.81531	-111.79319
+db2c6476-4ca3-4f8f-bd31-0ed74be321b7	Richard Taylor	174 College Ave	(208) 351-8072	taylorr@byui.edu	\N	\N	43.82227	-111.78278
+e1172682-6a38-49a6-bd1c-aaa85ff7613c	Guido Araya	650 S 1st W	(208) 496-9220	housing@byui.edu	(208) 496-5220	http://www.byui.edu/housing/centre-square	43.81239	-111.78673
+f784d680-0a7a-4bde-abf4-57dc6cd2c813	Makayla Lee	135 S 1st E	(208)-356-3001	thereddoorapts@gmail.com	\N	https://thedoors.roomchoice.com/home#sign-up	43.823151	-111.780434
+eba1efa9-d7c7-49ec-a653-b42df686291d	Elizabeth Towery	291 E 7th S	(208) 359 2221	jordanridge@tritoninv.com	\N	https://www.meet-me-at-the-ridge.com	43.810299	-111.767723
 \.
 
 
