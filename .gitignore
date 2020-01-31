@@ -68,7 +68,7 @@ yarn-error.log
 # Yarn Integrity file
 .yarn-integrity
 
-*.txt
+TODO.md
 
 # psql scripts
 db/add_complex
