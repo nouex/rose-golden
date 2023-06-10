@@ -7,7 +7,7 @@
   "dependencies": {
     "browser-or-node": "^1.2.1",
     "eslint-config-airbnb": "^17.1.0",
-    "gatsby": "^2.3.34",
+    "gatsby": "^4.25.7",
     "gatsby-image": "^2.0.41",
     "gatsby-plugin-google-analytics": "^2.1.11",
     "gatsby-plugin-manifest": "^2.0.29",
